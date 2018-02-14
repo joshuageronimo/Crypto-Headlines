@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		DF8EEFF12034D59B0060B63A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EEFF02034D59B0060B63A /* AppDelegate.swift */; };
-		DF8EEFF32034D59B0060B63A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EEFF22034D59B0060B63A /* ViewController.swift */; };
+		DF8EEFF32034D59B0060B63A /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EEFF22034D59B0060B63A /* NewsViewController.swift */; };
 		DF8EEFF62034D59B0060B63A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF8EEFF42034D59B0060B63A /* Main.storyboard */; };
 		DF8EEFF82034D59B0060B63A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF8EEFF72034D59B0060B63A /* Assets.xcassets */; };
 		DF8EEFFB2034D59B0060B63A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF8EEFF92034D59B0060B63A /* LaunchScreen.storyboard */; };
+		DF8EF0032034DF7C0060B63A /* CryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EF0022034DF7C0060B63A /* CryptoViewController.swift */; };
+		DF8EF0052034DFD60060B63A /* DeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EF0042034DFD60060B63A /* DeveloperViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DF8EEFED2034D59B0060B63A /* Crypto Headlines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crypto Headlines.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF8EEFF02034D59B0060B63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DF8EEFF22034D59B0060B63A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DF8EEFF22034D59B0060B63A /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		DF8EEFF52034D59B0060B63A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DF8EEFF72034D59B0060B63A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF8EEFFA2034D59B0060B63A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF8EEFFC2034D59B0060B63A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF8EF0022034DF7C0060B63A /* CryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewController.swift; sourceTree = "<group>"; };
+		DF8EF0042034DFD60060B63A /* DeveloperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,40 @@
 		DF8EEFEF2034D59B0060B63A /* Crypto Headlines */ = {
 			isa = PBXGroup;
 			children = (
+				DF8EF0082034DFFB0060B63A /* Model */,
+				DF8EF0072034DFF60060B63A /* View */,
+				DF8EF0062034DFE40060B63A /* Controller */,
 				DF8EEFF02034D59B0060B63A /* AppDelegate.swift */,
-				DF8EEFF22034D59B0060B63A /* ViewController.swift */,
 				DF8EEFF42034D59B0060B63A /* Main.storyboard */,
 				DF8EEFF72034D59B0060B63A /* Assets.xcassets */,
 				DF8EEFF92034D59B0060B63A /* LaunchScreen.storyboard */,
 				DF8EEFFC2034D59B0060B63A /* Info.plist */,
 			);
 			path = "Crypto Headlines";
+			sourceTree = "<group>";
+		};
+		DF8EF0062034DFE40060B63A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DF8EEFF22034D59B0060B63A /* NewsViewController.swift */,
+				DF8EF0022034DF7C0060B63A /* CryptoViewController.swift */,
+				DF8EF0042034DFD60060B63A /* DeveloperViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DF8EF0072034DFF60060B63A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DF8EF0082034DFFB0060B63A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +166,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF8EEFF32034D59B0060B63A /* ViewController.swift in Sources */,
+				DF8EEFF32034D59B0060B63A /* NewsViewController.swift in Sources */,
+				DF8EF0052034DFD60060B63A /* DeveloperViewController.swift in Sources */,
 				DF8EEFF12034D59B0060B63A /* AppDelegate.swift in Sources */,
+				DF8EF0032034DF7C0060B63A /* CryptoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

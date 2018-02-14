@@ -10,49 +10,55 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Developer View Controller-->
         <scene sceneID="LvZ-E8-MO7">
             <objects>
-                <viewController id="QVa-cl-rXI" sceneMemberID="viewController">
+                <viewController id="QVa-cl-rXI" customClass="DeveloperViewController" customModule="Crypto_Headlines" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zrQ-mW-RgX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sDX-q9-fNk"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="happy" id="HCw-Hs-n5w"/>
+                    <tabBarItem key="tabBarItem" title="" image="happy" id="HCw-Hs-n5w">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12.25"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6s-7I-jae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2354" y="133"/>
         </scene>
-        <!--View Controller-->
+        <!--News View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Crypto_Headlines" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="NewsViewController" customModule="Crypto_Headlines" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="news" id="mVM-MV-6jt"/>
+                    <tabBarItem key="tabBarItem" title="" image="news" id="mVM-MV-6jt">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12.25"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="644" y="133"/>
         </scene>
-        <!--View Controller-->
+        <!--Crypto View Controller-->
         <scene sceneID="Kz9-Qn-keg">
             <objects>
-                <viewController id="Xvh-7D-1r6" sceneMemberID="viewController">
+                <viewController id="Xvh-7D-1r6" customClass="CryptoViewController" customModule="Crypto_Headlines" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JVy-ln-h3v">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8cl-q4-84L"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="coins" id="xBg-3K-dhx"/>
+                    <tabBarItem key="tabBarItem" title="" image="coins" id="xBg-3K-dhx">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12.25"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Od-WV-oQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -64,6 +70,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="bgj-gD-imy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AG8-fJ-P27">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
