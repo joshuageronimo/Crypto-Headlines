@@ -8,14 +8,14 @@
 
 import Foundation
 
-//https://newsapi.org/v2/top-headlines?sources=crypto-coins-news&apiKey=4280826746c440cba3660dd27cee6ab9
-
+// This struct contains the API URL methods and values tht we need for the news feed.
+// Full URL: https://newsapi.org/v2/top-headlines?sources=crypto-coins-news&apiKey=4280826746c440cba3660dd27cee6ab9
 struct NewsConstant {
     
     struct BaseApi {
         static let scheme = "https"
         static let host = "newsapi.org"
-        static let path = "v2/top-headlines"
+        static let path = "/v2/top-headlines"
     }
     
     struct MethodParameters {

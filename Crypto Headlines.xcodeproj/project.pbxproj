@@ -43,14 +43,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DF72B22B2035C02F008823BB /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				DF72B22C2035C048008823BB /* NewsConstant.swift */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
 		DF8EEFE42034D59B0060B63A = {
 			isa = PBXGroup;
 			children = (
@@ -70,7 +62,6 @@
 		DF8EEFEF2034D59B0060B63A /* Crypto Headlines */ = {
 			isa = PBXGroup;
 			children = (
-				DF72B22B2035C02F008823BB /* Networking */,
 				DF8EF0082034DFFB0060B63A /* Model */,
 				DF8EF0072034DFF60060B63A /* View */,
 				DF8EF0062034DFE40060B63A /* Controller */,
@@ -104,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				DF72B2292034F30C008823BB /* CryptoCoinsNews.swift */,
+				DF72B22C2035C048008823BB /* NewsConstant.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
