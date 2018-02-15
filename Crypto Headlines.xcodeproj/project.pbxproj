@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DF72B22A2034F30C008823BB /* CryptoCoinsNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72B2292034F30C008823BB /* CryptoCoinsNews.swift */; };
+		DF72B22D2035C048008823BB /* NewsConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72B22C2035C048008823BB /* NewsConstant.swift */; };
 		DF8EEFF12034D59B0060B63A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EEFF02034D59B0060B63A /* AppDelegate.swift */; };
 		DF8EEFF32034D59B0060B63A /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EEFF22034D59B0060B63A /* NewsViewController.swift */; };
 		DF8EEFF62034D59B0060B63A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF8EEFF42034D59B0060B63A /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		DF72B2292034F30C008823BB /* CryptoCoinsNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoinsNews.swift; sourceTree = "<group>"; };
+		DF72B22C2035C048008823BB /* NewsConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsConstant.swift; sourceTree = "<group>"; };
 		DF8EEFED2034D59B0060B63A /* Crypto Headlines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crypto Headlines.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF8EEFF02034D59B0060B63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF8EEFF22034D59B0060B63A /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +43,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF72B22B2035C02F008823BB /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				DF72B22C2035C048008823BB /* NewsConstant.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		DF8EEFE42034D59B0060B63A = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +70,7 @@
 		DF8EEFEF2034D59B0060B63A /* Crypto Headlines */ = {
 			isa = PBXGroup;
 			children = (
+				DF72B22B2035C02F008823BB /* Networking */,
 				DF8EF0082034DFFB0060B63A /* Model */,
 				DF8EF0072034DFF60060B63A /* View */,
 				DF8EF0062034DFE40060B63A /* Controller */,
@@ -174,6 +185,7 @@
 				DF8EEFF12034D59B0060B63A /* AppDelegate.swift in Sources */,
 				DF72B22A2034F30C008823BB /* CryptoCoinsNews.swift in Sources */,
 				DF8EF0032034DF7C0060B63A /* CryptoViewController.swift in Sources */,
+				DF72B22D2035C048008823BB /* NewsConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
