@@ -11,7 +11,7 @@ import UIKit
 class NewsCollectionViewCell: UICollectionViewCell {
     
     // view container for the news title
-    let titleContainer: UIView = {
+    private let titleContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.5122270976)
@@ -22,21 +22,16 @@ class NewsCollectionViewCell: UICollectionViewCell {
     }()
     
     // Label for the news title
-    let newsTitle: UILabel = {
+    private let newsTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        let attributedText = NSMutableAttributedString(string: "Bitcoin Exchange Coinbase Defends Itself on Credit Card Charges, Admits Missteps" , attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14, weight: .semibold),
-            NSAttributedStringKey.foregroundColor : UIColor.white])
-        label.attributedText = attributedText
-        label.textAlignment = .center
         label.numberOfLines = 2
         return label
     }()
     
     // this will be where the image is going to show
-    let newsThumbnail: UIImageView = {
-        let image = UIImageView(image: #imageLiteral(resourceName: "bitcoin"))
+    private let newsThumbnail: CustomImageView = {
+        let image = CustomImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
@@ -47,6 +42,17 @@ class NewsCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpNewsFeedLayout()
+    }
+    
+    func updateNewsFeed(with news: CryptoCoinsNews.Articles) {
+        // load the title of the news articles
+        let attributedText = NSMutableAttributedString(string: news.title , attributes: [
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14, weight: .semibold),
+            NSAttributedStringKey.foregroundColor : UIColor.white])
+        newsTitle.attributedText = attributedText
+        newsTitle.textAlignment = .center
+        // load the images
+        newsThumbnail.loadImageUsingUrlString(urlString: news.urlToImage)
     }
     
     // Will setup constraints for the view objects

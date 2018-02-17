@@ -20,6 +20,7 @@
 		DFB556D7203878F300736C59 /* HeaderSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556D6203878F300736C59 /* HeaderSource.swift */; };
 		DFB556DA203880F000736C59 /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556D9203880F000736C59 /* TitleCollectionViewCell.swift */; };
 		DFB556DC2038810300736C59 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556DB2038810300736C59 /* NewsCollectionViewCell.swift */; };
+		DFB556DE2038BA0D00736C59 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556DD2038BA0D00736C59 /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		DFB556D6203878F300736C59 /* HeaderSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSource.swift; sourceTree = "<group>"; };
 		DFB556D9203880F000736C59 /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
 		DFB556DB2038810300736C59 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
+		DFB556DD2038BA0D00736C59 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				DFB556D6203878F300736C59 /* HeaderSource.swift */,
+				DFB556DD2038BA0D00736C59 /* ImageLoader.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				DF8EF0052034DFD60060B63A /* DeveloperViewController.swift in Sources */,
 				DFB556DA203880F000736C59 /* TitleCollectionViewCell.swift in Sources */,
 				DFB556D5203877A200736C59 /* TitleHeader.swift in Sources */,
+				DFB556DE2038BA0D00736C59 /* ImageLoader.swift in Sources */,
 				DFB556DC2038810300736C59 /* NewsCollectionViewCell.swift in Sources */,
 				DF8EEFF12034D59B0060B63A /* AppDelegate.swift in Sources */,
 				DF72B22A2034F30C008823BB /* CryptoCoinsNews.swift in Sources */,

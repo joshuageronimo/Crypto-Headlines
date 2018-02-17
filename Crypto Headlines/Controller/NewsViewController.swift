@@ -12,6 +12,8 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
 
     @IBOutlet weak var collectionView: UICollectionView!
+    private var newsArticles = [CryptoCoinsNews.Articles]()
+//    private var pullToRefresh: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +24,18 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: "TitleCell")
         collectionView.register(NewsCollectionViewCell.self, forCellWithReuseIdentifier: "NewsCell")
         
+//        pullToRefresh = UIRefreshControl()
+//        pullToRefresh.addTarget(self, action: #selector(sendNetworkRequest), for: .valueChanged)
+//        collectionView.addSubview(pullToRefresh)
+        
+        
         sendNetworkRequest()
     }
     
     // MARK - CollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 11
+        return newsArticles.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -41,6 +48,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
         } else { /* Show the news feed after index 0 */
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as? NewsCollectionViewCell {
+                cell.updateNewsFeed(with: newsArticles[indexPath.item - 1])
                 return cell
             } else {
                 return NewsCollectionViewCell()
@@ -62,7 +70,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     // MARK - Networking
     
-    private func sendNetworkRequest() {
+    @objc private func sendNetworkRequest() {
         // create a session & request
         let session = URLSession.shared
         let request = URLRequest(url: newsApiURL())
@@ -75,13 +83,22 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             guard let data = data else {return}
             
             // parse JSON data using Decodable
+            var index = 0
             do {
                 let json = try JSONDecoder().decode(CryptoCoinsNews.self, from: data)
                 for ccn in json.articles {
-//                    print(ccn)
+                    self.newsArticles.append(ccn)
+                    print("\(self.newsArticles[index])\n\n")
+                    index += 1
                 }
             } catch let jsonErr {
                 print("Error serializing json", jsonErr)
+            }
+            
+            DispatchQueue.main.async {
+                // Update UI
+                self.collectionView.reloadData()
+                //self.pullToRefresh.endRefreshing()
             }
             
             }

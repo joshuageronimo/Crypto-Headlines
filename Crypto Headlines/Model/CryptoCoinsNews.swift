@@ -19,6 +19,9 @@ struct CryptoCoinsNews: Decodable {
         let url: String
         let urlToImage: String
     }
+    
 }
+
+
 
 
