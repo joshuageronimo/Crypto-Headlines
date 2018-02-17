@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class NewsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -46,7 +46,18 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 return NewsCollectionViewCell()
             }
         }
-        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.item == 0 { /* return the cell size for the Header Title */
+            return CGSize(width: view.frame.width, height: view.frame.height / 10)
+        } else { /* return the cell size for the feed */
+            return CGSize(width: view.frame.width, height: view.frame.height / 3)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
     }
     
     // MARK - Networking
@@ -67,7 +78,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             do {
                 let json = try JSONDecoder().decode(CryptoCoinsNews.self, from: data)
                 for ccn in json.articles {
-                    //print(ccn)
+//                    print(ccn)
                 }
             } catch let jsonErr {
                 print("Error serializing json", jsonErr)

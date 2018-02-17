@@ -8,6 +8,7 @@
 
 import Foundation
 
+// This is model for the app's title header
 struct TitleHeader {
     let headerTitle: String
     let subTitle: String

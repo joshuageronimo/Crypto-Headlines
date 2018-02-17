@@ -8,12 +8,17 @@
 
 import Foundation
 
+// This is the model of the app's news feed.
+// This model conforms to the Decodable Protocol
+// to be able to parse the JSON data easily.
 struct CryptoCoinsNews: Decodable {
     let articles: [Articles]
+    
+    struct Articles: Decodable {
+        let title: String
+        let url: String
+        let urlToImage: String
+    }
 }
 
-struct Articles: Decodable {
-    let title: String
-    let url: String
-    let urlToImage: String
-}
+
