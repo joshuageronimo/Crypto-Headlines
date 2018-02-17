@@ -8,12 +8,48 @@
 
 import UIKit
 
-class NewsViewController: UIViewController {
+class NewsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: "TitleCell")
+        collectionView.register(NewsCollectionViewCell.self, forCellWithReuseIdentifier: "NewsCell")
+        
         sendNetworkRequest()
     }
+    
+    // MARK - CollectionView
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 11
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if indexPath.item == 0 { /* Show the Title Header in index 0 */
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCell", for: indexPath) as? TitleCollectionViewCell {
+                return cell
+            } else {
+                return TitleCollectionViewCell()
+            }
+        } else { /* Show the news feed after index 0 */
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as? NewsCollectionViewCell {
+                return cell
+            } else {
+                return NewsCollectionViewCell()
+            }
+        }
+        
+    }
+    
+    // MARK - Networking
     
     private func sendNetworkRequest() {
         // create a session & request
@@ -22,11 +58,16 @@ class NewsViewController: UIViewController {
         
         // create a network request
         let task = session.dataTask(with: request) { (data, response, error) in
+            
+            // TODO: check data, response, & error.
+            
             guard let data = data else {return}
+            
+            // parse JSON data using Decodable
             do {
                 let json = try JSONDecoder().decode(CryptoCoinsNews.self, from: data)
                 for ccn in json.articles {
-                    print(ccn)
+                    //print(ccn)
                 }
             } catch let jsonErr {
                 print("Error serializing json", jsonErr)

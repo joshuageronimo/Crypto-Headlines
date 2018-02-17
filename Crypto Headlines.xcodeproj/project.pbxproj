@@ -16,6 +16,10 @@
 		DF8EEFFB2034D59B0060B63A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF8EEFF92034D59B0060B63A /* LaunchScreen.storyboard */; };
 		DF8EF0032034DF7C0060B63A /* CryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EF0022034DF7C0060B63A /* CryptoViewController.swift */; };
 		DF8EF0052034DFD60060B63A /* DeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EF0042034DFD60060B63A /* DeveloperViewController.swift */; };
+		DFB556D5203877A200736C59 /* TitleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556D4203877A200736C59 /* TitleHeader.swift */; };
+		DFB556D7203878F300736C59 /* HeaderSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556D6203878F300736C59 /* HeaderSource.swift */; };
+		DFB556DA203880F000736C59 /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556D9203880F000736C59 /* TitleCollectionViewCell.swift */; };
+		DFB556DC2038810300736C59 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556DB2038810300736C59 /* NewsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		DF8EEFFC2034D59B0060B63A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF8EF0022034DF7C0060B63A /* CryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewController.swift; sourceTree = "<group>"; };
 		DF8EF0042034DFD60060B63A /* DeveloperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperViewController.swift; sourceTree = "<group>"; };
+		DFB556D4203877A200736C59 /* TitleHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeader.swift; sourceTree = "<group>"; };
+		DFB556D6203878F300736C59 /* HeaderSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSource.swift; sourceTree = "<group>"; };
+		DFB556D9203880F000736C59 /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		DFB556DB2038810300736C59 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,7 @@
 		DF8EEFEF2034D59B0060B63A /* Crypto Headlines */ = {
 			isa = PBXGroup;
 			children = (
+				DFB556D8203878FE00736C59 /* Utilities */,
 				DF8EF0082034DFFB0060B63A /* Model */,
 				DF8EF0072034DFF60060B63A /* View */,
 				DF8EF0062034DFE40060B63A /* Controller */,
@@ -87,6 +96,8 @@
 		DF8EF0072034DFF60060B63A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DFB556D9203880F000736C59 /* TitleCollectionViewCell.swift */,
+				DFB556DB2038810300736C59 /* NewsCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -94,10 +105,19 @@
 		DF8EF0082034DFFB0060B63A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DF72B2292034F30C008823BB /* CryptoCoinsNews.swift */,
 				DF72B22C2035C048008823BB /* NewsConstant.swift */,
+				DF72B2292034F30C008823BB /* CryptoCoinsNews.swift */,
+				DFB556D4203877A200736C59 /* TitleHeader.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DFB556D8203878FE00736C59 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				DFB556D6203878F300736C59 /* HeaderSource.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,7 +193,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF8EEFF32034D59B0060B63A /* NewsViewController.swift in Sources */,
+				DFB556D7203878F300736C59 /* HeaderSource.swift in Sources */,
 				DF8EF0052034DFD60060B63A /* DeveloperViewController.swift in Sources */,
+				DFB556DA203880F000736C59 /* TitleCollectionViewCell.swift in Sources */,
+				DFB556D5203877A200736C59 /* TitleHeader.swift in Sources */,
+				DFB556DC2038810300736C59 /* NewsCollectionViewCell.swift in Sources */,
 				DF8EEFF12034D59B0060B63A /* AppDelegate.swift in Sources */,
 				DF72B22A2034F30C008823BB /* CryptoCoinsNews.swift in Sources */,
 				DF8EF0032034DF7C0060B63A /* CryptoViewController.swift in Sources */,
