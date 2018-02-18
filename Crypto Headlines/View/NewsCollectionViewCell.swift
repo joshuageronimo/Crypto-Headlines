@@ -44,6 +44,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
         setUpNewsFeedLayout()
     }
     
+    // Will update the cell's data
     func updateNewsFeed(with news: CryptoCoinsNews.Articles) {
         // load the title of the news articles
         let attributedText = NSMutableAttributedString(string: news.title , attributes: [

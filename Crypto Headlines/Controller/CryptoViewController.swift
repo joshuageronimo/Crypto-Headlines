@@ -11,7 +11,8 @@ import UIKit
 class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    let tabBarPage = 1
+    private var cryptoCurrencies = [CoinMarketCap]()
+    private let tabBarPage = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
     // MARK - CollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 11
+        return cryptoCurrencies.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -41,7 +42,7 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
             }
         } else { /* Show the news feed after index 0 */
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CoinsCell", for: indexPath) as? CoinsCollectionViewCell {
-                //cell.updateNewsFeed(with: newsArticles[indexPath.item - 1])
+                cell.updateCoinFeed(with: cryptoCurrencies[indexPath.item - 1])
                 return cell
             } else {
                 return CoinsCollectionViewCell()
@@ -53,7 +54,7 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
         if indexPath.item == 0 { /* return the cell size for the Header Title */
             return CGSize(width: view.frame.width, height: view.frame.height / 10)
         } else { /* return the cell size for the feed */
-            return CGSize(width: view.frame.width, height: view.frame.height / 3)
+            return CGSize(width: view.frame.width, height: view.frame.height / 8)
         }
     }
     
@@ -71,14 +72,22 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
         let session = URLSession.shared
         let request = URLRequest(url: apiURL())
         
+        
         // create a network request
         let task = session.dataTask(with: request) { (data, response, error) in
             guard let data = data else {return}
             do {
                 let json = try JSONDecoder().decode([CoinMarketCap].self, from: data)
+                for coins in json {
+                    self.cryptoCurrencies.append(coins)
+                }
                 
             } catch let jsonErr {
                 print("Error serializing json", jsonErr)
+            }
+            DispatchQueue.main.async {
+                // Update UI
+                self.collectionView.reloadData()
             }
         }
         task.resume()
