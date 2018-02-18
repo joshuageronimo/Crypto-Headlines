@@ -8,12 +8,60 @@
 
 import UIKit
 
-class CryptoViewController: UIViewController {
+class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    let tabBarPage = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: "TitleCell")
+        collectionView.register(CoinsCollectionViewCell.self, forCellWithReuseIdentifier: "CoinsCell")
+        
         sendNetworkRequest()
     }
+    
+    // MARK - CollectionView
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 11
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.item == 0 { /* Show the Title Header in index 0 */
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCell", for: indexPath) as? TitleCollectionViewCell {
+                cell.updateHeader(title: HeaderSource.instance.array[tabBarPage])
+                return cell
+            } else {
+                return TitleCollectionViewCell()
+            }
+        } else { /* Show the news feed after index 0 */
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CoinsCell", for: indexPath) as? CoinsCollectionViewCell {
+                //cell.updateNewsFeed(with: newsArticles[indexPath.item - 1])
+                return cell
+            } else {
+                return CoinsCollectionViewCell()
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.item == 0 { /* return the cell size for the Header Title */
+            return CGSize(width: view.frame.width, height: view.frame.height / 10)
+        } else { /* return the cell size for the feed */
+            return CGSize(width: view.frame.width, height: view.frame.height / 3)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
+    }
+    
+    // MARK - Networking
     
     private func sendNetworkRequest() {
         

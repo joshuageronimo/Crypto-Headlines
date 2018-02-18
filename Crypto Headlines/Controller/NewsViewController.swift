@@ -10,24 +10,25 @@ import UIKit
 
 class NewsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-
     @IBOutlet weak var collectionView: UICollectionView!
     private var newsArticles = [CryptoCoinsNews.Articles]()
     private var pullToRefresh: UIRefreshControl!
+    private let tabBarPage = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Set the collection view delegate and datasource to the view controller
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        // register the custom cells
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: "TitleCell")
         collectionView.register(NewsCollectionViewCell.self, forCellWithReuseIdentifier: "NewsCell")
         
+        // implement pull to refresh feature
         pullToRefresh = UIRefreshControl()
         pullToRefresh.addTarget(self, action: #selector(sendNetworkRequest), for: .valueChanged)
         collectionView.addSubview(pullToRefresh)
-        
         
         sendNetworkRequest()
     }
@@ -42,6 +43,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         if indexPath.item == 0 { /* Show the Title Header in index 0 */
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCell", for: indexPath) as? TitleCollectionViewCell {
+                cell.updateHeader(title: HeaderSource.instance.array[tabBarPage])
                 return cell
             } else {
                 return TitleCollectionViewCell()

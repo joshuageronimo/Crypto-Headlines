@@ -23,6 +23,7 @@
 		DFB556DE2038BA0D00736C59 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556DD2038BA0D00736C59 /* ImageLoader.swift */; };
 		DFB556E02039CFF300736C59 /* CoinMarketCap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556DF2039CFF300736C59 /* CoinMarketCap.swift */; };
 		DFB556E42039DDB400736C59 /* CoinsConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556E32039DDB400736C59 /* CoinsConstant.swift */; };
+		DFB556E62039E83800736C59 /* CoinsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556E52039E83800736C59 /* CoinsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		DFB556DD2038BA0D00736C59 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		DFB556DF2039CFF300736C59 /* CoinMarketCap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinMarketCap.swift; sourceTree = "<group>"; };
 		DFB556E32039DDB400736C59 /* CoinsConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsConstant.swift; sourceTree = "<group>"; };
+		DFB556E52039E83800736C59 /* CoinsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				DFB556D9203880F000736C59 /* TitleCollectionViewCell.swift */,
 				DFB556DB2038810300736C59 /* NewsCollectionViewCell.swift */,
+				DFB556E52039E83800736C59 /* CoinsCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				DFB556DA203880F000736C59 /* TitleCollectionViewCell.swift in Sources */,
 				DFB556D5203877A200736C59 /* TitleHeader.swift in Sources */,
 				DFB556DE2038BA0D00736C59 /* ImageLoader.swift in Sources */,
+				DFB556E62039E83800736C59 /* CoinsCollectionViewCell.swift in Sources */,
 				DFB556DC2038810300736C59 /* NewsCollectionViewCell.swift in Sources */,
 				DFB556E02039CFF300736C59 /* CoinMarketCap.swift in Sources */,
 				DF8EEFF12034D59B0060B63A /* AppDelegate.swift in Sources */,
