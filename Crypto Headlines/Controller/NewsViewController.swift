@@ -13,7 +13,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     @IBOutlet weak var collectionView: UICollectionView!
     private var newsArticles = [CryptoCoinsNews.Articles]()
-//    private var pullToRefresh: UIRefreshControl!
+    private var pullToRefresh: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +24,9 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: "TitleCell")
         collectionView.register(NewsCollectionViewCell.self, forCellWithReuseIdentifier: "NewsCell")
         
-//        pullToRefresh = UIRefreshControl()
-//        pullToRefresh.addTarget(self, action: #selector(sendNetworkRequest), for: .valueChanged)
-//        collectionView.addSubview(pullToRefresh)
+        pullToRefresh = UIRefreshControl()
+        pullToRefresh.addTarget(self, action: #selector(sendNetworkRequest), for: .valueChanged)
+        collectionView.addSubview(pullToRefresh)
         
         
         sendNetworkRequest()
@@ -80,6 +80,11 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             // TODO: check data, response, & error.
             
+            // Initialize newsArticle array to zero
+            // So when pullToRefresh is called
+            // & the same articles load up from JSON
+            // It wont duplicate the articles in the news feed.
+            self.newsArticles = []
             guard let data = data else {return}
             
             // parse JSON data using Decodable
@@ -98,7 +103,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             DispatchQueue.main.async {
                 // Update UI
                 self.collectionView.reloadData()
-                //self.pullToRefresh.endRefreshing()
+                self.pullToRefresh.endRefreshing()
             }
             
             }
