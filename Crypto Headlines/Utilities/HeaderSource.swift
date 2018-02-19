@@ -13,7 +13,7 @@ class HeaderSource {
     
     private let titleArray: [TitleHeader] = [
         TitleHeader(headerTitle: "Current Headlines", subTitle: "from CryptoCoinsNews"),
-        TitleHeader(headerTitle: "Top 10 Coins", subTitle: "from CoinMarketCap"),
+        TitleHeader(headerTitle: "Cryptocurrencies", subTitle: "from CoinMarketCap"),
         TitleHeader(headerTitle: "GeronimoApp", subTitle: "developer page")]
     
     var array: [TitleHeader] {

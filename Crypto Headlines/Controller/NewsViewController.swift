@@ -8,12 +8,21 @@
 
 import UIKit
 
-class NewsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class NewsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITabBarDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     private var newsArticles = [CryptoCoinsNews.Articles]()
     private var pullToRefresh: UIRefreshControl!
+    private let titleCellIdentifier = "TitleCell"
+    private let newsCellIndetifier = "NewsCell"
     private let tabBarPage = 0
+//    override var selectedIndex: Int {
+//        didSet {
+//            handleTabSelection(selectedIndex: selectedIndex)
+//        }
+//    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +31,8 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.dataSource = self
         
         // register the custom cells
-        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: "TitleCell")
-        collectionView.register(NewsCollectionViewCell.self, forCellWithReuseIdentifier: "NewsCell")
+        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: titleCellIdentifier)
+        collectionView.register(NewsCollectionViewCell.self, forCellWithReuseIdentifier: newsCellIndetifier)
         
         // implement pull to refresh feature
         pullToRefresh = UIRefreshControl()
@@ -31,6 +40,14 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.addSubview(pullToRefresh)
         
         sendNetworkRequest()
+    }
+    
+    // This function notifies the view controller that a segue is about to be performed.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let toNavigationController = segue.destination as? UINavigationController {
+            let toWebViewController = toNavigationController.viewControllers.first as! WebViewController
+            toWebViewController.urlString = sender as! String
+        }
     }
     
     // MARK - CollectionView
@@ -42,14 +59,16 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.item == 0 { /* Show the Title Header in index 0 */
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCell", for: indexPath) as? TitleCollectionViewCell {
-                cell.updateHeader(title: HeaderSource.instance.array[tabBarPage])
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: titleCellIdentifier, for: indexPath) as? TitleCollectionViewCell {
+                if let pageIndex = self.tabBarController?.selectedIndex {
+                    cell.updateHeader(title: HeaderSource.instance.array[pageIndex])
+                }
                 return cell
             } else {
                 return TitleCollectionViewCell()
             }
         } else { /* Show the news feed after index 0 */
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as? NewsCollectionViewCell {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: newsCellIndetifier, for: indexPath) as? NewsCollectionViewCell {
                 cell.updateNewsFeed(with: newsArticles[indexPath.item - 1])
                 return cell
             } else {
@@ -70,12 +89,20 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return 20
     }
     
+    // This function tells the delegate that the item at the specified index path was selected.
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let newsUrl = newsArticles[indexPath.item - 1].url
+        performSegue(withIdentifier: "showWebView", sender: newsUrl)
+    }
+    
     // MARK - Networking
     
     @objc private func sendNetworkRequest() {
         // create a session & request
         let session = URLSession.shared
         let request = URLRequest(url: apiURL())
+        
+     
         
         // create a network request
         let task = session.dataTask(with: request) { (data, response, error) in

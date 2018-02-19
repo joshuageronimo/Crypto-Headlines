@@ -12,6 +12,9 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     @IBOutlet weak var collectionView: UICollectionView!
     private var cryptoCurrencies = [CoinMarketCap]()
+    private var pullToRefresh: UIRefreshControl!
+    private let titleCellIdentifier = "TitleCell"
+    private let coinCellIndetifier = "CoinsCell"
     private let tabBarPage = 1
     
     override func viewDidLoad() {
@@ -20,8 +23,13 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: "TitleCell")
-        collectionView.register(CoinsCollectionViewCell.self, forCellWithReuseIdentifier: "CoinsCell")
+        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: titleCellIdentifier)
+        collectionView.register(CoinsCollectionViewCell.self, forCellWithReuseIdentifier: coinCellIndetifier)
+        
+        // implement pull to refresh feature
+        pullToRefresh = UIRefreshControl()
+        pullToRefresh.addTarget(self, action: #selector(sendNetworkRequest), for: .valueChanged)
+        collectionView.addSubview(pullToRefresh)
         
         sendNetworkRequest()
     }
@@ -34,14 +42,16 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item == 0 { /* Show the Title Header in index 0 */
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCell", for: indexPath) as? TitleCollectionViewCell {
-                cell.updateHeader(title: HeaderSource.instance.array[tabBarPage])
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: titleCellIdentifier, for: indexPath) as? TitleCollectionViewCell {
+                if let pageIndex = self.tabBarController?.selectedIndex {
+                    cell.updateHeader(title: HeaderSource.instance.array[pageIndex])
+                }
                 return cell
             } else {
                 return TitleCollectionViewCell()
             }
         } else { /* Show the news feed after index 0 */
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CoinsCell", for: indexPath) as? CoinsCollectionViewCell {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: coinCellIndetifier, for: indexPath) as? CoinsCollectionViewCell {
                 cell.updateCoinFeed(with: cryptoCurrencies[indexPath.item - 1])
                 return cell
             } else {
@@ -64,14 +74,16 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     // MARK - Networking
     
-    private func sendNetworkRequest() {
+    @objc private func sendNetworkRequest() {
         
         // TODO -  Check for error and response
         
         // create a session & request
         let session = URLSession.shared
         let request = URLRequest(url: apiURL())
+
         
+        cryptoCurrencies = []
         
         // create a network request
         let task = session.dataTask(with: request) { (data, response, error) in
@@ -88,6 +100,7 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
             DispatchQueue.main.async {
                 // Update UI
                 self.collectionView.reloadData()
+                self.pullToRefresh.endRefreshing()
             }
         }
         task.resume()
@@ -97,9 +110,9 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
     private func apiURL() -> URL {
 
         // this is a dictionary of methods and value parameters of the url query
-        let urlQueryParameters: [String : AnyObject] = [
-            CoinsConstant.MethodParameters.limit : CoinsConstant.ValueParameter.limit as AnyObject
-        ]
+//        let urlQueryParameters: [String : AnyObject] = [
+//            CoinsConstant.MethodParameters.limit : CoinsConstant.ValueParameter.limit as AnyObject
+//        ]
         
         // Construct Base Api
         var components = URLComponents()
@@ -108,11 +121,11 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
         components.path = CoinsConstant.BaseApi.path
         
         // Construct Query
-        components.queryItems = [URLQueryItem]()
-        for (key, value) in urlQueryParameters {
-            let queryItem = URLQueryItem(name: key, value: "\(value)")
-            components.queryItems!.append(queryItem)
-        }
+//        components.queryItems = [URLQueryItem]()
+//        for (key, value) in urlQueryParameters {
+//            let queryItem = URLQueryItem(name: key, value: "\(value)")
+//            components.queryItems!.append(queryItem)
+//        }
         
         return components.url!
     }

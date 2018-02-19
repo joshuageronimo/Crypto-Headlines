@@ -24,6 +24,7 @@
 		DFB556E02039CFF300736C59 /* CoinMarketCap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556DF2039CFF300736C59 /* CoinMarketCap.swift */; };
 		DFB556E42039DDB400736C59 /* CoinsConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556E32039DDB400736C59 /* CoinsConstant.swift */; };
 		DFB556E62039E83800736C59 /* CoinsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556E52039E83800736C59 /* CoinsCollectionViewCell.swift */; };
+		DFBA9CD8203A6FDD0033700E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA9CD7203A6FDD0033700E /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		DFB556DF2039CFF300736C59 /* CoinMarketCap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinMarketCap.swift; sourceTree = "<group>"; };
 		DFB556E32039DDB400736C59 /* CoinsConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsConstant.swift; sourceTree = "<group>"; };
 		DFB556E52039E83800736C59 /* CoinsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsCollectionViewCell.swift; sourceTree = "<group>"; };
+		DFBA9CD7203A6FDD0033700E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				DF8EEFF22034D59B0060B63A /* NewsViewController.swift */,
 				DF8EF0022034DF7C0060B63A /* CryptoViewController.swift */,
 				DF8EF0042034DFD60060B63A /* DeveloperViewController.swift */,
+				DFBA9CD7203A6FDD0033700E /* WebViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				DF8EEFF12034D59B0060B63A /* AppDelegate.swift in Sources */,
 				DF72B22A2034F30C008823BB /* CryptoCoinsNews.swift in Sources */,
 				DF8EF0032034DF7C0060B63A /* CryptoViewController.swift in Sources */,
+				DFBA9CD8203A6FDD0033700E /* WebViewController.swift in Sources */,
 				DF72B22D2035C048008823BB /* NewsConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

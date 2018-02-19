@@ -71,6 +71,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="collectionView" destination="ZkK-lx-X7l" id="FmS-yK-4pE"/>
+                        <segue destination="jwO-PJ-WKZ" kind="presentation" identifier="showWebView" id="Z97-Lk-AzS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -149,8 +150,117 @@
             </objects>
             <point key="canvasLocation" x="-163.19999999999999" y="133.13343328335833"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="O4n-0e-8hh">
+            <objects>
+                <viewController id="esZ-OQ-Suh" customClass="WebViewController" customModule="Crypto_Headlines" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="t2Y-HV-UP6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3B4-Ja-zC5">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3B4-Ja-zC5" firstAttribute="leading" secondItem="zNZ-9c-5UQ" secondAttribute="leading" id="OjZ-mX-E8b"/>
+                            <constraint firstItem="zNZ-9c-5UQ" firstAttribute="trailing" secondItem="3B4-Ja-zC5" secondAttribute="trailing" id="i79-bM-R7b"/>
+                            <constraint firstItem="3B4-Ja-zC5" firstAttribute="top" secondItem="zNZ-9c-5UQ" secondAttribute="top" id="km2-di-t8Q"/>
+                            <constraint firstItem="zNZ-9c-5UQ" firstAttribute="bottom" secondItem="3B4-Ja-zC5" secondAttribute="bottom" id="ua7-fW-QrE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zNZ-9c-5UQ"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" image="Web-Back" id="WOl-qG-hsg">
+                            <color key="tintColor" red="0.95686274510000002" green="0.69803921570000005" blue="0.69803921570000005" alpha="0.76000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="goBack:" destination="esZ-OQ-Suh" id="iOl-c5-zed"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="QCo-m4-PJt"/>
+                        <barButtonItem title="Item" image="Web-Forward" id="1we-Zt-Pae">
+                            <color key="tintColor" red="0.95686274510000002" green="0.69803921570000005" blue="0.69803921570000005" alpha="0.76000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="goForward:" destination="esZ-OQ-Suh" id="k8U-Q1-zmy"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="bFr-1r-Dp7"/>
+                        <barButtonItem title="Item" image="Web-Action" id="jFt-vA-b54">
+                            <color key="tintColor" red="0.95686274510000002" green="0.69803921570000005" blue="0.69803921570000005" alpha="0.76000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="actionButtonTapped:" destination="esZ-OQ-Suh" id="7Qh-yp-g5h"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="sYa-Fc-4G2"/>
+                        <barButtonItem title="Item" image="Web-Safari" id="Qjw-H5-jAX">
+                            <color key="tintColor" red="0.95686274510000002" green="0.69803921570000005" blue="0.69803921570000005" alpha="0.76000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="safariButtonTapped:" destination="esZ-OQ-Suh" id="kkn-iD-Fmu"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="0ES-Qi-uGw">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="p44-e8-sSp">
+                            <color key="tintColor" red="0.95686274510000002" green="0.69803921570000005" blue="0.69803921570000005" alpha="0.76000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="esZ-OQ-Suh" id="3Il-09-l72"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="Web-Refresh" id="MPn-gB-UAn">
+                            <color key="tintColor" red="0.95686274510000002" green="0.69803921570000005" blue="0.69803921570000005" alpha="0.76000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="reload:" destination="esZ-OQ-Suh" id="bzz-28-oVI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="webView" destination="3B4-Ja-zC5" id="kea-3A-tW1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DmP-lh-pv5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="436" y="1035.960591133005"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fHJ-2m-idf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="jwO-PJ-WKZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wtQ-kC-fKI">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hRy-8I-XDn">
+                        <rect key="frame" x="0.0" y="729" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="esZ-OQ-Suh" kind="relationship" relationship="rootViewController" id="jbZ-QX-NLu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gq4-JX-hhj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-566" y="1036"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Web-Action" width="32" height="32"/>
+        <image name="Web-Back" width="32" height="32"/>
+        <image name="Web-Forward" width="32" height="32"/>
+        <image name="Web-Refresh" width="32" height="32"/>
+        <image name="Web-Safari" width="32" height="32"/>
         <image name="coins" width="30" height="30"/>
         <image name="happy" width="30" height="30"/>
         <image name="news" width="30" height="30"/>
