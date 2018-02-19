@@ -15,7 +15,6 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
     private var pullToRefresh: UIRefreshControl!
     private let titleCellIdentifier = "TitleCell"
     private let coinCellIndetifier = "CoinsCell"
-    private let tabBarPage = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,24 +107,12 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     // Create a URL from NewsConstant with URLComponents & URLQueryyItems
     private func apiURL() -> URL {
-
-        // this is a dictionary of methods and value parameters of the url query
-//        let urlQueryParameters: [String : AnyObject] = [
-//            CoinsConstant.MethodParameters.limit : CoinsConstant.ValueParameter.limit as AnyObject
-//        ]
         
         // Construct Base Api
         var components = URLComponents()
         components.scheme = CoinsConstant.BaseApi.scheme
         components.host = CoinsConstant.BaseApi.host
         components.path = CoinsConstant.BaseApi.path
-        
-        // Construct Query
-//        components.queryItems = [URLQueryItem]()
-//        for (key, value) in urlQueryParameters {
-//            let queryItem = URLQueryItem(name: key, value: "\(value)")
-//            components.queryItems!.append(queryItem)
-//        }
         
         return components.url!
     }

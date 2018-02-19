@@ -55,7 +55,7 @@ class CoinsCollectionViewCell: UICollectionViewCell {
     // Will update the cell's data
     func updateCoinFeed(with coinsFrom: CoinMarketCap) {
         // load the rank & symbol of the coin
-        let nameAndrankAttributedText = NSMutableAttributedString(string: "Rank #\(coinsFrom.rank)", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 16, weight: .light), NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+        let nameAndrankAttributedText = NSMutableAttributedString(string: "#\(coinsFrom.rank)", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 16, weight: .light), NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
         nameAndrankAttributedText.append(NSAttributedString(string: "\n\(coinsFrom.symbol)", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 36, weight: .medium), NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))]))
         cryptoNameAndRankLabel.attributedText = nameAndrankAttributedText
         

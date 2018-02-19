@@ -8,21 +8,13 @@
 
 import UIKit
 
-class NewsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITabBarDelegate {
+class NewsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
     private var newsArticles = [CryptoCoinsNews.Articles]()
     private var pullToRefresh: UIRefreshControl!
     private let titleCellIdentifier = "TitleCell"
     private let newsCellIndetifier = "NewsCell"
-    private let tabBarPage = 0
-//    override var selectedIndex: Int {
-//        didSet {
-//            handleTabSelection(selectedIndex: selectedIndex)
-//        }
-//    }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
