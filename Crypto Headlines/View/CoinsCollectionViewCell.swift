@@ -23,6 +23,7 @@ class CoinsCollectionViewCell: UICollectionViewCell {
     private let cryptoNameAndRankLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label
     }()
@@ -99,8 +100,9 @@ class CoinsCollectionViewCell: UICollectionViewCell {
             cryptoInfoContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
             // constraints for cryptoNameAndRankLabel
             cryptoNameAndRankLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            cryptoNameAndRankLabel.widthAnchor.constraint(equalToConstant: frame.width / 3.5),
             cryptoNameAndRankLabel.leadingAnchor.constraint(equalTo: cryptoInfoContainer.leadingAnchor, constant: 14),
-            // constraints for cryptoPriceAndPercentLable
+            // constraints for cryptoPriceAndPercentLabel
             cryptoPriceAndPercentLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             cryptoPriceAndPercentLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.width / 2.2),
             cryptoPriceAndPercentLabel.trailingAnchor.constraint(equalTo: cryptoInfoContainer.trailingAnchor, constant: -12)])

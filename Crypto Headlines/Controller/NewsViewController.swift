@@ -43,7 +43,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     // MARK - CollectionView
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return newsArticles.count + 1
     }
