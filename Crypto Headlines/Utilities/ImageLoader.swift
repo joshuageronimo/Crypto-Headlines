@@ -18,7 +18,7 @@ class CustomImageView: UIImageView {
     
     func loadImageUsingUrlString(urlString: String) {
         imageUrlString = urlString
-        let url = URL(string: urlString)
+        guard let url = URL(string: urlString) else { return }
         image = nil /* set image to nil while waiting for image to load */
         
         // If the image is in the imageCache already, use that image to avoid reloading of data.
@@ -28,7 +28,7 @@ class CustomImageView: UIImageView {
         }
         
         // Get the Photo!
-        URLSession.shared.dataTask(with: url!, completionHandler: { (data, respones, error) in DispatchQueue.main.async {
+        URLSession.shared.dataTask(with: url, completionHandler: { (data, respones, error) in DispatchQueue.main.async {
             guard let imageToCache = UIImage(data: data!) else { return }
             // Check if the image is going to be loaded in the right cell.
             if self.imageUrlString == urlString {
