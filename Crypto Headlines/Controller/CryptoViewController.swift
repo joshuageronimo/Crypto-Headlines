@@ -82,10 +82,10 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
         let request = URLRequest(url: apiURL())
 
         
-        cryptoCurrencies = []
         
         // create a network request
         let task = session.dataTask(with: request) { (data, response, error) in
+            self.cryptoCurrencies = []
             guard let data = data else {return}
             do {
                 let json = try JSONDecoder().decode([CoinMarketCap].self, from: data)

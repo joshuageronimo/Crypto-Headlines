@@ -107,7 +107,6 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             // It wont duplicate the articles in the news feed.
             self.newsArticles = []
             guard let data = data else {return}
-            
             // parse JSON data using Decodable
             do {
                 let json = try JSONDecoder().decode(CryptoCoinsNews.self, from: data)

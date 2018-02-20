@@ -34,7 +34,6 @@ class WebViewController: UIViewController {
     @IBAction func actionButtonTapped(_ sender: Any) {
         let activityItems = [urlString] as! Array<String>
         let activityController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-//        activityController.excludedActivityTypes = [.postToFacebook]
         present(activityController, animated: true, completion: nil)
     }
     @IBAction func safariButtonTapped(_ sender: Any) {
