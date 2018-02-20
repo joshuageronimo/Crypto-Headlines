@@ -10,6 +10,11 @@ import UIKit
 
 class DeveloperViewController: UIViewController {
     
+    private let webViewIdentifier = "showProfile"
+    private let gitHubProfileLink = "https://github.com/joshuageronimo"
+    private let linkedInProfileLink = "https://www.linkedin.com/in/blessed-joshua-geronimo-200791108/"
+    private let instagramProfileLink = "https://www.instagram.com/developer.josh/"
+    
     // Label for the header title
     private let headerTitle: UILabel = {
         let label = UILabel()
@@ -139,24 +144,30 @@ class DeveloperViewController: UIViewController {
     }()
     
     // github image logo
-    private let githubLogo: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "github-logo"))
-        imageView.contentMode = .scaleAspectFit
-        return imageView
+    private let githubLogo: UIButton = {
+        let button = UIButton(type: .system)
+        button.setBackgroundImage(#imageLiteral(resourceName: "github-logo"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.addTarget(self, action: #selector(showGithubProfile), for: .touchUpInside)
+        return button
     }()
     
     // linkedIn image logo
-    private let linkedInLogo: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "linkedIn-logo"))
-        imageView.contentMode = .scaleAspectFit
-        return imageView
+    private let linkedInLogo: UIButton = {
+        let button = UIButton(type: .system)
+        button.setBackgroundImage(#imageLiteral(resourceName: "linkedIn-logo"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.addTarget(self, action: #selector(showLinkedInProfile), for: .touchUpInside)
+        return button
     }()
     
     // instagram image logo
-    private let instagramLogo: UIImageView = {
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "instagram-logo"))
-        imageView.contentMode = .scaleAspectFit
-        return imageView
+    private let instagramLogo: UIButton = {
+        let button = UIButton(type: .system)
+        button.setBackgroundImage(#imageLiteral(resourceName: "instagram-logo"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.addTarget(self, action: #selector(showInstagramProfile), for: .touchUpInside)
+        return button
     }()
     
     override func viewDidLoad() {
@@ -164,11 +175,31 @@ class DeveloperViewController: UIViewController {
         setUpDeveloperLayout()
     }
     
+    @objc func showGithubProfile() {
+        performSegue(withIdentifier: webViewIdentifier, sender: gitHubProfileLink)
+    }
+    
+    @objc func showLinkedInProfile() {
+        performSegue(withIdentifier: webViewIdentifier, sender: linkedInProfileLink)
+    }
+    
+    @objc func showInstagramProfile() {
+        performSegue(withIdentifier: webViewIdentifier, sender: instagramProfileLink)
+    }
+    
+    // This function notifies the view controller that a segue is about to be performed.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let toNavigationController = segue.destination as? UINavigationController {
+            let toWebViewController = toNavigationController.viewControllers.first as! WebViewController
+            toWebViewController.urlString = sender as! String
+        }
+    }
+    
     // This function will do AutoLayout for this view controller.
     func setUpDeveloperLayout() {
         // set up stackview for the 3 social media logos at the bottom
         let socialMediaLogoStackView = UIStackView(arrangedSubviews: [githubLogo, linkedInLogo, instagramLogo])
-        socialMediaLogoStackView.distribution = .fillEqually
+        socialMediaLogoStackView.distribution = .equalCentering
         socialMediaLogoStackView.translatesAutoresizingMaskIntoConstraints = false
         
         // add objects into the screen
@@ -231,6 +262,6 @@ class DeveloperViewController: UIViewController {
             
             socialMediaLogoStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             socialMediaLogoStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            socialMediaLogoStackView.widthAnchor.constraint(equalTo: contactInfoTitle.widthAnchor)])
+            socialMediaLogoStackView.widthAnchor.constraint(equalTo: contactInfoTitle.widthAnchor, multiplier: 0.8)])
     }
 }

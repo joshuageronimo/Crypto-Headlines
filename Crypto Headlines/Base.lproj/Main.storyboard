@@ -23,6 +23,9 @@
                     <tabBarItem key="tabBarItem" title="" image="happy" id="HCw-Hs-n5w">
                         <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12.25"/>
                     </tabBarItem>
+                    <connections>
+                        <segue destination="jwO-PJ-WKZ" kind="presentation" identifier="showProfile" id="g8p-SF-2Qe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6s-7I-jae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -226,7 +229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DmP-lh-pv5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1542" y="901"/>
+            <point key="canvasLocation" x="1542" y="1036"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fHJ-2m-idf">
@@ -265,4 +268,7 @@
         <image name="happy" width="30" height="30"/>
         <image name="news" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="g8p-SF-2Qe"/>
+    </inferredMetricsTieBreakers>
 </document>

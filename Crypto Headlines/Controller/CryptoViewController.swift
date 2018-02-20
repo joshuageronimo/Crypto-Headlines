@@ -81,8 +81,6 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
         let session = URLSession.shared
         let request = URLRequest(url: apiURL())
 
-        
-        
         // create a network request
         let task = session.dataTask(with: request) { (data, response, error) in
             self.cryptoCurrencies = []
