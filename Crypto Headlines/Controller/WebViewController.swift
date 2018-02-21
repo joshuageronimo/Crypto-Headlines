@@ -20,7 +20,6 @@ class WebViewController: UIViewController {
         let url = URL(string: urlString)!
         let request = URLRequest(url: url)
         webView.load(request)
-        
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
     }
     

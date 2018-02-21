@@ -8,19 +8,23 @@
 
 import UIKit
 
-class NewsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class NewsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITabBarControllerDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     private var newsArticles = [CryptoCoinsNews.Articles]()
     private var pullToRefresh: UIRefreshControl!
     private let titleCellIdentifier = "TitleCell"
     private let newsCellIndetifier = "NewsCell"
+    private var didComeFromAnotherViewController = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set the collection view delegate and datasource to the view controller
+        
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        self.tabBarController?.delegate = self
         
         // register the custom cells
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: titleCellIdentifier)
@@ -32,6 +36,29 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.addSubview(pullToRefresh)
         
         sendNetworkRequest()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // set the tabBarController delegate back to this view controller
+        self.tabBarController?.delegate = self
+    }
+    
+    // will be called when we switch to another view controller
+    override func viewWillDisappear(_ animated: Bool) {
+        // set this to true, so that when we come back from this view controller
+        // the collectionview will not scroll to the top.
+        didComeFromAnotherViewController = true
+    }
+    
+    // This function will allow tapping the the tab bar item to scroll to the top.
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if !didComeFromAnotherViewController {
+            self.collectionView?.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        } else {
+            // else will be called when the user presses to go back to this page
+            // set the didComeFromAnotherViewController back to false.
+            didComeFromAnotherViewController = false
+        }
     }
     
     // This function notifies the view controller that a segue is about to be performed.
@@ -122,8 +149,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 self.collectionView.reloadData()
                 self.pullToRefresh.endRefreshing()
             }
-            
-            }
+        }
         task.resume()
     }
     

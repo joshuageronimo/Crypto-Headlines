@@ -8,19 +8,22 @@
 
 import UIKit
 
-class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITabBarControllerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     private var cryptoCurrencies = [CoinMarketCap]()
     private var pullToRefresh: UIRefreshControl!
     private let titleCellIdentifier = "TitleCell"
     private let coinCellIndetifier = "CoinsCell"
+     private var didComeFromAnotherViewController = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        self.tabBarController?.delegate = self
         
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: titleCellIdentifier)
         collectionView.register(CoinsCollectionViewCell.self, forCellWithReuseIdentifier: coinCellIndetifier)
@@ -31,6 +34,29 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.addSubview(pullToRefresh)
         
         sendNetworkRequest()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // set the tabBarController delegate back to this view controller
+        self.tabBarController?.delegate = self
+    }
+    
+    // will be called when we switch to another view controller
+    override func viewWillDisappear(_ animated: Bool) {
+        // set this to true, so that when we come back from this view controller
+        // the collectionview will not scroll to the top.
+        didComeFromAnotherViewController = true
+    }
+    
+    // This function will allow tapping the the tab bar item to scroll to the top.
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if !didComeFromAnotherViewController {
+            self.collectionView?.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        } else {
+            // else will be called when the user presses to go back to this page
+            // set the didComeFromAnotherViewController back to false.
+            didComeFromAnotherViewController = false
+        }
     }
     
     // MARK - CollectionView
@@ -105,13 +131,11 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     // Create a URL from NewsConstant with URLComponents & URLQueryyItems
     private func apiURL() -> URL {
-        
         // Construct Base Api
         var components = URLComponents()
         components.scheme = CoinsConstant.BaseApi.scheme
         components.host = CoinsConstant.BaseApi.host
         components.path = CoinsConstant.BaseApi.path
-        
         return components.url!
     }
 }
