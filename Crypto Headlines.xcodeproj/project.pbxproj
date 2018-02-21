@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DF72B22A2034F30C008823BB /* CryptoCoinsNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72B2292034F30C008823BB /* CryptoCoinsNews.swift */; };
 		DF72B22D2035C048008823BB /* NewsConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72B22C2035C048008823BB /* NewsConstant.swift */; };
+		DF887B6C203D123C00F40626 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF887B6B203D123C00F40626 /* GoogleMobileAds.framework */; };
 		DF8EEFF12034D59B0060B63A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EEFF02034D59B0060B63A /* AppDelegate.swift */; };
 		DF8EEFF32034D59B0060B63A /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EEFF22034D59B0060B63A /* NewsViewController.swift */; };
 		DF8EEFF62034D59B0060B63A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF8EEFF42034D59B0060B63A /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		DF72B2292034F30C008823BB /* CryptoCoinsNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoinsNews.swift; sourceTree = "<group>"; };
 		DF72B22C2035C048008823BB /* NewsConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsConstant.swift; sourceTree = "<group>"; };
+		DF887B6B203D123C00F40626 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		DF8EEFED2034D59B0060B63A /* Crypto Headlines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crypto Headlines.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF8EEFF02034D59B0060B63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF8EEFF22034D59B0060B63A /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -55,17 +57,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF887B6C203D123C00F40626 /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF887B6A203D123C00F40626 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF887B6B203D123C00F40626 /* GoogleMobileAds.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DF8EEFE42034D59B0060B63A = {
 			isa = PBXGroup;
 			children = (
 				DF8EEFEF2034D59B0060B63A /* Crypto Headlines */,
 				DF8EEFEE2034D59B0060B63A /* Products */,
+				DF887B6A203D123C00F40626 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -360,6 +372,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 436Y3QLM8L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Crypto Headlines/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geronimoapp.Crypto-Headlines";
@@ -375,6 +391,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 436Y3QLM8L;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Crypto Headlines/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geronimoapp.Crypto-Headlines";

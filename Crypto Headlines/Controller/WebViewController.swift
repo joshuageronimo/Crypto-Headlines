@@ -30,20 +30,25 @@ class WebViewController: UIViewController {
     @IBAction func doneButtonTapped(_ sender: Any) {
         dismiss(animated: true)
     }
+    
     @IBAction func actionButtonTapped(_ sender: Any) {
         let activityItems = [urlString] as! Array<String>
         let activityController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
         present(activityController, animated: true, completion: nil)
     }
+    
     @IBAction func safariButtonTapped(_ sender: Any) {
         UIApplication.shared.open(URL(string: urlString)!)
     }
+    
     @IBAction func goBack(_ sender: Any) {
         webView.goBack()
     }
+    
     @IBAction func goForward(_ sender: Any) {
         webView.goForward()
     }
+    
     @IBAction func reload(_ sender: Any) {
         webView.reload()
     }

@@ -15,15 +15,13 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
     private var pullToRefresh: UIRefreshControl!
     private let titleCellIdentifier = "TitleCell"
     private let coinCellIndetifier = "CoinsCell"
-     private var didComeFromAnotherViewController = false
+    private var didComeFromAnotherViewController = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        self.tabBarController?.delegate = self
         
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: titleCellIdentifier)
         collectionView.register(CoinsCollectionViewCell.self, forCellWithReuseIdentifier: coinCellIndetifier)
@@ -37,7 +35,7 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // set the tabBarController delegate back to this view controller
+        // set the tabBarController delegate to this view controller
         self.tabBarController?.delegate = self
     }
     
@@ -50,6 +48,7 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     // This function will allow tapping the the tab bar item to scroll to the top.
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        // if we did not come straight from another View Controller, user will be able to tap to scroll to the top.
         if !didComeFromAnotherViewController {
             self.collectionView?.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         } else {

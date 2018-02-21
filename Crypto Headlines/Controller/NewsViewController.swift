@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class NewsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITabBarControllerDelegate {
     
@@ -17,14 +18,15 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     private let newsCellIndetifier = "NewsCell"
     private var didComeFromAnotherViewController = false
     
+    private var showInterstitialAd = false
+    
+    var interstitialAd: GADInterstitial!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set the collection view delegate and datasource to the view controller
-        
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        self.tabBarController?.delegate = self
         
         // register the custom cells
         collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: titleCellIdentifier)
@@ -35,12 +37,31 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         pullToRefresh.addTarget(self, action: #selector(sendNetworkRequest), for: .valueChanged)
         collectionView.addSubview(pullToRefresh)
         
-        sendNetworkRequest()
+        createAndLoadInterstitial() /* get the ad ready */
+        sendNetworkRequest() /* get the news from the API */
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // set the tabBarController delegate back to this view controller
+        // set the tabBarController delegate to this view controller
         self.tabBarController?.delegate = self
+        showGoogleInterstialAd()
+    }
+    
+    // This func will decide whether it will show an insterstitial ad or not.
+    // Will only be called in viewWillAppear
+    private func showGoogleInterstialAd() {
+        let chanceOfAd = arc4random_uniform(2) /* will generate either 0 or 1 */
+        if showInterstitialAd { /* if this is true, there's a 50% chance that an ad will show */
+            if chanceOfAd == 0 { /* if the generated number is equal to zero then show the ad */
+                if interstitialAd.isReady { /* if the ad is ready, show the user! */
+                    interstitialAd.present(fromRootViewController: self) /* present the ad! */
+                } else {
+                    print("Ad wasn't ready")
+                }
+            }
+            createAndLoadInterstitial() /* get the next ad ready! */
+            showInterstitialAd = false /* set this back to false since we are back in NewsViewController from WebView */
+        }
     }
     
     // will be called when we switch to another view controller
@@ -50,12 +71,26 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         didComeFromAnotherViewController = true
     }
     
+    // Will get a insterstitial ad ready for the user.
+    private func createAndLoadInterstitial() {
+        // test ad unit ID = "ca-app-pub-3940256099942544/4411468910"
+        // read ad unit ID = "ca-app-pub-9738856726428126/3854403543"
+        
+        interstitialAd = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        let request = GADRequest()
+        // Request test ads on devices you specify. Your test device ID is printed to the console when
+        // an ad request is made.
+        request.testDevices = [ kGADSimulatorID, "4804ce1f66b692f816baab2372878863" ]
+        interstitialAd.load(request)
+    }
+    
     // This function will allow tapping the the tab bar item to scroll to the top.
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        // if we did not come straight from another View Controller, user will be able to tap to scroll to the top.
         if !didComeFromAnotherViewController {
             self.collectionView?.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         } else {
-            // else will be called when the user presses to go back to this page
+            // else will be called when the user presses the tab bar item to go back to this page
             // set the didComeFromAnotherViewController back to false.
             didComeFromAnotherViewController = false
         }
@@ -66,6 +101,8 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if let toNavigationController = segue.destination as? UINavigationController {
             let toWebViewController = toNavigationController.viewControllers.first as! WebViewController
             toWebViewController.urlString = sender as! String
+            showInterstitialAd = true
+            
         }
     }
     
@@ -120,8 +157,6 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // create a session & request
         let session = URLSession.shared
         let request = URLRequest(url: apiURL())
-        
-     
         
         // create a network request
         let task = session.dataTask(with: request) { (data, response, error) in
