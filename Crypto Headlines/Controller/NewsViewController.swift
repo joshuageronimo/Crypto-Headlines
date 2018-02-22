@@ -47,6 +47,13 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         showGoogleInterstialAd()
     }
     
+    // will be called when we switch to another view controller
+    override func viewWillDisappear(_ animated: Bool) {
+        // set this to true, so that when we come back from this view controller
+        // the collectionview will not scroll to the top.
+        didComeFromAnotherViewController = true
+    }
+    
     // This func will decide whether it will show an insterstitial ad or not.
     // Will only be called in viewWillAppear
     private func showGoogleInterstialAd() {
@@ -59,16 +66,10 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     print("Ad wasn't ready")
                 }
             }
+            didComeFromAnotherViewController = false
             createAndLoadInterstitial() /* get the next ad ready! */
             showInterstitialAd = false /* set this back to false since we are back in NewsViewController from WebView */
         }
-    }
-    
-    // will be called when we switch to another view controller
-    override func viewWillDisappear(_ animated: Bool) {
-        // set this to true, so that when we come back from this view controller
-        // the collectionview will not scroll to the top.
-        didComeFromAnotherViewController = true
     }
     
     // Will get a insterstitial ad ready for the user.

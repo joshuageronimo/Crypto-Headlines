@@ -84,6 +84,10 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showCoinDetail", sender: "url")
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.item == 0 { /* return the cell size for the Header Title */
             return CGSize(width: view.frame.width, height: view.frame.height / 10)

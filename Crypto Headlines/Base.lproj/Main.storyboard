@@ -81,6 +81,29 @@
             </objects>
             <point key="canvasLocation" x="644" y="132.26600985221674"/>
         </scene>
+        <!--Crypto Info View Controller-->
+        <scene sceneID="7J7-xe-zsr">
+            <objects>
+                <viewController id="dUd-o4-nmW" customClass="CryptoInfoViewController" customModule="Crypto_Headlines" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rho-Gb-iaU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="P3G-hH-Iur"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7HQ-4o-49v">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="a3B-6B-s8q">
+                            <color key="tintColor" red="0.95686274510000002" green="0.69803921570000005" blue="0.69803921570000005" alpha="0.76000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="dUd-o4-nmW" id="Cl3-r9-NRB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I3h-a0-mZ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1302" y="-652"/>
+        </scene>
         <!--Crypto View Controller-->
         <scene sceneID="Kz9-Qn-keg">
             <objects>
@@ -125,11 +148,12 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="collectionView" destination="dyg-7B-V5L" id="0bD-Id-7Dn"/>
+                        <segue destination="E9N-Ho-1cx" kind="presentation" identifier="showCoinDetail" id="2La-rf-4CQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Od-WV-oQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1543" y="133"/>
+            <point key="canvasLocation" x="1542" y="132"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qUS-zI-Qvb">
@@ -229,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DmP-lh-pv5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1542" y="1036"/>
+            <point key="canvasLocation" x="644" y="955"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fHJ-2m-idf">
@@ -258,7 +282,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gq4-JX-hhj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-566" y="1036"/>
+            <point key="canvasLocation" x="-164" y="955"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="c9j-Mw-gVr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E9N-Ho-1cx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qwR-Uu-5da">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dUd-o4-nmW" kind="relationship" relationship="rootViewController" id="Taa-G4-kG4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LUQ-kO-rU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="644" y="-652"/>
         </scene>
     </scenes>
     <resources>
