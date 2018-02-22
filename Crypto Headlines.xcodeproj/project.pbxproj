@@ -12,6 +12,8 @@
 		DF887B6C203D123C00F40626 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF887B6B203D123C00F40626 /* GoogleMobileAds.framework */; };
 		DF887B6E203E40A200F40626 /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF887B6D203E40A200F40626 /* UIImage+GIF.swift */; };
 		DF887B70203E46EF00F40626 /* CryptoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF887B6F203E46EF00F40626 /* CryptoInfoViewController.swift */; };
+		DF887B74203F4DF300F40626 /* GiphyConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF887B73203F4DF300F40626 /* GiphyConstant.swift */; };
+		DF887B76203F517500F40626 /* Giphy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF887B75203F517500F40626 /* Giphy.swift */; };
 		DF8EEFF12034D59B0060B63A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EEFF02034D59B0060B63A /* AppDelegate.swift */; };
 		DF8EEFF32034D59B0060B63A /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EEFF22034D59B0060B63A /* NewsViewController.swift */; };
 		DF8EEFF62034D59B0060B63A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF8EEFF42034D59B0060B63A /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 		DF887B6B203D123C00F40626 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		DF887B6D203E40A200F40626 /* UIImage+GIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
 		DF887B6F203E46EF00F40626 /* CryptoInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoInfoViewController.swift; sourceTree = "<group>"; };
+		DF887B73203F4DF300F40626 /* GiphyConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyConstant.swift; sourceTree = "<group>"; };
+		DF887B75203F517500F40626 /* Giphy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Giphy.swift; sourceTree = "<group>"; };
 		DF8EEFED2034D59B0060B63A /* Crypto Headlines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crypto Headlines.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF8EEFF02034D59B0060B63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF8EEFF22034D59B0060B63A /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
@@ -136,9 +140,11 @@
 			children = (
 				DF72B22C2035C048008823BB /* NewsConstant.swift */,
 				DFB556E32039DDB400736C59 /* CoinsConstant.swift */,
+				DF887B73203F4DF300F40626 /* GiphyConstant.swift */,
 				DFB556D4203877A200736C59 /* TitleHeader.swift */,
 				DF72B2292034F30C008823BB /* CryptoCoinsNews.swift */,
 				DFB556DF2039CFF300736C59 /* CoinMarketCap.swift */,
+				DF887B75203F517500F40626 /* Giphy.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,6 +248,8 @@
 				DFBA9CD8203A6FDD0033700E /* WebViewController.swift in Sources */,
 				DF887B6E203E40A200F40626 /* UIImage+GIF.swift in Sources */,
 				DF72B22D2035C048008823BB /* NewsConstant.swift in Sources */,
+				DF887B74203F4DF300F40626 /* GiphyConstant.swift in Sources */,
+				DF887B76203F517500F40626 /* Giphy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

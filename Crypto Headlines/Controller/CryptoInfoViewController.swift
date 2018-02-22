@@ -10,6 +10,8 @@ import UIKit
 
 class CryptoInfoViewController: UIViewController {
     
+    private var urlStringGifsFromGiphy = [String]()
+    
     // description of how to get in contact with me
     private let cryptoTitle: UILabel = {
         let label = UILabel()
@@ -171,6 +173,8 @@ class CryptoInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sendNetworkRequest()
+        
         view.addSubview(cryptoTitle)
         view.addSubview(lineSeparator1)
         view.addSubview(rankLabel)
@@ -232,5 +236,61 @@ class CryptoInfoViewController: UIViewController {
     
     @IBAction func doneButtonTapped(_ sender: Any) {
         dismiss(animated: true)
+    }
+    
+    // MARK - Networking
+    
+    @objc private func sendNetworkRequest() {
+        // create a session & request
+        let session = URLSession.shared
+        
+        let request = URLRequest(url: apiURL())
+        
+        // create a network request
+        let task = session.dataTask(with: request) { (data, response, error) in
+            
+            // TODO: check data, response, & error.
+        
+            guard let data = data else {return}
+            // parse JSON data using Decodable
+            do {
+                print("hi")
+                let json = try JSONDecoder().decode(Giphy.self, from: data)
+                print("hi 2 \(json)")
+                for gif in json.data {
+                    self.urlStringGifsFromGiphy.append(gif.images.original.url)
+                }
+                
+            } catch let jsonErr {
+                print("Error serializing json", jsonErr)
+            }
+        }
+        task.resume()
+    }
+    
+    // Create a URL from NewsConstant with URLComponents & URLQueryyItems
+    private func apiURL() -> URL {
+        // this is a dictionary of methods and value parameters of the url query
+        let urlQueryParameters: [String : AnyObject] = [
+            GiphyConstant.MethodParameters.apiKey : GiphyConstant.MethodValues.apiKey as AnyObject,
+            GiphyConstant.MethodParameters.query : GiphyConstant.MethodValues.query as AnyObject,
+            GiphyConstant.MethodParameters.limit : GiphyConstant.MethodValues.limit as AnyObject,
+            GiphyConstant.MethodParameters.language : GiphyConstant.MethodValues.language as AnyObject
+        ]
+        
+        // Construct Base Api
+        var components = URLComponents()
+        components.scheme = GiphyConstant.BaseApi.scheme
+        components.host = GiphyConstant.BaseApi.host
+        components.path = GiphyConstant.BaseApi.path
+        
+        // Construct Query
+        components.queryItems = [URLQueryItem]()
+        for (key, value) in urlQueryParameters {
+            let queryItem = URLQueryItem(name: key, value: "\(value)")
+            components.queryItems!.append(queryItem)
+        }
+        
+        return components.url!
     }
 }
