@@ -11,7 +11,7 @@ import UIKit
 class TitleCollectionViewCell: UICollectionViewCell {
     
     // Label for the header title
-    private let headerTitle: UILabel = {
+    fileprivate let headerTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
@@ -35,7 +35,7 @@ class TitleCollectionViewCell: UICollectionViewCell {
     }
     
     // Will setup the constraint of the header title
-    private func setUpHeaderLayout() {
+    fileprivate func setUpHeaderLayout() {
         addSubview(headerTitle)
         NSLayoutConstraint.activate([headerTitle.centerYAnchor.constraint(equalTo: centerYAnchor),
                                      headerTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 28)])

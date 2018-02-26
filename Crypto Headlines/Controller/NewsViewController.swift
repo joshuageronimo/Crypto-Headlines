@@ -12,15 +12,14 @@ import GoogleMobileAds
 class NewsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITabBarControllerDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    private var newsArticles = [CryptoCoinsNews.Articles]()
-    private var pullToRefresh: UIRefreshControl!
-    private let titleCellIdentifier = "TitleCell"
-    private let newsCellIndetifier = "NewsCell"
-    private var didComeFromAnotherViewController = false
+    fileprivate var newsArticles = [CryptoCoinsNews.Articles]()
+    fileprivate var pullToRefresh: UIRefreshControl!
+    fileprivate let titleCellIdentifier = "TitleCell"
+    fileprivate let newsCellIndetifier = "NewsCell"
+    fileprivate var didComeFromAnotherViewController = false
     
-    private var showInterstitialAd = false
-    
-    var interstitialAd: GADInterstitial!
+    fileprivate var showInterstitialAd = false
+    fileprivate var interstitialAd: GADInterstitial!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,7 +10,7 @@ import UIKit
 
 class CoinsCollectionViewCell: UICollectionViewCell {
     
-    private let cryptoInfoContainer: UIView = {
+    fileprivate let cryptoInfoContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = #colorLiteral(red: 0.1450980392, green: 0.1843137255, blue: 0.2235294118, alpha: 1)
@@ -20,7 +20,7 @@ class CoinsCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    private let cryptoNameAndRankLabel: UILabel = {
+    fileprivate let cryptoNameAndRankLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
@@ -28,7 +28,7 @@ class CoinsCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private let cryptoPriceAndPercentLabel: UILabel = {
+    fileprivate let cryptoPriceAndPercentLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
@@ -43,7 +43,7 @@ class CoinsCollectionViewCell: UICollectionViewCell {
     }
     
     // This function will convert a number into currency format
-    private func convertToCurrency(number: Double) -> String {
+    fileprivate func convertToCurrency(number: Double) -> String {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = NumberFormatter.Style.currency
@@ -87,7 +87,7 @@ class CoinsCollectionViewCell: UICollectionViewCell {
         cryptoPriceAndPercentLabel.attributedText = priceAndPercentAttributedText
     }
     
-    private func setUpLayout() {
+    fileprivate func setUpLayout() {
         addSubview(cryptoInfoContainer)
         cryptoInfoContainer.addSubview(cryptoNameAndRankLabel)
         cryptoInfoContainer.addSubview(cryptoPriceAndPercentLabel)

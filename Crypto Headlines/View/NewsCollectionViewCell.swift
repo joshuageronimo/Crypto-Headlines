@@ -11,7 +11,7 @@ import UIKit
 class NewsCollectionViewCell: UICollectionViewCell {
     
     // view container for the news title
-    private let titleContainer: UIView = {
+    fileprivate let titleContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.5122270976)
@@ -22,7 +22,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
     }()
     
     // Label for the news title
-    private let newsTitle: UILabel = {
+    fileprivate let newsTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
@@ -30,7 +30,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
     }()
     
     // this will be where the image is going to show
-    private let newsThumbnail: CustomImageView = {
+    fileprivate let newsThumbnail: CustomImageView = {
         let image = CustomImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
@@ -57,7 +57,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
     }
     
     // Will setup constraints for the view objects
-    private func setUpNewsFeedLayout() {
+    fileprivate func setUpNewsFeedLayout() {
         addSubview(titleContainer)
         titleContainer.addSubview(newsTitle)
         addSubview(newsThumbnail)

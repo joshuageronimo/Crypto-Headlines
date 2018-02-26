@@ -10,10 +10,10 @@ import UIKit
 
 class CryptoInfoViewController: UIViewController {
     
-    private var urlStringGifsFromGiphy = [String]()
+    fileprivate var urlStringGifsFromGiphy = [String]()
     
     // description of how to get in contact with me
-    private let cryptoTitle: UILabel = {
+    fileprivate let cryptoTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
@@ -23,7 +23,7 @@ class CryptoInfoViewController: UIViewController {
     }()
     
     // border line
-    private let lineSeparator1: UIView = {
+    fileprivate let lineSeparator1: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 0.76)
@@ -31,7 +31,7 @@ class CryptoInfoViewController: UIViewController {
     }()
     
     // rank description
-    private let rankLabel: UILabel = {
+    fileprivate let rankLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
@@ -39,7 +39,7 @@ class CryptoInfoViewController: UIViewController {
     }()
     
     // market cap of the cryptocurrency
-    private let marketCapLabel: UILabel = {
+    fileprivate let marketCapLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
@@ -47,7 +47,7 @@ class CryptoInfoViewController: UIViewController {
     }()
     
     //  description of the current price of the coin
-    private let currentPriceLabel: UILabel = {
+    fileprivate let currentPriceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
@@ -55,7 +55,7 @@ class CryptoInfoViewController: UIViewController {
     }()
     
     //  the change in percentage for the last 1 hour
-    private let percentChangeIn1hr: UILabel = {
+    fileprivate let percentChangeIn1hr: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
@@ -63,7 +63,7 @@ class CryptoInfoViewController: UIViewController {
     }()
     
     //  the change in percentage for the last 24 hour
-    private let percentChangein24hr: UILabel = {
+    fileprivate let percentChangein24hr: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
@@ -71,7 +71,7 @@ class CryptoInfoViewController: UIViewController {
     }()
     
     //  the change in percentage for the last 7 days
-    private let percentChangein7days: UILabel = {
+    fileprivate let percentChangein7days: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontSizeToFitWidth = true
@@ -79,7 +79,7 @@ class CryptoInfoViewController: UIViewController {
     }()
     
     // border line
-    private let lineSeparator2: UIView = {
+    fileprivate let lineSeparator2: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 0.76)
@@ -245,7 +245,7 @@ class CryptoInfoViewController: UIViewController {
     }
     
     // This function will convert a number into currency format
-    private func convertToCurrency(number: Double) -> String {
+    fileprivate func convertToCurrency(number: Double) -> String {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = NumberFormatter.Style.currency

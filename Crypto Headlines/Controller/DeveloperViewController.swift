@@ -10,13 +10,13 @@ import UIKit
 
 class DeveloperViewController: UIViewController {
     
-    private let webViewIdentifier = "showProfile"
-    private let gitHubProfileLink = "https://github.com/joshuageronimo"
-    private let linkedInProfileLink = "https://www.linkedin.com/in/blessed-joshua-geronimo-200791108/"
-    private let instagramProfileLink = "https://www.instagram.com/developer.josh/"
+    fileprivate let webViewIdentifier = "showProfile"
+    fileprivate let gitHubProfileLink = "https://github.com/joshuageronimo"
+    fileprivate let linkedInProfileLink = "https://www.linkedin.com/in/blessed-joshua-geronimo-200791108/"
+    fileprivate let instagramProfileLink = "https://www.instagram.com/developer.josh/"
     
     // Label for the header title
-    private let headerTitle: UILabel = {
+    fileprivate let headerTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
@@ -35,7 +35,7 @@ class DeveloperViewController: UIViewController {
     }()
     
     // UIImage for Profile Picture
-    private let profilePicture: UIImageView = {
+    fileprivate let profilePicture: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "profile_picture"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
@@ -43,7 +43,7 @@ class DeveloperViewController: UIViewController {
     }()
     
     // Title for the developer Info
-    private let developerInfoTitle: UILabel = {
+    fileprivate let developerInfoTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         let attributedText = NSMutableAttributedString(string: "Joshua Geronimo (iOS Developer)", attributes: [
@@ -56,7 +56,7 @@ class DeveloperViewController: UIViewController {
     }()
     
     // Description of the developer info
-    private let developerInfoDescription: UILabel = {
+    fileprivate let developerInfoDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         let attributedText = NSMutableAttributedString(string: "- Based in NJ, USA 🇺🇸\n- Computer Science Student 👨🏻‍💻\n- iOS Freelancer 📱", attributes: [
@@ -69,7 +69,7 @@ class DeveloperViewController: UIViewController {
     }()
     
     // border line
-    private let lineSeparator1: UIView = {
+    fileprivate let lineSeparator1: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 0.76)
@@ -77,7 +77,7 @@ class DeveloperViewController: UIViewController {
     }()
     
     // Title for the App's about info
-    private let cryptoHeadlinesAboutTitle: UILabel = {
+    fileprivate let cryptoHeadlinesAboutTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         let attributedText = NSMutableAttributedString(string: "Crypto Headlines", attributes: [
@@ -88,7 +88,7 @@ class DeveloperViewController: UIViewController {
     }()
     
     // Description of the app's info
-    private let cryptoHeadlinesInfoDescription: UILabel = {
+    fileprivate let cryptoHeadlinesInfoDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         let attributedText = NSMutableAttributedString(string: "- Powered by: News API\n- News source: CryptoCoinsNews (CCN)\n- Coin prices: CoinMarketCap.com", attributes: [
@@ -101,7 +101,7 @@ class DeveloperViewController: UIViewController {
     }()
     
     // border line
-    private let lineSeparator2: UIView = {
+    fileprivate let lineSeparator2: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 0.76)
@@ -109,7 +109,7 @@ class DeveloperViewController: UIViewController {
     }()
     
     // Title for the work together section
-    private let workTogetherTitle: UILabel = {
+    fileprivate let workTogetherTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         let attributedText = NSMutableAttributedString(string: "Let's Work Together!", attributes: [
@@ -120,7 +120,7 @@ class DeveloperViewController: UIViewController {
     }()
     
     // description of how to get in contact with me
-    private let workTogetherInfoDescription: UILabel = {
+    fileprivate let workTogetherInfoDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         let attributedText = NSMutableAttributedString(string: "- For recruiters: Message me on LinkedIn.\n- DM me on Instagram for feature requests.\n- Check out my other projects on Github.", attributes: [
@@ -133,7 +133,7 @@ class DeveloperViewController: UIViewController {
     }()
     
     // Title of the section to get in contact with me
-    private let contactInfoTitle: UILabel = {
+    fileprivate let contactInfoTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         let attributedText = NSMutableAttributedString(string: "Connect with me here!", attributes: [
@@ -144,7 +144,7 @@ class DeveloperViewController: UIViewController {
     }()
     
     // github image logo
-    private let githubLogo: UIButton = {
+    fileprivate let githubLogo: UIButton = {
         let button = UIButton(type: .system)
         button.setBackgroundImage(#imageLiteral(resourceName: "github-logo"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
@@ -153,7 +153,7 @@ class DeveloperViewController: UIViewController {
     }()
     
     // linkedIn image logo
-    private let linkedInLogo: UIButton = {
+    fileprivate let linkedInLogo: UIButton = {
         let button = UIButton(type: .system)
         button.setBackgroundImage(#imageLiteral(resourceName: "linkedIn-logo"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
@@ -162,7 +162,7 @@ class DeveloperViewController: UIViewController {
     }()
     
     // instagram image logo
-    private let instagramLogo: UIButton = {
+    fileprivate let instagramLogo: UIButton = {
         let button = UIButton(type: .system)
         button.setBackgroundImage(#imageLiteral(resourceName: "instagram-logo"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
@@ -198,7 +198,7 @@ class DeveloperViewController: UIViewController {
     }
     
     // This function will do AutoLayout for this view controller.
-    func setUpDeveloperLayout() {
+    fileprivate func setUpDeveloperLayout() {
         // set up stackview for the 3 social media logos at the bottom
         let socialMediaLogoStackView = UIStackView(arrangedSubviews: [githubLogo, linkedInLogo, instagramLogo])
         socialMediaLogoStackView.distribution = .equalCentering

@@ -11,11 +11,11 @@ import UIKit
 class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITabBarControllerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
-    private var cryptoCurrencies = [CoinMarketCap]()
-    private var pullToRefresh: UIRefreshControl!
-    private let titleCellIdentifier = "TitleCell"
-    private let coinCellIndetifier = "CoinsCell"
-    private var didComeFromAnotherViewController = false
+    fileprivate var cryptoCurrencies = [CoinMarketCap]()
+    fileprivate var pullToRefresh: UIRefreshControl!
+    fileprivate let titleCellIdentifier = "TitleCell"
+    fileprivate let coinCellIndetifier = "CoinsCell"
+    fileprivate var didComeFromAnotherViewController = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,7 +111,7 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     // MARK - Networking
     
-    @objc private func sendNetworkRequest() {
+    @objc fileprivate func sendNetworkRequest() {
         
         // TODO -  Check for error and response
         
@@ -142,7 +142,7 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     // Create a URL from NewsConstant with URLComponents & URLQueryyItems
-    private func apiURL() -> URL {
+    fileprivate func apiURL() -> URL {
         // Construct Base Api
         var components = URLComponents()
         components.scheme = CoinsConstant.BaseApi.scheme
