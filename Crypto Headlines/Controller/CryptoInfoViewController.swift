@@ -86,41 +86,8 @@ class CryptoInfoViewController: UIViewController {
         return view
     }()
     
-    //  The label that will contains a message whether the coin has been doing good or not
-    private let goodOrBadWeek: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontSizeToFitWidth = true
-        label.textAlignment = .center
-        return label
-    }()
-    
-    // This will be the imageView that will contain a gif to show the user
-    private let happyGifImage: UIImageView = {
-        let gifURL : String = "https://media1.giphy.com/media/lZd4oyt1EzC3C/giphy.gif"
-        let imageURL = UIImage.gifImageWithURL(gifURL)
-        let image = UIImageView(image: imageURL)
-        image.contentMode = .scaleAspectFit
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.isHidden = true
-        return image
-    }()
-    
-    // This will be the imageView that will contain a gif to show the user
-    private let sadGifImage: UIImageView = {
-        let gifURL : String = "https://media0.giphy.com/media/2WxWfiavndgcM/giphy.gif"
-        let imageURL = UIImage.gifImageWithURL(gifURL)
-        let image = UIImageView(image: imageURL)
-        image.contentMode = .scaleAspectFit
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.isHidden = true
-        return image
-    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        sendNetworkRequest()
         
         view.addSubview(cryptoTitle)
         view.addSubview(lineSeparator1)
@@ -131,9 +98,6 @@ class CryptoInfoViewController: UIViewController {
         view.addSubview(percentChangein24hr)
         view.addSubview(percentChangein7days)
         view.addSubview(lineSeparator2)
-        view.addSubview(goodOrBadWeek)
-        view.addSubview(happyGifImage)
-        view.addSubview(sadGifImage)
         
         NSLayoutConstraint.activate([
             cryptoTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -171,21 +135,7 @@ class CryptoInfoViewController: UIViewController {
             lineSeparator2.heightAnchor.constraint(equalToConstant: 1),
             lineSeparator2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
             lineSeparator2.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -28),
-            lineSeparator2.topAnchor.constraint(equalTo: percentChangein7days.bottomAnchor, constant: 40),
-            
-            goodOrBadWeek.topAnchor.constraint(equalTo: lineSeparator2.bottomAnchor, constant: 25),
-            goodOrBadWeek.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
-            goodOrBadWeek.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -28),
-            
-            happyGifImage.topAnchor.constraint(equalTo: goodOrBadWeek.bottomAnchor, constant: 25),
-            happyGifImage.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
-            happyGifImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
-            happyGifImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -28),
-            
-            sadGifImage.topAnchor.constraint(equalTo: goodOrBadWeek.bottomAnchor, constant: 25),
-            sadGifImage.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
-            sadGifImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
-            sadGifImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -28)])
+            lineSeparator2.topAnchor.constraint(equalTo: percentChangein7days.bottomAnchor, constant: 40)])
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
@@ -292,20 +242,6 @@ class CryptoInfoViewController: UIViewController {
                 NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1, green: 0.3960784314, blue: 0.3960784314, alpha: 1))]))
             percentChangein7days.attributedText = changeIn7daysattributedText
         }
-        
-        if percentChangein7 < 0 {
-            sadGifImage.isHidden = false
-            let badAttributedText = NSMutableAttributedString(string: "Don't lose faith. \(model.name) will recover!", attributes: [
-                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 25, weight: .semibold),
-                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))])
-            goodOrBadWeek.attributedText = badAttributedText
-        } else {
-            happyGifImage.isHidden = false
-            let goodAttributedText = NSMutableAttributedString(string: "Great Week for \(model.name)!", attributes: [
-                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 25, weight: .semibold),
-                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))])
-            goodOrBadWeek.attributedText = goodAttributedText
-        }
     }
     
     // This function will convert a number into currency format
@@ -317,57 +253,5 @@ class CryptoInfoViewController: UIViewController {
         let priceOfCoin: NSNumber = Double(number) as NSNumber
         let priceString = currencyFormatter.string(from: priceOfCoin)!
         return priceString
-    }
-    
-    // MARK - Networking
-    
-    private func sendNetworkRequest() {
-        // create a session & request
-        let session = URLSession.shared
-        
-        let request = URLRequest(url: apiURL())
-        
-        // create a network request
-        let task = session.dataTask(with: request) { (data, response, error) in
-            
-            // TODO: check data, response, & error.
-            guard let data = data else {return}
-            // parse JSON data using Decodable
-            do {
-                let json = try JSONDecoder().decode(Giphy.self, from: data)
-                for gif in json.data {
-                    self.urlStringGifsFromGiphy.append(gif.images.original.url)
-                }
-                
-            } catch let jsonErr {
-                print("Error serializing json", jsonErr)
-            }
-        }
-        task.resume()
-    }
-    
-    // Create a URL from NewsConstant with URLComponents & URLQueryyItems
-    private func apiURL() -> URL {
-        // this is a dictionary of methods and value parameters of the url query
-        let urlQueryParameters: [String : AnyObject] = [
-            GiphyConstant.MethodParameters.apiKey : GiphyConstant.MethodValues.apiKey as AnyObject,
-            GiphyConstant.MethodParameters.query : GiphyConstant.MethodValues.query as AnyObject,
-            GiphyConstant.MethodParameters.limit : GiphyConstant.MethodValues.limit as AnyObject,
-            GiphyConstant.MethodParameters.language : GiphyConstant.MethodValues.language as AnyObject
-        ]
-        
-        // Construct Base Api
-        var components = URLComponents()
-        components.scheme = GiphyConstant.BaseApi.scheme
-        components.host = GiphyConstant.BaseApi.host
-        components.path = GiphyConstant.BaseApi.path
-        
-        // Construct Query
-        components.queryItems = [URLQueryItem]()
-        for (key, value) in urlQueryParameters {
-            let queryItem = URLQueryItem(name: key, value: "\(value)")
-            components.queryItems!.append(queryItem)
-        }
-        return components.url!
     }
 }
