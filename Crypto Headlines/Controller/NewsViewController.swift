@@ -75,7 +75,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // Will get a insterstitial ad ready for the user.
     private func createAndLoadInterstitial() {
         // test ad unit ID = "ca-app-pub-3940256099942544/4411468910"
-        // read ad unit ID = "ca-app-pub-9738856726428126/3854403543"
+        // real ad unit ID = "ca-app-pub-9738856726428126/3854403543"
         
         interstitialAd = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
         let request = GADRequest()
@@ -103,14 +103,13 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let toWebViewController = toNavigationController.viewControllers.first as! WebViewController
             toWebViewController.urlString = sender as! String
             showInterstitialAd = true
-            
         }
     }
     
     // MARK - CollectionView
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return newsArticles.count + 1
+        return newsArticles.count + 1 /* add 1 for the title cell */
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -58,10 +58,19 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
         }
     }
     
+    
+    // This function notifies the view controller that a segue is about to be performed.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let toNavigationController = segue.destination as? UINavigationController {
+            let toCryptoViewController = toNavigationController.viewControllers.first as! CryptoInfoViewController
+            toCryptoViewController.updateCryptoData(from: sender as! CoinMarketCap)
+        }
+    }
+    
     // MARK - CollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cryptoCurrencies.count + 1
+        return cryptoCurrencies.count + 1 /* add 1 for the title cell */
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -85,7 +94,7 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showCoinDetail", sender: "url")
+        performSegue(withIdentifier: "showCoinDetail", sender: cryptoCurrencies[indexPath.item - 1])
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

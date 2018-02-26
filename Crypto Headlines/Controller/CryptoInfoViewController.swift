@@ -16,15 +16,8 @@ class CryptoInfoViewController: UIViewController {
     private let cryptoTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        let attributedText = NSMutableAttributedString(string: "Bitcoin\n", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 40, weight: .semibold),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))])
-        attributedText.append(NSAttributedString(string: "BTC", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 19, weight: .medium),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))]))
         label.numberOfLines = 2
         label.adjustsFontSizeToFitWidth = true
-        label.attributedText = attributedText
         label.textAlignment = .center
         return label
     }()
@@ -41,32 +34,15 @@ class CryptoInfoViewController: UIViewController {
     private let rankLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        let attributedText = NSMutableAttributedString(string: "Rank: ", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
-        
-        attributedText.append(NSAttributedString(string: "#1", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))]))
         label.adjustsFontSizeToFitWidth = true
-        label.attributedText = attributedText
         return label
     }()
     
-    // rank description
+    // market cap of the cryptocurrency
     private let marketCapLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        let attributedText = NSMutableAttributedString(string: "Market Cap: ", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
-        
-        attributedText.append(NSAttributedString(string: "$179,921,384,395", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))]))
-    
         label.adjustsFontSizeToFitWidth = true
-        label.attributedText = attributedText
         return label
     }()
     
@@ -74,16 +50,7 @@ class CryptoInfoViewController: UIViewController {
     private let currentPriceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        let attributedText = NSMutableAttributedString(string: "Current Price: ", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
-        
-        attributedText.append(NSAttributedString(string: "$10,661.30", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))]))
-        
         label.adjustsFontSizeToFitWidth = true
-        label.attributedText = attributedText
         return label
     }()
     
@@ -91,16 +58,7 @@ class CryptoInfoViewController: UIViewController {
     private let percentChangeIn1hr: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        let attributedText = NSMutableAttributedString(string: "Percent Change in 1hr: ", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
-        
-        attributedText.append(NSAttributedString(string: "1.32%", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.6745098039, green: 1, blue: 0.3960784314, alpha: 1))]))
-        
         label.adjustsFontSizeToFitWidth = true
-        label.attributedText = attributedText
         return label
     }()
     
@@ -108,16 +66,7 @@ class CryptoInfoViewController: UIViewController {
     private let percentChangein24hr: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        let attributedText = NSMutableAttributedString(string: "Percent Change in 24hr: ", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
-        
-        attributedText.append(NSAttributedString(string: "-8.72%", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1, green: 0.3960784314, blue: 0.3960784314, alpha: 1))]))
-        
         label.adjustsFontSizeToFitWidth = true
-        label.attributedText = attributedText
         return label
     }()
     
@@ -125,16 +74,7 @@ class CryptoInfoViewController: UIViewController {
     private let percentChangein7days: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        let attributedText = NSMutableAttributedString(string: "Percent Change in 7 days: ", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
-        
-        attributedText.append(NSAttributedString(string: "13.0%", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.6745098039, green: 1, blue: 0.3960784314, alpha: 1))]))
-        
         label.adjustsFontSizeToFitWidth = true
-        label.attributedText = attributedText
         return label
     }()
     
@@ -150,23 +90,30 @@ class CryptoInfoViewController: UIViewController {
     private let goodOrBadWeek: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        let attributedText = NSMutableAttributedString(string: "Great Week for Bitcoin!", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 25, weight: .semibold),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))])
-        
         label.adjustsFontSizeToFitWidth = true
-        label.attributedText = attributedText
         label.textAlignment = .center
         return label
     }()
     
     // This will be the imageView that will contain a gif to show the user
-    private let gifImageView: UIImageView = {
-        let gifURL : String = "https://media0.giphy.com/media/5GoVLqeAOo6PK/200w.gif"
+    private let happyGifImage: UIImageView = {
+        let gifURL : String = "https://media1.giphy.com/media/lZd4oyt1EzC3C/giphy.gif"
         let imageURL = UIImage.gifImageWithURL(gifURL)
         let image = UIImageView(image: imageURL)
         image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.isHidden = true
+        return image
+    }()
+    
+    // This will be the imageView that will contain a gif to show the user
+    private let sadGifImage: UIImageView = {
+        let gifURL : String = "https://media0.giphy.com/media/2WxWfiavndgcM/giphy.gif"
+        let imageURL = UIImage.gifImageWithURL(gifURL)
+        let image = UIImageView(image: imageURL)
+        image.contentMode = .scaleAspectFit
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.isHidden = true
         return image
     }()
 
@@ -185,7 +132,8 @@ class CryptoInfoViewController: UIViewController {
         view.addSubview(percentChangein7days)
         view.addSubview(lineSeparator2)
         view.addSubview(goodOrBadWeek)
-        view.addSubview(gifImageView)
+        view.addSubview(happyGifImage)
+        view.addSubview(sadGifImage)
         
         NSLayoutConstraint.activate([
             cryptoTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -229,18 +177,151 @@ class CryptoInfoViewController: UIViewController {
             goodOrBadWeek.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
             goodOrBadWeek.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -28),
             
-            gifImageView.topAnchor.constraint(equalTo: goodOrBadWeek.bottomAnchor, constant: 25),
-            gifImageView.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor, constant: -15),
-            gifImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
+            happyGifImage.topAnchor.constraint(equalTo: goodOrBadWeek.bottomAnchor, constant: 25),
+            happyGifImage.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
+            happyGifImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
+            happyGifImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -28),
+            
+            sadGifImage.topAnchor.constraint(equalTo: goodOrBadWeek.bottomAnchor, constant: 25),
+            sadGifImage.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -15),
+            sadGifImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
+            sadGifImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -28)])
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
         dismiss(animated: true)
     }
     
+    
+    func updateCryptoData(from model: CoinMarketCap) {
+        
+        var currentPriceInString = model.price_usd
+        let currentPrice = Double(model.price_usd)!
+        // convert the price into currency format
+        if currentPrice >= 1000 {
+            currentPriceInString = convertToCurrency(number: currentPrice)
+        } else {
+            currentPriceInString = "$\(currentPriceInString)"
+        }
+        
+        var marketCapInString = model.market_cap_usd
+        let marketCap = Double(model.market_cap_usd)!
+        // convert the price into currency format
+        if marketCap >= 1000 {
+            marketCapInString = convertToCurrency(number: marketCap)
+        } else {
+            marketCapInString = "$\(marketCapInString)"
+        }
+        
+        let titleAttributedText = NSMutableAttributedString(string: "\(model.name)\n", attributes: [
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 40, weight: .semibold),
+            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))])
+        titleAttributedText.append(NSAttributedString(string: "\(model.symbol)", attributes: [
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 19, weight: .medium),
+            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))]))
+        cryptoTitle.attributedText = titleAttributedText
+        
+        let rankAttributedText = NSMutableAttributedString(string: "Rank: ", attributes: [
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
+            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+        rankAttributedText.append(NSAttributedString(string: "#\(model.rank)", attributes: [
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
+            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))]))
+        rankLabel.attributedText = rankAttributedText
+        
+        let marketCapAttributedText = NSMutableAttributedString(string: "Market Cap: ", attributes: [
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
+            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+        marketCapAttributedText.append(NSAttributedString(string: "\(marketCapInString)", attributes: [
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
+            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))]))
+        marketCapLabel.attributedText = marketCapAttributedText
+        
+        let currentPriceattributedText = NSMutableAttributedString(string: "Current Price: ", attributes: [
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
+            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+        currentPriceattributedText.append(NSAttributedString(string: "\(currentPriceInString)", attributes: [
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
+            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))]))
+        currentPriceLabel.attributedText = currentPriceattributedText
+        
+        let changeIn1hrattributedText = NSMutableAttributedString(string: "Percent Change in 1hr: ", attributes: [
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
+            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+        let percentChange1hr = Double(model.percent_change_1h)!
+        if percentChange1hr >= 0 {
+            changeIn1hrattributedText.append(NSAttributedString(string: "\(model.percent_change_1h)%", attributes: [
+                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
+                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.6745098039, green: 1, blue: 0.3960784314, alpha: 1))]))
+            percentChangeIn1hr.attributedText = changeIn1hrattributedText
+        } else {
+            changeIn1hrattributedText.append(NSAttributedString(string: "\(model.percent_change_1h)%", attributes: [
+                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
+                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1, green: 0.3960784314, blue: 0.3960784314, alpha: 1))]))
+            percentChangeIn1hr.attributedText = changeIn1hrattributedText
+        }
+        
+        let changeIn24hrattributedText = NSMutableAttributedString(string: "Percent Change in 24hr: ", attributes: [
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
+            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+        let percentChangein24 = Double(model.percent_change_24h)!
+        if percentChangein24 >= 0 {
+            changeIn24hrattributedText.append(NSAttributedString(string: "\(model.percent_change_24h)%", attributes: [
+                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
+                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.6745098039, green: 1, blue: 0.3960784314, alpha: 1))]))
+            percentChangein24hr.attributedText = changeIn24hrattributedText
+        } else {
+            changeIn24hrattributedText.append(NSAttributedString(string: "\(model.percent_change_24h)%", attributes: [
+                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
+                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1, green: 0.3960784314, blue: 0.3960784314, alpha: 1))]))
+            percentChangein24hr.attributedText = changeIn24hrattributedText
+        }
+        
+        let changeIn7daysattributedText = NSMutableAttributedString(string: "Percent Change in 7 days: ", attributes: [
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
+            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+        let percentChangein7 = Double(model.percent_change_7d)!
+        if percentChangein7 >= 0 {
+            changeIn7daysattributedText.append(NSAttributedString(string: "\(model.percent_change_7d)%", attributes: [
+                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
+                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.6745098039, green: 1, blue: 0.3960784314, alpha: 1))]))
+            percentChangein7days.attributedText = changeIn7daysattributedText
+        } else {
+            changeIn7daysattributedText.append(NSAttributedString(string: "\(model.percent_change_7d)%", attributes: [
+                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
+                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1, green: 0.3960784314, blue: 0.3960784314, alpha: 1))]))
+            percentChangein7days.attributedText = changeIn7daysattributedText
+        }
+        
+        if percentChangein7 < 0 {
+            sadGifImage.isHidden = false
+            let badAttributedText = NSMutableAttributedString(string: "Don't lose faith. \(model.name) will recover!", attributes: [
+                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 25, weight: .semibold),
+                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))])
+            goodOrBadWeek.attributedText = badAttributedText
+        } else {
+            happyGifImage.isHidden = false
+            let goodAttributedText = NSMutableAttributedString(string: "Great Week for \(model.name)!", attributes: [
+                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 25, weight: .semibold),
+                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))])
+            goodOrBadWeek.attributedText = goodAttributedText
+        }
+    }
+    
+    // This function will convert a number into currency format
+    private func convertToCurrency(number: Double) -> String {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.numberStyle = NumberFormatter.Style.currency
+        // localize to your grouping and decimal separator
+        let priceOfCoin: NSNumber = Double(number) as NSNumber
+        let priceString = currencyFormatter.string(from: priceOfCoin)!
+        return priceString
+    }
+    
     // MARK - Networking
     
-    @objc private func sendNetworkRequest() {
+    private func sendNetworkRequest() {
         // create a session & request
         let session = URLSession.shared
         
@@ -250,13 +331,10 @@ class CryptoInfoViewController: UIViewController {
         let task = session.dataTask(with: request) { (data, response, error) in
             
             // TODO: check data, response, & error.
-        
             guard let data = data else {return}
             // parse JSON data using Decodable
             do {
-                print("hi")
                 let json = try JSONDecoder().decode(Giphy.self, from: data)
-                print("hi 2 \(json)")
                 for gif in json.data {
                     self.urlStringGifsFromGiphy.append(gif.images.original.url)
                 }
@@ -290,7 +368,6 @@ class CryptoInfoViewController: UIViewController {
             let queryItem = URLQueryItem(name: key, value: "\(value)")
             components.queryItems!.append(queryItem)
         }
-        
         return components.url!
     }
 }
