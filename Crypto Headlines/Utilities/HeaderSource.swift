@@ -12,7 +12,7 @@ import Foundation
 class HeaderSource {
     static let instance = HeaderSource()
     
-    private let titleArray: [TitleHeader] = [
+    fileprivate let titleArray: [TitleHeader] = [
         TitleHeader(headerTitle: "Current Headlines", subTitle: "from CryptoCoinsNews"),
         TitleHeader(headerTitle: "Cryptocurrencies", subTitle: "from CoinMarketCap")]
     

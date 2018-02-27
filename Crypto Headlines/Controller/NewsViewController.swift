@@ -76,11 +76,11 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // test ad unit ID = "ca-app-pub-3940256099942544/4411468910"
         // real ad unit ID = "ca-app-pub-9738856726428126/3854403543"
         
-        interstitialAd = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
+        interstitialAd = GADInterstitial(adUnitID: "ca-app-pub-9738856726428126/3854403543")
         let request = GADRequest()
         // Request test ads on devices you specify. Your test device ID is printed to the console when
         // an ad request is made.
-        request.testDevices = [ kGADSimulatorID, "4804ce1f66b692f816baab2372878863" ]
+//        request.testDevices = [ kGADSimulatorID, "4804ce1f66b692f816baab2372878863" ]
         interstitialAd.load(request)
     }
     
