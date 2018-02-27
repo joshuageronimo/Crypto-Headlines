@@ -74,13 +74,11 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // Will get a insterstitial ad ready for the user.
     private func createAndLoadInterstitial() {
         // test ad unit ID = "ca-app-pub-3940256099942544/4411468910"
-        // real ad unit ID = "ca-app-pub-9738856726428126/3854403543"
-        
-        interstitialAd = GADInterstitial(adUnitID: "ca-app-pub-9738856726428126/3854403543")
+        interstitialAd = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
         let request = GADRequest()
         // Request test ads on devices you specify. Your test device ID is printed to the console when
         // an ad request is made.
-//        request.testDevices = [ kGADSimulatorID, "4804ce1f66b692f816baab2372878863" ]
+        request.testDevices = [ kGADSimulatorID, "4804ce1f66b692f816baab2372878863" ]
         interstitialAd.load(request)
     }
     
@@ -159,16 +157,28 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         // create a network request
         let task = session.dataTask(with: request) { (data, response, error) in
-            
-            // TODO: check data, response, & error.
-            
             // Initialize newsArticle array to zero
             // So when pullToRefresh is called
             // & the same articles load up from JSON
             // It wont duplicate the articles in the news feed.
             self.newsArticles = []
             guard let data = data else {return}
-            // parse JSON data using Decodable
+            
+            // Check if there are any errors
+            if error != nil {
+                print("Error with network request: \(error!)")
+                return
+            }
+            
+            // Check if the response code is good.
+            if let httpResponse = response as? HTTPURLResponse{
+                if httpResponse.statusCode > 200 {
+                    print("Error with network request: \(httpResponse)")
+                    return
+                }
+            }
+            
+            // Decode the JSON data that we recieved from the API
             do {
                 let json = try JSONDecoder().decode(CryptoCoinsNews.self, from: data)
                 for ccn in json.articles {

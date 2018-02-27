@@ -121,17 +121,37 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
 
         // create a network request
         let task = session.dataTask(with: request) { (data, response, error) in
+            // Initialize cryptoCurrencies array to zero
+            // So when pullToRefresh is called
+            // & the same coins load up from JSON
+            // It wont duplicate the coins in the coin feed.
             self.cryptoCurrencies = []
             guard let data = data else {return}
+            
+            // check if there are any errors
+            if error != nil {
+                print("Error with network request: \(error!)")
+                return
+            }
+            
+            // check if the response code is good.
+            if let httpResponse = response as? HTTPURLResponse{
+                if httpResponse.statusCode > 200 {
+                    print("Error with network request: \(httpResponse)")
+                    return
+                }
+            }
+            
+            // Decode the JSON data that we recieved from the API
             do {
                 let json = try JSONDecoder().decode([CoinMarketCap].self, from: data)
                 for coins in json {
                     self.cryptoCurrencies.append(coins)
                 }
-                
             } catch let jsonErr {
                 print("Error serializing json", jsonErr)
             }
+            
             DispatchQueue.main.async {
                 // Update UI
                 self.collectionView.reloadData()
