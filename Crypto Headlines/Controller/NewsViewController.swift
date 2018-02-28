@@ -13,6 +13,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var newsArticles = [CryptoCoinsNews.Articles]()
+    fileprivate var bingNewsArticles = [BingNewsSearch.Articles]()
     fileprivate var pullToRefresh: UIRefreshControl!
     fileprivate let titleCellIdentifier = "TitleCell"
     fileprivate let newsCellIndetifier = "NewsCell"
@@ -38,6 +39,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         createAndLoadInterstitial() /* get the ad ready */
         sendNetworkRequest() /* get the news from the API */
+        sendNetworkRequestToBing()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +76,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // Will get a insterstitial ad ready for the user.
     private func createAndLoadInterstitial() {
         // test ad unit ID = "ca-app-pub-3940256099942544/4411468910"
+        // real ad unit ID = "ca-app-pub-9738856726428126/3854403543"
         interstitialAd = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
         let request = GADRequest()
         // Request test ads on devices you specify. Your test device ID is printed to the console when
@@ -192,6 +195,28 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 // Update UI
                 self.collectionView.reloadData()
                 self.pullToRefresh.endRefreshing()
+            }
+        }
+        task.resume()
+    }
+    
+    private func sendNetworkRequestToBing() {
+        // create a session & request
+        let session = URLSession.shared
+        let api = URL(string: "https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=cryptocurrency&originalImg=true&freshness=Week&sortBy=Date&count=40")
+        var request = URLRequest(url: api!)
+        request.addValue("2bb37256c4e44f5e9922f912e0f929ff", forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
+        
+        let task = session.dataTask(with: request) { (data, respons, error) in
+            guard let data = data else { return }
+            do {
+                let json = try JSONDecoder().decode(BingNewsSearch.self, from: data)
+                for articles in json.value {
+                    self.bingNewsArticles.append(articles)
+                }
+                
+            } catch let jsonError {
+                print("Error serializing json", jsonError)
             }
         }
         task.resume()
