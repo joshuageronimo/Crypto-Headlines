@@ -42,47 +42,37 @@ class CoinsCollectionViewCell: UICollectionViewCell {
         setUpLayout()
     }
     
-    // This function will convert a number into currency format
-    fileprivate func convertToCurrency(number: Double) -> String {
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.usesGroupingSeparator = true
-        currencyFormatter.numberStyle = NumberFormatter.Style.currency
-        // localize to your grouping and decimal separator
-        let priceOfCoin: NSNumber = Double(number) as NSNumber
-        let priceString = currencyFormatter.string(from: priceOfCoin)!
-        return priceString
-    }
-    
     // Will update the cell's data
-    func updateCoinFeed(with coinsFrom: CoinMarketCap) {
-        // load the rank & symbol of the coin
-        let nameAndrankAttributedText = NSMutableAttributedString(string: "#\(coinsFrom.rank)", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 16, weight: .light), NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
-        nameAndrankAttributedText.append(NSAttributedString(string: "\n\(coinsFrom.symbol)", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 36, weight: .medium), NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))]))
+    func updateCoinFeed(with coinsFrom: CoinMarketCap)
+    {
+        // RANK & SYMBOL
+        let nameAndrankAttributedText = NSMutableAttributedString(string: "#\(coinsFrom.rank)", attributes: [
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 16, weight: .light),
+            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+        nameAndrankAttributedText.append(NSAttributedString(string: "\n\(coinsFrom.symbol)", attributes: [
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 36, weight: .medium),
+            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))]))
         cryptoNameAndRankLabel.attributedText = nameAndrankAttributedText
         
-        
-        var priceOfCoinInString = coinsFrom.price_usd
-        let priceOfCoin = Double(coinsFrom.price_usd)!
-        // convert the price into currency format
-        if priceOfCoin >= 1000 {
-            priceOfCoinInString = convertToCurrency(number: priceOfCoin)
-        } else {
-            priceOfCoinInString = "$\(priceOfCoinInString)"
-        }
-        
-        // load the price of the coin
-        let priceAndPercentAttributedText = NSMutableAttributedString(string: "\(priceOfCoinInString)", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 34, weight: .light), NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))])
-        
-        priceAndPercentAttributedText.append(NSAttributedString(string: "\n Past Day ", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17, weight: .light), NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))]))
-        
+        // PRICE OF COIN
+        let priceAndPercentAttributedText = NSMutableAttributedString(string: "\(convertToCurrency(coinsFrom.price_usd))", attributes:[
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 34, weight: .light),
+            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))])
+        priceAndPercentAttributedText.append(NSAttributedString(string: "\n Past Day ", attributes: [
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17, weight: .light),
+            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))]))
         let percentChange = Double(coinsFrom.percent_change_24h)!
         // load the percent change of the coin
         if percentChange >= 0 {
             // change the percent to green if the value is positive
-            priceAndPercentAttributedText.append(NSAttributedString(string: "(\(coinsFrom.percent_change_24h)%)", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17, weight: .light), NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.6745098039, green: 1, blue: 0.3960784314, alpha: 1))]))
+            priceAndPercentAttributedText.append(NSAttributedString(string: "(\(coinsFrom.percent_change_24h)%)", attributes: [
+                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17, weight: .light),
+                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.6745098039, green: 1, blue: 0.3960784314, alpha: 1))]))
         } else {
             // change the percent to red if the value is negative
-            priceAndPercentAttributedText.append(NSAttributedString(string: "(\(coinsFrom.percent_change_24h)%)", attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17, weight: .light), NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1, green: 0.3960784314, blue: 0.3960784314, alpha: 1))]))
+            priceAndPercentAttributedText.append(NSAttributedString(string: "(\(coinsFrom.percent_change_24h)%)", attributes: [
+                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17, weight: .light),
+                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1, green: 0.3960784314, blue: 0.3960784314, alpha: 1))]))
         }
         cryptoPriceAndPercentLabel.attributedText = priceAndPercentAttributedText
     }
@@ -106,6 +96,20 @@ class CoinsCollectionViewCell: UICollectionViewCell {
             cryptoPriceAndPercentLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             cryptoPriceAndPercentLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: frame.width / 2.2),
             cryptoPriceAndPercentLabel.trailingAnchor.constraint(equalTo: cryptoInfoContainer.trailingAnchor, constant: -12)])
+    }
+    
+    // This function will convert a number into currency format
+    fileprivate func convertToCurrency(_ number: String) -> String {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = NumberFormatter.Style.currency
+        let numberDouble = Double(number)!
+        if numberDouble >= 1000 {
+            //numberString = convertToCurrency(number: numberDouble)
+            let priceOfCoin: NSNumber = numberDouble as NSNumber
+            let priceString = currencyFormatter.string(from: priceOfCoin)!
+            return priceString
+        }
+        return "$\(number)"
     }
     
     required init?(coder aDecoder: NSCoder) {

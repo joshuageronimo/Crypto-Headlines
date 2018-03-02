@@ -112,9 +112,6 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
     // MARK - Networking
     
     @objc fileprivate func sendNetworkRequest() {
-        
-        // TODO -  Check for error and response
-        
         // create a session & request
         let session = URLSession.shared
         let request = URLRequest(url: apiURL())
