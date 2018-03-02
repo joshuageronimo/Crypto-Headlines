@@ -29,6 +29,17 @@ class NewsCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    // This will be the container of newsThumbnail
+    fileprivate let thumbnailContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        view.layer.cornerRadius = 25
+        view.layer.shadowRadius = 5
+        view.layer.shadowOpacity = 0.3
+        return view
+    }()
+    
     // this will be where the image is going to show
     fileprivate let newsThumbnail: CustomImageView = {
         let image = CustomImageView()
@@ -60,7 +71,10 @@ class NewsCollectionViewCell: UICollectionViewCell {
     fileprivate func setUpNewsFeedLayout() {
         addSubview(titleContainer)
         titleContainer.addSubview(newsTitle)
-        addSubview(newsThumbnail)
+        addSubview(thumbnailContainer)
+        thumbnailContainer.addSubview(newsThumbnail)
+        //addSubview(newsThumbnail)
+        
         // setup constraints
         NSLayoutConstraint.activate([
             // titleContainer - Constraint
@@ -71,11 +85,16 @@ class NewsCollectionViewCell: UICollectionViewCell {
             newsTitle.topAnchor.constraint(equalTo: titleContainer.topAnchor, constant: 15),
             newsTitle.leadingAnchor.constraint(equalTo: titleContainer.leadingAnchor, constant: 8),
             newsTitle.trailingAnchor.constraint(equalTo: titleContainer.trailingAnchor, constant: -8),
+            // thumbnailContainer - Constraint
+            thumbnailContainer.topAnchor.constraint(equalTo: newsTitle.bottomAnchor, constant: 8),
+            thumbnailContainer.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75),
+            thumbnailContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 27),
+            thumbnailContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -27),
             // newsThumbnail - Constraint
-            newsThumbnail.topAnchor.constraint(equalTo: newsTitle.bottomAnchor, constant: 8),
-            newsThumbnail.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75),
-            newsThumbnail.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 27),
-            newsThumbnail.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -27)])
+            newsThumbnail.heightAnchor.constraint(equalTo: thumbnailContainer.heightAnchor),
+            newsThumbnail.trailingAnchor.constraint(equalTo: thumbnailContainer.trailingAnchor),
+            newsThumbnail.leadingAnchor.constraint(equalTo: thumbnailContainer.leadingAnchor),
+            newsThumbnail.topAnchor.constraint(equalTo: newsTitle.bottomAnchor, constant: 8)])
     }
     
     required init?(coder aDecoder: NSCoder) {
