@@ -13,7 +13,6 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var newsArticles = [CryptoCoinsNews.Articles]()
-    fileprivate var bingNewsArticles = [BingNewsSearch.Articles]()
     fileprivate var pullToRefresh: UIRefreshControl!
     fileprivate let titleCellIdentifier = "TitleCell"
     fileprivate let newsCellIndetifier = "NewsCell"
@@ -39,7 +38,6 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         createAndLoadInterstitial() /* get the ad ready */
         sendNetworkRequest() /* get the news from the API */
-        sendNetworkRequestToBing()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -195,28 +193,6 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 // Update UI
                 self.collectionView.reloadData()
                 self.pullToRefresh.endRefreshing()
-            }
-        }
-        task.resume()
-    }
-    
-    private func sendNetworkRequestToBing() {
-        // create a session & request
-        let session = URLSession.shared
-        let api = URL(string: "https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=cryptocurrency&originalImg=true&freshness=Week&sortBy=Date&count=40")
-        var request = URLRequest(url: api!)
-        request.addValue("2bb37256c4e44f5e9922f912e0f929ff", forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
-        
-        let task = session.dataTask(with: request) { (data, respons, error) in
-            guard let data = data else { return }
-            do {
-                let json = try JSONDecoder().decode(BingNewsSearch.self, from: data)
-                for articles in json.value {
-                    self.bingNewsArticles.append(articles)
-                }
-                
-            } catch let jsonError {
-                print("Error serializing json", jsonError)
             }
         }
         task.resume()
