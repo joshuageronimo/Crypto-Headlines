@@ -13,7 +13,7 @@ class CoinsCollectionViewCell: UICollectionViewCell {
     fileprivate let cryptoInfoContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = #colorLiteral(red: 0.1450980392, green: 0.1843137255, blue: 0.2235294118, alpha: 1)
+        view.backgroundColor = UIColor(named:"primary_light")!
         view.layer.cornerRadius = 25
         view.layer.shadowRadius = 10
         view.layer.shadowOpacity = 0.5
@@ -48,31 +48,31 @@ class CoinsCollectionViewCell: UICollectionViewCell {
         // RANK & SYMBOL
         let nameAndrankAttributedText = NSMutableAttributedString(string: "#\(coinsFrom.rank)", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 16, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+            NSAttributedStringKey.foregroundColor : UIColor(named:"accent_light")!])
         nameAndrankAttributedText.append(NSAttributedString(string: "\n\(coinsFrom.symbol)", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 36, weight: .medium),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))]))
+            NSAttributedStringKey.foregroundColor : UIColor(named:"primary_text")!]))
         cryptoNameAndRankLabel.attributedText = nameAndrankAttributedText
         
         // PRICE OF COIN
         let priceAndPercentAttributedText = NSMutableAttributedString(string: "\(convertToCurrency(coinsFrom.price_usd))", attributes:[
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 34, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))])
+            NSAttributedStringKey.foregroundColor : UIColor(named:"primary_text")!])
         priceAndPercentAttributedText.append(NSAttributedString(string: "\n Past Day ", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))]))
+            NSAttributedStringKey.foregroundColor : UIColor(named:"accent_light")!]))
         let percentChange = Double(coinsFrom.percent_change_24h)!
         // load the percent change of the coin
         if percentChange >= 0 {
             // change the percent to green if the value is positive
             priceAndPercentAttributedText.append(NSAttributedString(string: "(\(coinsFrom.percent_change_24h)%)", attributes: [
                 NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17, weight: .light),
-                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.6745098039, green: 1, blue: 0.3960784314, alpha: 1))]))
+                NSAttributedStringKey.foregroundColor : UIColor(named:"positive")!]))
         } else {
             // change the percent to red if the value is negative
             priceAndPercentAttributedText.append(NSAttributedString(string: "(\(coinsFrom.percent_change_24h)%)", attributes: [
                 NSAttributedStringKey.font : UIFont.systemFont(ofSize: 17, weight: .light),
-                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1, green: 0.3960784314, blue: 0.3960784314, alpha: 1))]))
+                NSAttributedStringKey.foregroundColor : UIColor(named:"negative")!]))
         }
         cryptoPriceAndPercentLabel.attributedText = priceAndPercentAttributedText
     }

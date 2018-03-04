@@ -26,7 +26,7 @@ class CryptoInfoViewController: UIViewController {
     fileprivate let lineSeparator1: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 0.76)
+        view.backgroundColor = UIColor(named:"border_line")!
         return view
     }()
     
@@ -103,7 +103,7 @@ class CryptoInfoViewController: UIViewController {
     fileprivate let lineSeparator2: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 0.76)
+        view.backgroundColor = UIColor(named:"border_line")!
         return view
     }()
     
@@ -183,61 +183,61 @@ class CryptoInfoViewController: UIViewController {
         // TITLE
         let titleAttributedText = NSMutableAttributedString(string: "\(model.name)\n", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 40, weight: .semibold),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))])
+            NSAttributedStringKey.foregroundColor : UIColor(named:"primary_text")!])
         titleAttributedText.append(NSAttributedString(string: "\(model.symbol)", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 19, weight: .medium),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))]))
+            NSAttributedStringKey.foregroundColor : UIColor(named:"accent_light")!]))
         cryptoTitle.attributedText = titleAttributedText
         
         // RANK
         let rankAttributedText = NSMutableAttributedString(string: "Rank: ", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+            NSAttributedStringKey.foregroundColor : UIColor(named:"accent_light")!])
         rankAttributedText.append(NSAttributedString(string: "#\(model.rank)", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))]))
+            NSAttributedStringKey.foregroundColor : UIColor(named:"primary_text")!]))
         rankLabel.attributedText = rankAttributedText
         
         // MARKET CAP
         let marketCapAttributedText = NSMutableAttributedString(string: "Market Cap: ", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+            NSAttributedStringKey.foregroundColor : UIColor(named:"accent_light")!])
         marketCapAttributedText.append(NSAttributedString(string: "\(convertToCurrency(model.market_cap_usd))", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))]))
+            NSAttributedStringKey.foregroundColor : UIColor(named:"primary_text")!]))
         marketCapLabel.attributedText = marketCapAttributedText
         
         // CURRENT PRICE
         let currentPriceattributedText = NSMutableAttributedString(string: "Current Price: ", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+            NSAttributedStringKey.foregroundColor : UIColor(named:"accent_light")!])
         currentPriceattributedText.append(NSAttributedString(string: "\(convertToCurrency(model.price_usd))", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))]))
+            NSAttributedStringKey.foregroundColor : UIColor(named:"primary_text")!]))
         currentPriceLabel.attributedText = currentPriceattributedText
         
         // AVAILABLE SUPPLY
         let availableSupplyattributedText = NSMutableAttributedString(string: "Available Supply: ", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+            NSAttributedStringKey.foregroundColor : UIColor(named:"accent_light")!])
         availableSupplyattributedText.append(NSAttributedString(string: "\(formatNumberWithCommas(model.available_supply))", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))]))
+            NSAttributedStringKey.foregroundColor : UIColor(named:"primary_text")!]))
         availableSupplyLabel.attributedText = availableSupplyattributedText
         
         // TOTAL SUPPLY
         let totalSupplyattributedText = NSMutableAttributedString(string: "Total Supply: ", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+            NSAttributedStringKey.foregroundColor : UIColor(named:"accent_light")!])
         totalSupplyattributedText.append(NSAttributedString(string: "\(formatNumberWithCommas(model.total_supply))", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))]))
+            NSAttributedStringKey.foregroundColor : UIColor(named:"primary_text")!]))
         totalSupplyLabel.attributedText = totalSupplyattributedText
         
         // MAX SUPPLY
         let maxSupplyattributedText = NSMutableAttributedString(string: "Max Supply: ", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+            NSAttributedStringKey.foregroundColor : UIColor(named:"accent_light")!])
         var maxSupplyValue = "No Data"
         if let maxSupply = model.max_supply {
             maxSupplyValue = maxSupply
@@ -245,57 +245,57 @@ class CryptoInfoViewController: UIViewController {
         }
         maxSupplyattributedText.append(NSAttributedString(string: "\(maxSupplyValue)", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))]))
+            NSAttributedStringKey.foregroundColor : UIColor(named:"primary_text")!]))
         maxSupplyLabel.attributedText = maxSupplyattributedText
         
         // 1 HR
         let changeIn1hrattributedText = NSMutableAttributedString(string: "Percent Change in 1hr: ", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+            NSAttributedStringKey.foregroundColor : UIColor(named:"accent_light")!])
         let percentChange1hr = Double(model.percent_change_1h)!
         if percentChange1hr >= 0 {
             changeIn1hrattributedText.append(NSAttributedString(string: "\(model.percent_change_1h)%", attributes: [
                 NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.6745098039, green: 1, blue: 0.3960784314, alpha: 1))]))
+                NSAttributedStringKey.foregroundColor : UIColor(named:"positive")!]))
             percentChangeIn1hr.attributedText = changeIn1hrattributedText
         } else {
             changeIn1hrattributedText.append(NSAttributedString(string: "\(model.percent_change_1h)%", attributes: [
                 NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1, green: 0.3960784314, blue: 0.3960784314, alpha: 1))]))
+                NSAttributedStringKey.foregroundColor : UIColor(named:"negative")!]))
             percentChangeIn1hr.attributedText = changeIn1hrattributedText
         }
         
         // 24 HR
         let changeIn24hrattributedText = NSMutableAttributedString(string: "Percent Change in 24hr: ", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+            NSAttributedStringKey.foregroundColor : UIColor(named:"accent_light")!])
         let percentChangein24 = Double(model.percent_change_24h)!
         if percentChangein24 >= 0 {
             changeIn24hrattributedText.append(NSAttributedString(string: "\(model.percent_change_24h)%", attributes: [
                 NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.6745098039, green: 1, blue: 0.3960784314, alpha: 1))]))
+                NSAttributedStringKey.foregroundColor : UIColor(named:"positive")!]))
             percentChangein24hr.attributedText = changeIn24hrattributedText
         } else {
             changeIn24hrattributedText.append(NSAttributedString(string: "\(model.percent_change_24h)%", attributes: [
                 NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1, green: 0.3960784314, blue: 0.3960784314, alpha: 1))]))
+                NSAttributedStringKey.foregroundColor : UIColor(named:"negative")!]))
             percentChangein24hr.attributedText = changeIn24hrattributedText
         }
         
         // 7 DAYS
         let changeIn7daysattributedText = NSMutableAttributedString(string: "Percent Change in 7 days: ", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.76))])
+            NSAttributedStringKey.foregroundColor : UIColor(named:"accent_light")!])
         let percentChangein7 = Double(model.percent_change_7d)!
         if percentChangein7 >= 0 {
             changeIn7daysattributedText.append(NSAttributedString(string: "\(model.percent_change_7d)%", attributes: [
                 NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 0.6745098039, green: 1, blue: 0.3960784314, alpha: 1))]))
+                NSAttributedStringKey.foregroundColor : UIColor(named:"positive")!]))
             percentChangein7days.attributedText = changeIn7daysattributedText
         } else {
             changeIn7daysattributedText.append(NSAttributedString(string: "\(model.percent_change_7d)%", attributes: [
                 NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
-                NSAttributedStringKey.foregroundColor : UIColor.init(cgColor: #colorLiteral(red: 1, green: 0.3960784314, blue: 0.3960784314, alpha: 1))]))
+                NSAttributedStringKey.foregroundColor : UIColor(named:"negative")!]))
             percentChangein7days.attributedText = changeIn7daysattributedText
         }
     }

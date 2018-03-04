@@ -11,7 +11,7 @@ import UIKit
 
 let imageCache = NSCache<AnyObject, AnyObject>()
 
-// This custom ImageView class will load images asynchronously!
+// This custom UIImageView class will load images from the internet.
 class CustomImageView: UIImageView {
     
     var imageUrlString: String? /* reference of the current URL */

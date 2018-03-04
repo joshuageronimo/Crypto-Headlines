@@ -10,6 +10,34 @@ import UIKit
 
 class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITabBarControllerDelegate {
 
+    fileprivate var emptyCellErrorMessage: UILabel! = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Uh-oh! Network connection failed. \nPlease try again later."
+        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        label.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        label.numberOfLines = 2
+        label.isHidden = true
+        return label
+    }()
+    
+    fileprivate var reloadEmptyCell: UIButton! = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Refresh", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.5129698202)
+        button.layer.cornerRadius = 10
+        button.layer.borderWidth = 2
+        button.layer.borderColor = #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.764494863)
+        button.addTarget(self, action: #selector(sendNetworkRequest), for: .touchUpInside)
+        button.isHidden = true
+        return button
+    }()
+    
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var cryptoCurrencies = [CoinMarketCap]()
     fileprivate var pullToRefresh: UIRefreshControl!
@@ -31,7 +59,8 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
         pullToRefresh.addTarget(self, action: #selector(sendNetworkRequest), for: .valueChanged)
         collectionView.addSubview(pullToRefresh)
         
-        sendNetworkRequest()
+        createEmptyCellMessage() /* create empty cell UI incase there's an error with the network request. */
+        sendNetworkRequest() /* get cryptocurrency prices & info from the API */
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,7 +114,15 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
             }
         } else { /* Show the news feed after index 0 */
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: coinCellIndetifier, for: indexPath) as? CoinsCollectionViewCell {
-                cell.updateCoinFeed(with: cryptoCurrencies[indexPath.item - 1])
+                if cryptoCurrencies.count > 0 {
+                    cell.updateCoinFeed(with: cryptoCurrencies[indexPath.item - 1])
+                } else {
+                    DispatchQueue.main.async {
+                        // Update UI
+                        self.collectionView.reloadData()
+                        self.pullToRefresh.endRefreshing()
+                    }
+                }
                 return cell
             } else {
                 return CoinsCollectionViewCell()
@@ -123,12 +160,20 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
             // & the same coins load up from JSON
             // It wont duplicate the coins in the coin feed.
             self.cryptoCurrencies = []
-            guard let data = data else {return}
             
-            // check if there are any errors
+            // Check if there are any errors
             if error != nil {
                 print("Error with network request: \(error!)")
+                DispatchQueue.main.async {
+                    self.emptyCellErrorMessage.isHidden = false
+                    self.reloadEmptyCell.isHidden = false
+                }
                 return
+            } else {
+                DispatchQueue.main.async {
+                    self.emptyCellErrorMessage.isHidden = true
+                    self.reloadEmptyCell.isHidden = true
+                }
             }
             
             // check if the response code is good.
@@ -138,6 +183,8 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
                     return
                 }
             }
+            
+            guard let data = data else {return}
             
             // Decode the JSON data that we recieved from the API
             do {
@@ -166,5 +213,22 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
         components.host = CoinsConstant.BaseApi.host
         components.path = CoinsConstant.BaseApi.path
         return components.url!
+    }
+    
+    fileprivate func createEmptyCellMessage() {
+        view.addSubview(emptyCellErrorMessage)
+        view.addSubview(reloadEmptyCell)
+        
+        NSLayoutConstraint.activate([
+            // Empty Cell message Label constraint
+            emptyCellErrorMessage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyCellErrorMessage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            emptyCellErrorMessage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            emptyCellErrorMessage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            //  Empty Cell reload button constraint
+            reloadEmptyCell.topAnchor.constraint(equalTo: emptyCellErrorMessage.bottomAnchor, constant: 15),
+            reloadEmptyCell.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            reloadEmptyCell.heightAnchor.constraint(equalToConstant: 30),
+            reloadEmptyCell.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.35)])
     }
 }

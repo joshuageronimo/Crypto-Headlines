@@ -14,7 +14,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
     fileprivate let titleContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.5122270976)
+        view.backgroundColor = UIColor(named: "accent_dark")!
         view.layer.cornerRadius = 25
         view.layer.shadowRadius = 10
         view.layer.shadowOpacity = 0.5
@@ -60,7 +60,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
         // load the title of the news articles
         let attributedText = NSMutableAttributedString(string: news.title , attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14, weight: .semibold),
-            NSAttributedStringKey.foregroundColor : UIColor.white])
+            NSAttributedStringKey.foregroundColor : UIColor(named: "primary_text")!])
         newsTitle.attributedText = attributedText
         newsTitle.textAlignment = .center
         // load the images

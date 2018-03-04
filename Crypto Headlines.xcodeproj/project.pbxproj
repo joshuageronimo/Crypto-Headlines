@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CFC10E79907E95C319330C45 /* Pods_Crypto_Headlines.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58CB6374B4250E68DCD4100C /* Pods_Crypto_Headlines.framework */; };
+		DF41129D204BDBD80000A967 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF41129C204BDBD80000A967 /* Theme.xcassets */; };
 		DF72B22A2034F30C008823BB /* CryptoCoinsNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72B2292034F30C008823BB /* CryptoCoinsNews.swift */; };
 		DF72B22D2035C048008823BB /* NewsConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72B22C2035C048008823BB /* NewsConstant.swift */; };
 		DF887B70203E46EF00F40626 /* CryptoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF887B6F203E46EF00F40626 /* CryptoInfoViewController.swift */; };
@@ -33,6 +34,7 @@
 		1384ABD0E6D9A9207E70105D /* Pods-Crypto Headlines.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crypto Headlines.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crypto Headlines/Pods-Crypto Headlines.release.xcconfig"; sourceTree = "<group>"; };
 		58CB6374B4250E68DCD4100C /* Pods_Crypto_Headlines.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crypto_Headlines.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B39B44A3F1419039ED837BF9 /* Pods-Crypto Headlines.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crypto Headlines.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crypto Headlines/Pods-Crypto Headlines.debug.xcconfig"; sourceTree = "<group>"; };
+		DF41129C204BDBD80000A967 /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
 		DF72B2292034F30C008823BB /* CryptoCoinsNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCoinsNews.swift; sourceTree = "<group>"; };
 		DF72B22C2035C048008823BB /* NewsConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsConstant.swift; sourceTree = "<group>"; };
 		DF887B6B203D123C00F40626 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				DF8EEFF02034D59B0060B63A /* AppDelegate.swift */,
 				DF8EEFF42034D59B0060B63A /* Main.storyboard */,
 				DF8EEFF72034D59B0060B63A /* Assets.xcassets */,
+				DF41129C204BDBD80000A967 /* Theme.xcassets */,
 				DF8EEFF92034D59B0060B63A /* LaunchScreen.storyboard */,
 				DF8EEFFC2034D59B0060B63A /* Info.plist */,
 			);
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF8EEFFB2034D59B0060B63A /* LaunchScreen.storyboard in Resources */,
+				DF41129D204BDBD80000A967 /* Theme.xcassets in Resources */,
 				DF8EEFF82034D59B0060B63A /* Assets.xcassets in Resources */,
 				DF8EEFF62034D59B0060B63A /* Main.storyboard in Resources */,
 			);

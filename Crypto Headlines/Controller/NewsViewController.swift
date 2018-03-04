@@ -11,13 +11,40 @@ import GoogleMobileAds
 
 class NewsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITabBarControllerDelegate {
     
+    fileprivate var emptyCellErrorMessage: UILabel! = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Uh-oh! Network connection failed. \nPlease try again later."
+        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        label.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        label.numberOfLines = 2
+        label.isHidden = true
+        return label
+    }()
+    
+    fileprivate var reloadEmptyCell: UIButton! = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Refresh", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.5129698202)
+        button.layer.cornerRadius = 10
+        button.layer.borderWidth = 2
+        button.layer.borderColor = #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.764494863)
+        button.addTarget(self, action: #selector(sendNetworkRequest), for: .touchUpInside)
+        button.isHidden = true
+        return button
+    }()
+    
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var newsArticles = [CryptoCoinsNews.Articles]()
     fileprivate var pullToRefresh: UIRefreshControl!
     fileprivate let titleCellIdentifier = "TitleCell"
     fileprivate let newsCellIndetifier = "NewsCell"
     fileprivate var didComeFromAnotherViewController = false
-    
     fileprivate var showInterstitialAd = false
     fileprivate var interstitialAd: GADInterstitial!
     
@@ -36,6 +63,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         pullToRefresh.addTarget(self, action: #selector(sendNetworkRequest), for: .valueChanged)
         collectionView.addSubview(pullToRefresh)
         
+        createEmptyCellMessage() /* create empty cell UI incase there's an error with the network request. */
         createAndLoadInterstitial() /* get the ad ready */
         sendNetworkRequest() /* get the news from the API */
     }
@@ -123,7 +151,15 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
         } else { /* Show the news feed after index 0 */
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: newsCellIndetifier, for: indexPath) as? NewsCollectionViewCell {
-                cell.updateNewsFeed(with: newsArticles[indexPath.item - 1])
+                if newsArticles.count > 0 {
+                    cell.updateNewsFeed(with: newsArticles[indexPath.item - 1])
+                } else {
+                    DispatchQueue.main.async {
+                        // Update UI
+                        self.collectionView.reloadData()
+                        self.pullToRefresh.endRefreshing()
+                    }
+                }
                 return cell
             } else {
                 return NewsCollectionViewCell()
@@ -163,12 +199,20 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             // & the same articles load up from JSON
             // It wont duplicate the articles in the news feed.
             self.newsArticles = []
-            guard let data = data else {return}
             
             // Check if there are any errors
             if error != nil {
                 print("Error with network request: \(error!)")
+                DispatchQueue.main.async {
+                    self.emptyCellErrorMessage.isHidden = false
+                    self.reloadEmptyCell.isHidden = false
+                }
                 return
+            } else {
+                DispatchQueue.main.async {
+                    self.emptyCellErrorMessage.isHidden = true
+                    self.reloadEmptyCell.isHidden = true
+                }
             }
             
             // Check if the response code is good.
@@ -178,6 +222,8 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     return
                 }
             }
+            
+            guard let data = data else {return}
             
             // Decode the JSON data that we recieved from the API
             do {
@@ -220,6 +266,23 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         
         return components.url!
+    }
+    
+    fileprivate func createEmptyCellMessage() {
+        view.addSubview(emptyCellErrorMessage)
+        view.addSubview(reloadEmptyCell)
+
+        NSLayoutConstraint.activate([
+            // Empty Cell message Label constraint
+            emptyCellErrorMessage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyCellErrorMessage.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            emptyCellErrorMessage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            emptyCellErrorMessage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            //  Empty Cell reload button constraint
+            reloadEmptyCell.topAnchor.constraint(equalTo: emptyCellErrorMessage.bottomAnchor, constant: 15),
+            reloadEmptyCell.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            reloadEmptyCell.heightAnchor.constraint(equalToConstant: 30),
+            reloadEmptyCell.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.35)])
     }
 }
 
