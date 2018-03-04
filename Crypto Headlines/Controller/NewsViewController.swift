@@ -11,34 +11,6 @@ import GoogleMobileAds
 
 class NewsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITabBarControllerDelegate {
     
-    fileprivate var emptyCellErrorMessage: UILabel! = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Uh-oh! Network connection failed. \nPlease try again later."
-        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-        label.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        label.textAlignment = .center
-        label.adjustsFontSizeToFitWidth = true
-        label.numberOfLines = 2
-        label.isHidden = true
-        return label
-    }()
-    
-    fileprivate var reloadEmptyCell: UIButton! = {
-        let button = UIButton(type: .system)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Refresh", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-        button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.5129698202)
-        button.layer.cornerRadius = 10
-        button.layer.borderWidth = 2
-        button.layer.borderColor = #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.764494863)
-        button.addTarget(self, action: #selector(sendNetworkRequest), for: .touchUpInside)
-        button.isHidden = true
-        return button
-    }()
-    
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var newsArticles = [CryptoCoinsNews.Articles]()
     fileprivate var pullToRefresh: UIRefreshControl!
@@ -267,6 +239,36 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         return components.url!
     }
+    
+    // MARK - Empty Cell Message
+    
+    fileprivate let emptyCellErrorMessage: UILabel! = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Uh-oh! Network connection failed. \nPlease try again later."
+        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        label.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        label.numberOfLines = 2
+        label.isHidden = true
+        return label
+    }()
+    
+    fileprivate let reloadEmptyCell: UIButton! = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Refresh", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.5129698202)
+        button.layer.cornerRadius = 10
+        button.layer.borderWidth = 2
+        button.layer.borderColor = #colorLiteral(red: 0.9568627451, green: 0.6980392157, blue: 0.6980392157, alpha: 0.764494863)
+        button.addTarget(self, action: #selector(sendNetworkRequest), for: .touchUpInside)
+        button.isHidden = true
+        return button
+    }()
     
     fileprivate func createEmptyCellMessage() {
         view.addSubview(emptyCellErrorMessage)

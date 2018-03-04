@@ -25,6 +25,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
     fileprivate let newsTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontSizeToFitWidth = true
         label.numberOfLines = 2
         return label
     }()
@@ -59,7 +60,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
     func updateNewsFeed(with news: CryptoCoinsNews.Articles) {
         // load the title of the news articles
         let attributedText = NSMutableAttributedString(string: news.title , attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14, weight: .semibold),
+            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 16, weight: .semibold),
             NSAttributedStringKey.foregroundColor : UIColor(named: "primary_text")!])
         newsTitle.attributedText = attributedText
         newsTitle.textAlignment = .center
@@ -73,7 +74,6 @@ class NewsCollectionViewCell: UICollectionViewCell {
         titleContainer.addSubview(newsTitle)
         addSubview(thumbnailContainer)
         thumbnailContainer.addSubview(newsThumbnail)
-        //addSubview(newsThumbnail)
         
         // setup constraints
         NSLayoutConstraint.activate([
@@ -82,19 +82,20 @@ class NewsCollectionViewCell: UICollectionViewCell {
             titleContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 27),
             titleContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -27),
             // newsTitle - Constraint
-            newsTitle.topAnchor.constraint(equalTo: titleContainer.topAnchor, constant: 15),
+            newsTitle.topAnchor.constraint(equalTo: titleContainer.topAnchor, constant: 10),
+            newsTitle.bottomAnchor.constraint(equalTo: thumbnailContainer.topAnchor, constant: -10),
             newsTitle.leadingAnchor.constraint(equalTo: titleContainer.leadingAnchor, constant: 8),
             newsTitle.trailingAnchor.constraint(equalTo: titleContainer.trailingAnchor, constant: -8),
             // thumbnailContainer - Constraint
-            thumbnailContainer.topAnchor.constraint(equalTo: newsTitle.bottomAnchor, constant: 8),
+            thumbnailContainer.topAnchor.constraint(equalTo: titleContainer.topAnchor, constant: 55),
             thumbnailContainer.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75),
             thumbnailContainer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 27),
             thumbnailContainer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -27),
             // newsThumbnail - Constraint
+            newsThumbnail.topAnchor.constraint(equalTo: titleContainer.topAnchor, constant: 55),
             newsThumbnail.heightAnchor.constraint(equalTo: thumbnailContainer.heightAnchor),
-            newsThumbnail.trailingAnchor.constraint(equalTo: thumbnailContainer.trailingAnchor),
             newsThumbnail.leadingAnchor.constraint(equalTo: thumbnailContainer.leadingAnchor),
-            newsThumbnail.topAnchor.constraint(equalTo: newsTitle.bottomAnchor, constant: 8)])
+            newsThumbnail.trailingAnchor.constraint(equalTo: thumbnailContainer.trailingAnchor)])
     }
     
     required init?(coder aDecoder: NSCoder) {
