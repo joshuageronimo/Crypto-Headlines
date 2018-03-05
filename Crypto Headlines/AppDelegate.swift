@@ -7,17 +7,55 @@
 //
 
 import UIKit
+import StoreKit
 import GoogleMobileAds
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        // MARK: Google Admob
         GADMobileAds.configure(withApplicationID: "ca-app-pub-9738856726428126~2984175007")
+        
+        // MARK - Store Review
+        
+        // get current number of times app has been launched
+        let currentCount = UserDefaults.standard.integer(forKey: "launchCount")
+        // increment received number by one
+        UserDefaults.standard.set(currentCount+1, forKey:"launchCount")
+        // save changes to disk
+        UserDefaults.standard.synchronize()
+        
+        // if true request user for an App Review!
+        if askUserForAppRating(currentCount) {
+            requestUserForAnAppRating()
+        }
         return true
+    }
+    
+    // This is the logic for when the app should ask the user for a rating.
+    fileprivate func askUserForAppRating(_ openCount: Int) -> Bool {
+        switch openCount {
+        case 0, 1:
+            return false
+        case 10,30,50:
+            return true
+        case _ where openCount % 100 == 0:
+            return true
+        default:
+            return false
+        }
+        
+    }
+    
+    // This will show a user a prompt to rate the app.
+    fileprivate func requestUserForAnAppRating() {
+        if #available( iOS 10.3,*){
+            SKStoreReviewController.requestReview()
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
