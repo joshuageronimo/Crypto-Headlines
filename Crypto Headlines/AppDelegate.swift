@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // MARK: Google Admob
         GADMobileAds.configure(withApplicationID: "ca-app-pub-9738856726428126~2984175007")
         
-        // MARK - Store Review
+        // MARK: Store Review
         
         // get current number of times app has been launched
         let currentCount = UserDefaults.standard.integer(forKey: "launchCount")
@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         switch openCount {
         case 0, 1:
             return false
-        case 10,30,50:
+        case 3,18,30,50:
             return true
         case _ where openCount % 100 == 0:
             return true
@@ -55,6 +55,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     fileprivate func requestUserForAnAppRating() {
         if #available( iOS 10.3,*){
             SKStoreReviewController.requestReview()
+        }
+    }
+    
+    // MARK: 3D touch Quick Action
+    
+    // This will handle the 3D touch quick action feature.
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        let tabBar = window?.rootViewController as! UITabBarController
+        if shortcutItem.type.contains("news") {
+            tabBar.selectedIndex = 0 // go to NewsViewController
+        } else if shortcutItem.type.contains("crypto") {
+            tabBar.selectedIndex = 1 // go to CryptoViewController
         }
     }
 
