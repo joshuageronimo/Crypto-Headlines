@@ -5,6 +5,7 @@ Link: https://itunes.apple.com/us/app/crypto-headlines/id1353254322?ls=1&mt=8
 ## features 
 - Users can see & read current news article.
 - Users can check out the price & information of each of the top 100 cryptocurrency in the market.
+- Users can use 3D touch in the home screen to nagivate into a specific view controller.
 
 ## Implementations
 - I used newsapi.org to gather the news data from CryptoCoinsNews.com.
