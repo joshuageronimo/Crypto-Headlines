@@ -81,7 +81,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let request = GADRequest()
             // Request test ads on devices you specify. Your test device ID is printed to the console when
             // an ad request is made.
-            //request.testDevices = [ kGADSimulatorID, "4804ce1f66b692f816baab2372878863"]
+            request.testDevices = [ kGADSimulatorID, "4804ce1f66b692f816baab2372878863"]
             self.interstitialAd.load(request)
         }
     }
@@ -118,7 +118,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if indexPath.item == 0 { /* Show the Title Header in index 0 */
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: titleCellIdentifier, for: indexPath) as? TitleCollectionViewCell {
                 if let pageIndex = self.tabBarController?.selectedIndex {
-                    cell.updateHeader(title: HeaderSource.instance.array[pageIndex])
+                    cell.updateHeader(title: TitleSource.instance.array[pageIndex])
                 }
                 return cell
             } else {

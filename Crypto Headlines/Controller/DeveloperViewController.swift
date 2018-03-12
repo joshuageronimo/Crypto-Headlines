@@ -20,13 +20,12 @@ class DeveloperViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
-        
-        let attributedText = NSMutableAttributedString(string: "GeronimoApp",
+        let attributedText = NSMutableAttributedString(string: (TitleSource.instance.array.last?.headerTitle)!,
             attributes: [
                 NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 28),
                 NSAttributedStringKey.foregroundColor : UIColor.white])
         
-        attributedText.append(NSAttributedString(string: "\n developer page",
+        attributedText.append(NSAttributedString(string: "\n \((TitleSource.instance.array.last?.subTitle)!)",
             attributes: [
                 NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14, weight: .light),
                 NSAttributedStringKey.foregroundColor : UIColor(named:"accent_light")!]))

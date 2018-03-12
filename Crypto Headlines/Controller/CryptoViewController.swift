@@ -118,7 +118,7 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
         if indexPath.item == 0 { /* Show the Title Header in index 0 */
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: titleCellIdentifier, for: indexPath) as? TitleCollectionViewCell {
                 if let pageIndex = self.tabBarController?.selectedIndex {
-                    cell.updateHeader(title: HeaderSource.instance.array[pageIndex])
+                    cell.updateHeader(title: TitleSource.instance.array[pageIndex])
                 }
                 return cell
             } else {
