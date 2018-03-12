@@ -58,7 +58,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // This func will decide whether it will show an insterstitial ad or not.
     // Will only be called in viewWillAppear
     private func showGoogleInterstialAd() {
-        let chanceOfAd = arc4random_uniform(2) /* will generate either 0 or 1 */
+        let chanceOfAd = arc4random_uniform(1) /* will generate either 0 or 1 */
         if showInterstitialAd { /* if this is true, there's a 50% chance that an ad will show */
             if chanceOfAd == 0 { /* if the generated number is equal to zero then show the ad */
                 if interstitialAd.isReady { /* if the ad is ready, show the user! */
@@ -75,13 +75,15 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     // Will get a insterstitial ad ready for the user.
     private func createAndLoadInterstitial() {
-        // test ad unit ID = "ca-app-pub-3940256099942544/4411468910"
-        interstitialAd = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/4411468910")
-        let request = GADRequest()
-        // Request test ads on devices you specify. Your test device ID is printed to the console when
-        // an ad request is made.
-        request.testDevices = [ kGADSimulatorID, "4804ce1f66b692f816baab2372878863" ]
-        interstitialAd.load(request)
+        let testID = "ca-app-pub-3940256099942544/4411468910"
+        DispatchQueue.main.async {
+            self.interstitialAd = GADInterstitial(adUnitID: testID)
+            let request = GADRequest()
+            // Request test ads on devices you specify. Your test device ID is printed to the console when
+            // an ad request is made.
+            //request.testDevices = [ kGADSimulatorID, "4804ce1f66b692f816baab2372878863"]
+            self.interstitialAd.load(request)
+        }
     }
     
     // This function will allow tapping the the tab bar item to scroll to the top.
