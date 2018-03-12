@@ -53,6 +53,8 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         didComeFromAnotherViewController = true
     }
     
+    // MARK: Google Admob
+    
     // This func will decide whether it will show an insterstitial ad or not.
     // Will only be called in viewWillAppear
     private func showGoogleInterstialAd() {
