@@ -103,7 +103,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    // MARK - CollectionView
+    // MARK: CollectionView
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return newsArticles.count + 1 /* add 1 for the title cell */
@@ -156,7 +156,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         performSegue(withIdentifier: "showWebView", sender: newsUrl)
     }
     
-    // MARK - Networking
+    // MARK: Networking
     
     @objc private func sendNetworkRequest() {
         // create a session & request
@@ -239,7 +239,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return components.url!
     }
     
-    // MARK - Empty Cell Message
+    // MARK: Empty Cell Message
     
     fileprivate let emptyCellErrorMessage: UILabel! = {
         let label = UILabel()
