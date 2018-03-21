@@ -176,24 +176,19 @@ class DeveloperViewController: UIViewController {
         setUpDeveloperLayout()
     }
     
+    // go to my Github profile
     @objc func showGithubProfile() {
-        performSegue(withIdentifier: webViewIdentifier, sender: gitHubProfileLink)
+        UIApplication.shared.open(URL(string: gitHubProfileLink)!)
     }
     
+    // go to my LinkedIn Profile
     @objc func showLinkedInProfile() {
-        performSegue(withIdentifier: webViewIdentifier, sender: linkedInProfileLink)
+        UIApplication.shared.open(URL(string: linkedInProfileLink)!)
     }
     
+    // go to my Instagram profile
     @objc func showInstagramProfile() {
-        performSegue(withIdentifier: webViewIdentifier, sender: instagramProfileLink)
-    }
-    
-    // This function notifies the view controller that a segue is about to be performed.
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let toNavigationController = segue.destination as? UINavigationController {
-            let toWebViewController = toNavigationController.viewControllers.first as! WebViewController
-            toWebViewController.urlString = sender as! String
-        }
+        UIApplication.shared.open(URL(string: instagramProfileLink)!)
     }
     
     // This function will do AutoLayout for this view controller.

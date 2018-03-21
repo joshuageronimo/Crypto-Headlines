@@ -14,10 +14,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var newsArticles = [CryptoCoinsNews.Articles]()
     fileprivate var pullToRefresh: UIRefreshControl!
-    fileprivate let titleCellIdentifier = "TitleCell"
-    fileprivate let newsCellIndetifier = "NewsCell"
     fileprivate var didComeFromAnotherViewController = false
-    fileprivate var showInterstitialAd = false
     fileprivate var interstitialAd: GADInterstitial!
     
     override func viewDidLoad() {
@@ -27,8 +24,8 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.dataSource = self
         
         // register the custom cells
-        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: titleCellIdentifier)
-        collectionView.register(NewsCollectionViewCell.self, forCellWithReuseIdentifier: newsCellIndetifier)
+        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: CellIdentifierConstant.titleCellIdentifier)
+        collectionView.register(NewsCollectionViewCell.self, forCellWithReuseIdentifier: CellIdentifierConstant.newsCellIndetifier)
         
         // implement pull to refresh feature
         pullToRefresh = UIRefreshControl()
@@ -37,13 +34,13 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         createEmptyCellMessage() /* create empty cell UI incase there's an error with the network request. */
         createAndLoadInterstitial() /* get the ad ready */
+        createObservers() /* create notification observers */
         sendNetworkRequest() /* get the news from the API */
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // set the tabBarController delegate to this view controller
         self.tabBarController?.delegate = self
-        showGoogleInterstialAd()
     }
     
     // will be called when we switch to another view controller
@@ -57,25 +54,23 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     // This func will decide whether it will show an insterstitial ad or not.
     // Will only be called in viewWillAppear
-    private func showGoogleInterstialAd() {
+    @objc private func showGoogleInterstialAd() {
         let chanceOfAd = arc4random_uniform(1) /* will generate either 0 or 1 */
-        if showInterstitialAd { /* if this is true, there's a 50% chance that an ad will show */
-            if chanceOfAd == 0 { /* if the generated number is equal to zero then show the ad */
-                if interstitialAd.isReady { /* if the ad is ready, show the user! */
-                    interstitialAd.present(fromRootViewController: self) /* present the ad! */
-                } else {
-                    print("Ad wasn't ready")
-                }
+        if chanceOfAd == 0 { /* if the generated number is equal to zero then show the ad */
+            if interstitialAd.isReady { /* if the ad is ready, show the user! */
+                interstitialAd.present(fromRootViewController: self) /* present the ad! */
+            } else {
+                print("Ad wasn't ready")
             }
-            didComeFromAnotherViewController = false
-            createAndLoadInterstitial() /* get the next ad ready! */
-            showInterstitialAd = false /* set this back to false since we are back in NewsViewController from WebView */
         }
+        didComeFromAnotherViewController = false
+        createAndLoadInterstitial() /* get the next ad ready! */
     }
     
     // Will get a insterstitial ad ready for the user.
     private func createAndLoadInterstitial() {
         let testID = "ca-app-pub-3940256099942544/4411468910"
+//        let realID = "Enter Real Ad ID here"
         DispatchQueue.main.async {
             self.interstitialAd = GADInterstitial(adUnitID: testID)
             let request = GADRequest()
@@ -103,7 +98,6 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if let toNavigationController = segue.destination as? UINavigationController {
             let toWebViewController = toNavigationController.viewControllers.first as! WebViewController
             toWebViewController.urlString = sender as! String
-            showInterstitialAd = true
         }
     }
     
@@ -116,7 +110,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.item == 0 { /* Show the Title Header in index 0 */
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: titleCellIdentifier, for: indexPath) as? TitleCollectionViewCell {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifierConstant.titleCellIdentifier, for: indexPath) as? TitleCollectionViewCell {
                 if let pageIndex = self.tabBarController?.selectedIndex {
                     cell.updateHeader(title: TitleSource.instance.array[pageIndex])
                 }
@@ -125,7 +119,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 return TitleCollectionViewCell()
             }
         } else { /* Show the news feed after index 0 */
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: newsCellIndetifier, for: indexPath) as? NewsCollectionViewCell {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifierConstant.newsCellIndetifier, for: indexPath) as? NewsCollectionViewCell {
                 if newsArticles.count > 0 {
                     cell.updateNewsFeed(with: newsArticles[indexPath.item - 1])
                 } else {
@@ -288,6 +282,18 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             reloadEmptyCell.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             reloadEmptyCell.heightAnchor.constraint(equalToConstant: 30),
             reloadEmptyCell.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.35)])
+    }
+    
+    // MARK: Notifications
+    
+    // This function creates the notification needed for this view controller.
+    fileprivate func createObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showGoogleInterstialAd), name: NotificationConstant.newsAdNotificationKey, object: nil)
+    }
+    
+    deinit {
+        // deinit the observers.. 
+        NotificationCenter.default.removeObserver(self)
     }
 }
 

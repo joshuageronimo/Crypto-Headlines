@@ -14,20 +14,18 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var cryptoCurrencies = [CoinMarketCap]()
     fileprivate var pullToRefresh: UIRefreshControl!
-    fileprivate let titleCellIdentifier = "TitleCell"
-    fileprivate let coinCellIndetifier = "CoinsCell"
     fileprivate var didComeFromAnotherViewController = false
-    fileprivate var showInterstitialAd = false
     fileprivate var interstitialAd: GADInterstitial!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Set the collection view delegate and datasource to the view controller
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: titleCellIdentifier)
-        collectionView.register(CoinsCollectionViewCell.self, forCellWithReuseIdentifier: coinCellIndetifier)
+        // register the custom cells
+        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: CellIdentifierConstant.titleCellIdentifier)
+        collectionView.register(CoinsCollectionViewCell.self, forCellWithReuseIdentifier: CellIdentifierConstant.coinCellIndetifier)
         
         // implement pull to refresh feature
         pullToRefresh = UIRefreshControl()
@@ -36,13 +34,13 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         createAndLoadInterstitial() /* get the ad ready */
         createEmptyCellMessage() /* create empty cell UI incase there's an error with the network request. */
+        createObservers() /* create notification observers */
         sendNetworkRequest() /* get cryptocurrency prices & info from the API */
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // set the tabBarController delegate to this view controller
         self.tabBarController?.delegate = self
-        showGoogleInterstialAd()
     }
     
     // will be called when we switch to another view controller
@@ -56,25 +54,23 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     // This func will decide whether it will show an insterstitial ad or not.
     // Will only be called in viewWillAppear
-    private func showGoogleInterstialAd() {
+    @objc private func showGoogleInterstialAd() {
         let chanceOfAd = arc4random_uniform(3) /* will generate either 0 or 2 */
-        if showInterstitialAd { /* if this is true, there's a 25% chance that an ad will show */
-            if chanceOfAd == 0 { /* if the generated number is equal to zero then show the ad */
-                if interstitialAd.isReady { /* if the ad is ready, show the user! */
-                    interstitialAd.present(fromRootViewController: self) /* present the ad! */
-                } else {
-                    print("Ad wasn't ready")
-                }
+        if chanceOfAd == 0 { /* if the generated number is equal to zero then show the ad */
+            if interstitialAd.isReady { /* if the ad is ready, show the user! */
+                interstitialAd.present(fromRootViewController: self) /* present the ad! */
+            } else {
+                print("Ad wasn't ready")
             }
-            didComeFromAnotherViewController = false
-            createAndLoadInterstitial() /* get the next ad ready! */
-            showInterstitialAd = false /* set this back to false since we are back in NewsViewController from WebView */
         }
+        didComeFromAnotherViewController = false
+        createAndLoadInterstitial() /* get the next ad ready! */
     }
     
     // Will get a insterstitial ad ready for the user.
     private func createAndLoadInterstitial() {
         let testID = "ca-app-pub-3940256099942544/4411468910"
+//        let realID = "Enter Real Ad ID here"
         DispatchQueue.main.async {
             self.interstitialAd = GADInterstitial(adUnitID: testID)
             let request = GADRequest()
@@ -104,7 +100,6 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
         if let toNavigationController = segue.destination as? UINavigationController {
             let toCryptoViewController = toNavigationController.viewControllers.first as! CryptoInfoViewController
             toCryptoViewController.updateCryptoData(from: sender as! CoinMarketCap)
-            showInterstitialAd = true
         }
     }
     
@@ -116,7 +111,7 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.item == 0 { /* Show the Title Header in index 0 */
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: titleCellIdentifier, for: indexPath) as? TitleCollectionViewCell {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifierConstant.titleCellIdentifier, for: indexPath) as? TitleCollectionViewCell {
                 if let pageIndex = self.tabBarController?.selectedIndex {
                     cell.updateHeader(title: TitleSource.instance.array[pageIndex])
                 }
@@ -125,7 +120,7 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
                 return TitleCollectionViewCell()
             }
         } else { /* Show the news feed after index 0 */
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: coinCellIndetifier, for: indexPath) as? CoinsCollectionViewCell {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifierConstant.coinCellIndetifier, for: indexPath) as? CoinsCollectionViewCell {
                 if cryptoCurrencies.count > 0 {
                     cell.updateCoinFeed(with: cryptoCurrencies[indexPath.item - 1])
                 } else {
@@ -272,5 +267,17 @@ class CryptoViewController: UIViewController, UICollectionViewDelegate, UICollec
             reloadEmptyCell.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             reloadEmptyCell.heightAnchor.constraint(equalToConstant: 30),
             reloadEmptyCell.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.35)])
+    }
+    
+    // MARK: Notifications
+    
+    // This function creates the notification needed for this view controller.
+    fileprivate func createObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showGoogleInterstialAd), name: NotificationConstant.cryptoAdNotificationKey, object: nil)
+    }
+    
+    deinit {
+        // deinit the observers..
+        NotificationCenter.default.removeObserver(self)
     }
 }

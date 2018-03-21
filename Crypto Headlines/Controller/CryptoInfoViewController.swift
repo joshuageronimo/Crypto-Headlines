@@ -109,6 +109,18 @@ class CryptoInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpLayout()
+    }
+    
+    @IBAction func doneButtonTapped(_ sender: Any) {
+        dismiss(animated: true) {
+            NotificationCenter.default.post(name: NotificationConstant.cryptoAdNotificationKey, object: nil)
+        }
+    }
+    
+    // MARK: Constraints
+    
+    fileprivate func setUpLayout() {
         
         view.addSubview(cryptoTitle)
         view.addSubview(lineSeparator1)
@@ -172,11 +184,10 @@ class CryptoInfoViewController: UIViewController {
             lineSeparator2.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 28),
             lineSeparator2.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -28),
             lineSeparator2.topAnchor.constraint(equalTo: percentChangein7days.bottomAnchor, constant: 40)])
+        
     }
     
-    @IBAction func doneButtonTapped(_ sender: Any) {
-        dismiss(animated: true)
-    }
+    // MARK: UI Updates
     
     func updateCryptoData(from model: CoinMarketCap) {
         
@@ -299,6 +310,9 @@ class CryptoInfoViewController: UIViewController {
             percentChangein7days.attributedText = changeIn7daysattributedText
         }
     }
+    
+    
+    // MARK: Formatting / Convertions
     
     // This function will convert a number into currency format
     fileprivate func convertToCurrency(_ number: String) -> String {

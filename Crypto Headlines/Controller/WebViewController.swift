@@ -28,7 +28,9 @@ class WebViewController: UIViewController {
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
-        dismiss(animated: true)
+        dismiss(animated: true) {
+            NotificationCenter.default.post(name: NotificationConstant.newsAdNotificationKey, object: nil)
+        }
     }
     
     @IBAction func actionButtonTapped(_ sender: Any) {
