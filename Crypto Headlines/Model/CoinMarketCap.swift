@@ -22,5 +22,5 @@ struct CoinMarketCap: Decodable {
     let max_supply: String?
     let percent_change_1h: String
     let percent_change_24h: String
-    let percent_change_7d: String
+    let percent_change_7d: String?
 }

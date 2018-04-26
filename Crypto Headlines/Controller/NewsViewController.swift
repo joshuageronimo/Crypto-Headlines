@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMobileAds
 
-class NewsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITabBarControllerDelegate {
+class NewsViewController: UIViewController, UITabBarControllerDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     fileprivate var newsArticles = [CryptoCoinsNews.Articles]()
@@ -70,7 +70,6 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // Will get a insterstitial ad ready for the user.
     private func createAndLoadInterstitial() {
         let testID = "ca-app-pub-3940256099942544/4411468910"
-//        let realID = "Enter Real Ad ID here"
         DispatchQueue.main.async {
             self.interstitialAd = GADInterstitial(adUnitID: testID)
             let request = GADRequest()
@@ -101,58 +100,7 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    // MARK: CollectionView
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return newsArticles.count + 1 /* add 1 for the title cell */
-    }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if indexPath.item == 0 { /* Show the Title Header in index 0 */
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifierConstant.titleCellIdentifier, for: indexPath) as? TitleCollectionViewCell {
-                if let pageIndex = self.tabBarController?.selectedIndex {
-                    cell.updateHeader(title: TitleSource.instance.array[pageIndex])
-                }
-                return cell
-            } else {
-                return TitleCollectionViewCell()
-            }
-        } else { /* Show the news feed after index 0 */
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifierConstant.newsCellIndetifier, for: indexPath) as? NewsCollectionViewCell {
-                if newsArticles.count > 0 {
-                    cell.updateNewsFeed(with: newsArticles[indexPath.item - 1])
-                } else {
-                    DispatchQueue.main.async {
-                        // Update UI
-                        self.collectionView.reloadData()
-                        self.pullToRefresh.endRefreshing()
-                    }
-                }
-                return cell
-            } else {
-                return NewsCollectionViewCell()
-            }
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.item == 0 { /* return the cell size for the Header Title */
-            return CGSize(width: view.frame.width, height: view.frame.height / 10)
-        } else { /* return the cell size for the feed */
-            return CGSize(width: view.frame.width, height: view.frame.height / 3)
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
-    }
-    
-    // This function tells the delegate that the item at the specified index path was selected.
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let newsUrl = newsArticles[indexPath.item - 1].url
-        performSegue(withIdentifier: "showWebView", sender: newsUrl)
-    }
     
     // MARK: Networking
     
@@ -295,5 +243,60 @@ class NewsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // deinit the observers.. 
         NotificationCenter.default.removeObserver(self)
     }
+}
+
+extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return newsArticles.count + 1 /* add 1 for the title cell */
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if indexPath.item == 0 { /* Show the Title Header in index 0 */
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifierConstant.titleCellIdentifier, for: indexPath) as? TitleCollectionViewCell {
+                if let pageIndex = self.tabBarController?.selectedIndex {
+                    cell.updateHeader(title: TitleSource.instance.array[pageIndex])
+                }
+                return cell
+            } else {
+                return TitleCollectionViewCell()
+            }
+        } else { /* Show the news feed after index 0 */
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifierConstant.newsCellIndetifier, for: indexPath) as? NewsCollectionViewCell {
+                if newsArticles.count > 0 {
+                    cell.updateNewsFeed(with: newsArticles[indexPath.item - 1])
+                } else {
+                    DispatchQueue.main.async {
+                        // Update UI
+                        self.collectionView.reloadData()
+                        self.pullToRefresh.endRefreshing()
+                    }
+                }
+                return cell
+            } else {
+                return NewsCollectionViewCell()
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.item == 0 { /* return the cell size for the Header Title */
+            return CGSize(width: view.frame.width, height: view.frame.height / 10)
+        } else { /* return the cell size for the feed */
+            return CGSize(width: view.frame.width, height: view.frame.height / 3)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
+    }
+    
+    // This function tells the delegate that the item at the specified index path was selected.
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let newsUrl = newsArticles[indexPath.item - 1].url
+        performSegue(withIdentifier: "showWebView", sender: newsUrl)
+    }
+    
 }
 

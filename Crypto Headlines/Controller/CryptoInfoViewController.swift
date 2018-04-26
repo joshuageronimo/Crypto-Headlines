@@ -297,14 +297,14 @@ class CryptoInfoViewController: UIViewController {
         let changeIn7daysattributedText = NSMutableAttributedString(string: "Percent Change in 7 days: ", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
             NSAttributedStringKey.foregroundColor : UIColor(named:"accent_light")!])
-        let percentChangein7 = Double(model.percent_change_7d)!
+        let percentChangein7 = Double(model.percent_change_7d ?? "0")!
         if percentChangein7 >= 0 {
-            changeIn7daysattributedText.append(NSAttributedString(string: "\(model.percent_change_7d)%", attributes: [
+            changeIn7daysattributedText.append(NSAttributedString(string: "\(model.percent_change_7d ?? "")%", attributes: [
                 NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
                 NSAttributedStringKey.foregroundColor : UIColor(named:"positive")!]))
             percentChangein7days.attributedText = changeIn7daysattributedText
         } else {
-            changeIn7daysattributedText.append(NSAttributedString(string: "\(model.percent_change_7d)%", attributes: [
+            changeIn7daysattributedText.append(NSAttributedString(string: "\(model.percent_change_7d ?? "")%", attributes: [
                 NSAttributedStringKey.font : UIFont.systemFont(ofSize: 20, weight: .light),
                 NSAttributedStringKey.foregroundColor : UIColor(named:"negative")!]))
             percentChangein7days.attributedText = changeIn7daysattributedText
