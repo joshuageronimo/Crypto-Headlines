@@ -267,7 +267,9 @@ extension CryptoViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showCoinDetail", sender: cryptoCurrencies[indexPath.item - 1])
+        if indexPath.item > 0 {
+            performSegue(withIdentifier: "showCoinDetail", sender: cryptoCurrencies[indexPath.item - 1])
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

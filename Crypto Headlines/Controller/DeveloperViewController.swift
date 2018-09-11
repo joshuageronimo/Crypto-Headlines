@@ -58,7 +58,7 @@ class DeveloperViewController: UIViewController {
     fileprivate let developerInfoDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        let attributedText = NSMutableAttributedString(string: "- Based in NJ, USA 🇺🇸\n- Computer Science Student 👨🏻‍💻\n- iOS Freelancer 📱", attributes: [
+        let attributedText = NSMutableAttributedString(string: "- Based in SF, USA 🇺🇸\n- Computer Science Student 👨🏻‍💻\n- iOS Developer 📱", attributes: [
             NSAttributedStringKey.font : UIFont.systemFont(ofSize: 15, weight: .light),
             NSAttributedStringKey.foregroundColor : UIColor(named:"primary_text")!])
         label.numberOfLines = 3

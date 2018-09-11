@@ -294,9 +294,10 @@ extension NewsViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     // This function tells the delegate that the item at the specified index path was selected.
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let newsUrl = newsArticles[indexPath.item - 1].url
-        performSegue(withIdentifier: "showWebView", sender: newsUrl)
+        if indexPath.item > 0 {
+            let newsUrl = newsArticles[indexPath.item - 1].url
+            performSegue(withIdentifier: "showWebView", sender: newsUrl)
+        }
     }
-    
 }
 
