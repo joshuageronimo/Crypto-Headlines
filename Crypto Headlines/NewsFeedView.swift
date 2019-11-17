@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct NewsFeedView: View {
+    
     init() {
-        UITableView.appearance().backgroundColor = UIColor.mainColor
-        UITableView.appearance().separatorStyle = .none
+        setupTableViewAppearance()
     }
     
     var body: some View {
@@ -24,9 +24,16 @@ struct NewsFeedView: View {
                 TitleHeaderView(mainTitle: Text("Current Headlines"),
                                 subTitle: Text("from CryptoCoinsNews"))
                     .listRowBackground(Color.mainColor)
+                NewsViewModel()
+                    .listRowBackground(Color.mainColor)
             }
             .padding(15)
         }
+    }
+    
+    fileprivate func setupTableViewAppearance() {
+        UITableView.appearance().backgroundColor = UIColor.mainColor
+        UITableView.appearance().separatorStyle = .none
     }
 }
 
