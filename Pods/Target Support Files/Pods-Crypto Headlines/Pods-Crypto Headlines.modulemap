@@ -1,6 +1,0 @@
-framework module Pods_Crypto_Headlines {
-  umbrella header "Pods-Crypto Headlines-umbrella.h"
-
-  export *
-  module * { export * }
-}

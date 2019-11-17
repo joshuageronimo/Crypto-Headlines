@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
 class CryptoViewController: UIViewController, UITabBarControllerDelegate {
     
@@ -15,7 +14,6 @@ class CryptoViewController: UIViewController, UITabBarControllerDelegate {
     fileprivate var cryptoCurrencies = [CoinMarketCap]()
     fileprivate var pullToRefresh: UIRefreshControl!
     fileprivate var didComeFromAnotherViewController = false
-    fileprivate var interstitialAd: GADInterstitial!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +30,7 @@ class CryptoViewController: UIViewController, UITabBarControllerDelegate {
         pullToRefresh.addTarget(self, action: #selector(sendNetworkRequest), for: .valueChanged)
         collectionView.addSubview(pullToRefresh)
         
-        createAndLoadInterstitial() /* get the ad ready */
         createEmptyCellMessage() /* create empty cell UI incase there's an error with the network request. */
-        createObservers() /* create notification observers */
         sendNetworkRequest() /* get cryptocurrency prices & info from the API */
     }
     
@@ -48,36 +44,6 @@ class CryptoViewController: UIViewController, UITabBarControllerDelegate {
         // set this to true, so that when we come back from this view controller
         // the collectionview will not scroll to the top.
         didComeFromAnotherViewController = true
-    }
-    
-    // MARK: Google Admob
-    
-    // This func will decide whether it will show an insterstitial ad or not.
-    // Will only be called in viewWillAppear
-    @objc private func showGoogleInterstialAd() {
-        let chanceOfAd = arc4random_uniform(3) /* will generate either 0 or 2 */
-        if chanceOfAd == 0 { /* if the generated number is equal to zero then show the ad */
-            if interstitialAd.isReady { /* if the ad is ready, show the user! */
-                interstitialAd.present(fromRootViewController: self) /* present the ad! */
-            } else {
-                print("Ad wasn't ready")
-            }
-        }
-        didComeFromAnotherViewController = false
-        createAndLoadInterstitial() /* get the next ad ready! */
-    }
-    
-    // Will get a insterstitial ad ready for the user.
-    private func createAndLoadInterstitial() {
-        let testID = "ca-app-pub-3940256099942544/4411468910"
-        DispatchQueue.main.async {
-            self.interstitialAd = GADInterstitial(adUnitID: testID)
-            let request = GADRequest()
-            // Request test ads on devices you specify. Your test device ID is printed to the console when
-            // an ad request is made.
-            request.testDevices = [ kGADSimulatorID, "4804ce1f66b692f816baab2372878863"]
-            self.interstitialAd.load(request)
-        }
     }
     
     // This function will allow tapping the the tab bar item to scroll to the top.
@@ -217,13 +183,6 @@ class CryptoViewController: UIViewController, UITabBarControllerDelegate {
             reloadEmptyCell.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             reloadEmptyCell.heightAnchor.constraint(equalToConstant: 30),
             reloadEmptyCell.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.35)])
-    }
-    
-    // MARK: Notifications
-    
-    // This function creates the notification needed for this view controller.
-    fileprivate func createObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(showGoogleInterstialAd), name: NotificationConstant.cryptoAdNotificationKey, object: nil)
     }
     
     deinit {
