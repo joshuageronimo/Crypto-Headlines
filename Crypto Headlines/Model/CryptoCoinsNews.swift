@@ -13,13 +13,13 @@ import Foundation
 // to be able to parse the JSON data easily.
 struct CryptoCoinsNews: Decodable {
     let articles: [Articles]
-    
-    struct Articles: Decodable {
-        let title: String
-        let url: String
-        let urlToImage: String
-    }
-    
+}
+
+struct Articles: Decodable, Identifiable {
+    let id = UUID()
+    let title: String
+    let url: String
+    let urlToImage: String
 }
 
 

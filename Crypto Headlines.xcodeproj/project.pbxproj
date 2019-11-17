@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		768A9DCA2381983F009AADC2 /* NewsFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A9DC92381983F009AADC2 /* NewsFeedView.swift */; };
 		768A9DCC23819F24009AADC2 /* TitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A9DCB23819F24009AADC2 /* TitleHeaderView.swift */; };
-		768A9DCE2381D62B009AADC2 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A9DCD2381D62B009AADC2 /* NewsViewModel.swift */; };
+		768A9DCE2381D62B009AADC2 /* NewsCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A9DCD2381D62B009AADC2 /* NewsCardRow.swift */; };
+		768A9DD02381D7EA009AADC2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A9DCF2381D7EA009AADC2 /* NetworkService.swift */; };
+		768A9DD22381EF2E009AADC2 /* NewsCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A9DD12381EF2E009AADC2 /* NewsCardViewModel.swift */; };
 		76E56189238100A20089F27E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E56188238100A20089F27E /* MainTabView.swift */; };
 		76E561AB238101CE0089F27E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E561AA238101CE0089F27E /* SceneDelegate.swift */; };
 		76E561AD238106C90089F27E /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E561AC238106C90089F27E /* UIColor+Theme.swift */; };
@@ -42,7 +44,9 @@
 /* Begin PBXFileReference section */
 		768A9DC92381983F009AADC2 /* NewsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedView.swift; sourceTree = "<group>"; };
 		768A9DCB23819F24009AADC2 /* TitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderView.swift; sourceTree = "<group>"; };
-		768A9DCD2381D62B009AADC2 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		768A9DCD2381D62B009AADC2 /* NewsCardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardRow.swift; sourceTree = "<group>"; };
+		768A9DCF2381D7EA009AADC2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		768A9DD12381EF2E009AADC2 /* NewsCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardViewModel.swift; sourceTree = "<group>"; };
 		76E56188238100A20089F27E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		76E561AA238101CE0089F27E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		76E561AC238106C90089F27E /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
@@ -120,7 +124,9 @@
 				DF8EEFF92034D59B0060B63A /* LaunchScreen.storyboard */,
 				DF8EEFFC2034D59B0060B63A /* Info.plist */,
 				768A9DCB23819F24009AADC2 /* TitleHeaderView.swift */,
-				768A9DCD2381D62B009AADC2 /* NewsViewModel.swift */,
+				768A9DCD2381D62B009AADC2 /* NewsCardRow.swift */,
+				768A9DD12381EF2E009AADC2 /* NewsCardViewModel.swift */,
+				768A9DCF2381D7EA009AADC2 /* NetworkService.swift */,
 			);
 			path = "Crypto Headlines";
 			sourceTree = "<group>";
@@ -254,6 +260,8 @@
 				76E56189238100A20089F27E /* MainTabView.swift in Sources */,
 				DF8EF0052034DFD60060B63A /* DeveloperViewController.swift in Sources */,
 				DFB556DA203880F000736C59 /* TitleCollectionViewCell.swift in Sources */,
+				768A9DD22381EF2E009AADC2 /* NewsCardViewModel.swift in Sources */,
+				768A9DD02381D7EA009AADC2 /* NetworkService.swift in Sources */,
 				DFB556D5203877A200736C59 /* TitleHeader.swift in Sources */,
 				768A9DCA2381983F009AADC2 /* NewsFeedView.swift in Sources */,
 				76E561AF23810A9A0089F27E /* DeveloperView.swift in Sources */,
@@ -268,7 +276,7 @@
 				76E561AB238101CE0089F27E /* SceneDelegate.swift in Sources */,
 				DF8EF0032034DF7C0060B63A /* CryptoViewController.swift in Sources */,
 				DF887B70203E46EF00F40626 /* CryptoInfoViewController.swift in Sources */,
-				768A9DCE2381D62B009AADC2 /* NewsViewModel.swift in Sources */,
+				768A9DCE2381D62B009AADC2 /* NewsCardRow.swift in Sources */,
 				DFBA9CD8203A6FDD0033700E /* WebViewController.swift in Sources */,
 				DF72B22D2035C048008823BB /* NewsConstant.swift in Sources */,
 			);

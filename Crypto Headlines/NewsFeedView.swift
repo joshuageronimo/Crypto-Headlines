@@ -10,6 +10,8 @@ import SwiftUI
 
 struct NewsFeedView: View {
     
+    @ObservedObject var newsCardViewModel = NewsCardViewModel()
+    
     init() {
         setupTableViewAppearance()
     }
@@ -19,15 +21,17 @@ struct NewsFeedView: View {
             // set background color
             Color.mainColor
                 .edgesIgnoringSafeArea(.all)
-            
+               
             List {
                 TitleHeaderView(mainTitle: Text("Current Headlines"),
                                 subTitle: Text("from CryptoCoinsNews"))
                     .listRowBackground(Color.mainColor)
-                NewsViewModel()
-                    .listRowBackground(Color.mainColor)
+                ForEach(self.newsCardViewModel.cryptoCoinsNews) { article in
+                    NewsCardRow(title: Text(article.title))
+                                       .listRowBackground(Color.mainColor)
+                }
             }
-            .padding(15)
+            .padding(.init(top: 15, leading: 10, bottom: 0, trailing: 10))
         }
     }
     
