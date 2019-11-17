@@ -27,7 +27,7 @@ struct NewsFeedView: View {
                                 subTitle: Text("from CryptoCoinsNews"))
                     .listRowBackground(Color.mainColor)
                 ForEach(self.newsCardViewModel.cryptoCoinsNews) { article in
-                    NewsCardRow(title: Text(article.title))
+                    NewsCardRow(title: Text(article.title), imageURL: article.urlToImage)
                                        .listRowBackground(Color.mainColor)
                 }
             }
