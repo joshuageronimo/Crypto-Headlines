@@ -17,9 +17,10 @@ struct DeveloperView: View {
     var body: some View {
         // FIRST SECTION
         ZStack {
+            // Set background color
             Color.mainColor
-            
-            .edgesIgnoringSafeArea(.all)
+                .edgesIgnoringSafeArea(.all)
+            // all UI components are inside this VStack
             VStack(alignment: .leading, spacing: 25) {
                 VStack(alignment: .leading) {
                     Text("Geronimo App")
@@ -133,7 +134,7 @@ struct DeveloperView: View {
     }
     
     // MARK: BUTTON FUCTIONS
-    // - the following functions will direct to my social media profiles
+    // - the following 3 functions will direct to my social media profiles
     fileprivate func goToGithub() {
         UIApplication.shared.open(URL(string: gitHubProfileLink)!)
     }
