@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		768A9DCA2381983F009AADC2 /* NewsFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A9DC92381983F009AADC2 /* NewsFeedView.swift */; };
+		768A9DCC23819F24009AADC2 /* TitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A9DCB23819F24009AADC2 /* TitleHeaderView.swift */; };
 		76E56189238100A20089F27E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E56188238100A20089F27E /* MainTabView.swift */; };
 		76E561AB238101CE0089F27E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E561AA238101CE0089F27E /* SceneDelegate.swift */; };
 		76E561AD238106C90089F27E /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E561AC238106C90089F27E /* UIColor+Theme.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		768A9DC92381983F009AADC2 /* NewsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedView.swift; sourceTree = "<group>"; };
+		768A9DCB23819F24009AADC2 /* TitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderView.swift; sourceTree = "<group>"; };
 		76E56188238100A20089F27E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		76E561AA238101CE0089F27E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		76E561AC238106C90089F27E /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 				DF8EEFF02034D59B0060B63A /* AppDelegate.swift */,
 				76E561AA238101CE0089F27E /* SceneDelegate.swift */,
 				76E56188238100A20089F27E /* MainTabView.swift */,
+				768A9DC92381983F009AADC2 /* NewsFeedView.swift */,
 				76E561AE23810A9A0089F27E /* DeveloperView.swift */,
 				76E561B0238111CC0089F27E /* CircleImage.swift */,
 				DF8EEFF42034D59B0060B63A /* Main.storyboard */,
@@ -112,6 +117,7 @@
 				DF41129C204BDBD80000A967 /* Theme.xcassets */,
 				DF8EEFF92034D59B0060B63A /* LaunchScreen.storyboard */,
 				DF8EEFFC2034D59B0060B63A /* Info.plist */,
+				768A9DCB23819F24009AADC2 /* TitleHeaderView.swift */,
 			);
 			path = "Crypto Headlines";
 			sourceTree = "<group>";
@@ -241,10 +247,12 @@
 				DF0B90732062ABB20022C373 /* NotificationConstant.swift in Sources */,
 				DFB556D7203878F300736C59 /* TitleSource.swift in Sources */,
 				DF0B90752062B6A20022C373 /* CellIdentifierConstant.swift in Sources */,
+				768A9DCC23819F24009AADC2 /* TitleHeaderView.swift in Sources */,
 				76E56189238100A20089F27E /* MainTabView.swift in Sources */,
 				DF8EF0052034DFD60060B63A /* DeveloperViewController.swift in Sources */,
 				DFB556DA203880F000736C59 /* TitleCollectionViewCell.swift in Sources */,
 				DFB556D5203877A200736C59 /* TitleHeader.swift in Sources */,
+				768A9DCA2381983F009AADC2 /* NewsFeedView.swift in Sources */,
 				76E561AF23810A9A0089F27E /* DeveloperView.swift in Sources */,
 				DFB556DE2038BA0D00736C59 /* ImageLoader.swift in Sources */,
 				DFB556E62039E83800736C59 /* CoinsCollectionViewCell.swift in Sources */,

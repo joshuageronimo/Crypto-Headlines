@@ -22,14 +22,8 @@ struct DeveloperView: View {
                 .edgesIgnoringSafeArea(.all)
             // all UI components are inside this VStack
             VStack(alignment: .leading, spacing: 25) {
-                VStack(alignment: .leading) {
-                    Text("Geronimo App")
-                        .foregroundColor(.white)
-                        .font(.title)
-                    Text("developer page")
-                        .foregroundColor(.accentColor)
-                        .font(.subheadline)
-                }
+                TitleHeaderView(mainTitle: Text("Geronimo App"),
+                                subTitle: Text("developer page"))
                 // Developer Info
                 HStack(spacing: 20) {
                     CircleImage(image: Image("profile_picture")

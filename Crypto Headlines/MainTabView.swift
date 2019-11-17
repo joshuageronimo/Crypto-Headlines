@@ -16,7 +16,7 @@ struct MainTabView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            Text("The First Tab")
+            NewsFeedView()
                 .tabItem {
                     Image("news")
             }.tag(0)
