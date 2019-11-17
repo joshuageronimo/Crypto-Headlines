@@ -96,7 +96,7 @@ class NewsViewController: UIViewController, UITabBarControllerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let toNavigationController = segue.destination as? UINavigationController {
             let toWebViewController = toNavigationController.viewControllers.first as! WebViewController
-            toWebViewController.urlString = sender as! String
+            toWebViewController.urlString = sender as? String
         }
     }
     

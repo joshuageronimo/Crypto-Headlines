@@ -25,12 +25,12 @@ class TitleCollectionViewCell: UICollectionViewCell {
     
     func updateHeader(title: TitleHeader) {
         let attributedText = NSMutableAttributedString(string: "\(title.headerTitle)", attributes: [
-            NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 28),
-            NSAttributedStringKey.foregroundColor : UIColor(named:"primary_text")!])
+            NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 28),
+            NSAttributedString.Key.foregroundColor : UIColor(named:"primary_text")!])
         
         attributedText.append(NSAttributedString(string: "\n \(title.subTitle)", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor(named:"accent_light")!]))
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14, weight: .light),
+            NSAttributedString.Key.foregroundColor : UIColor(named:"accent_light")!]))
         headerTitle.attributedText = attributedText
     }
     

@@ -22,13 +22,13 @@ class DeveloperViewController: UIViewController {
         label.numberOfLines = 2
         let attributedText = NSMutableAttributedString(string: (TitleSource.instance.array.last?.headerTitle)!,
             attributes: [
-                NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 28),
-                NSAttributedStringKey.foregroundColor : UIColor.white])
+                NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 28),
+                NSAttributedString.Key.foregroundColor : UIColor.white])
         
         attributedText.append(NSAttributedString(string: "\n \((TitleSource.instance.array.last?.subTitle)!)",
             attributes: [
-                NSAttributedStringKey.font : UIFont.systemFont(ofSize: 14, weight: .light),
-                NSAttributedStringKey.foregroundColor : UIColor(named:"accent_light")!]))
+                NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14, weight: .light),
+                NSAttributedString.Key.foregroundColor : UIColor(named:"accent_light")!]))
         label.attributedText = attributedText
         return label
     }()
@@ -46,8 +46,8 @@ class DeveloperViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         let attributedText = NSMutableAttributedString(string: "Joshua Geronimo (iOS Developer)", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 15, weight: .medium),
-            NSAttributedStringKey.foregroundColor : UIColor(named:"accent_light")!])
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15, weight: .medium),
+            NSAttributedString.Key.foregroundColor : UIColor(named:"accent_light")!])
         
         label.adjustsFontSizeToFitWidth = true
         label.attributedText = attributedText
@@ -59,8 +59,8 @@ class DeveloperViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         let attributedText = NSMutableAttributedString(string: "- Based in SF, USA 🇺🇸\n- Computer Science Student 👨🏻‍💻\n- iOS Developer 📱", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 15, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor(named:"primary_text")!])
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15, weight: .light),
+            NSAttributedString.Key.foregroundColor : UIColor(named:"primary_text")!])
         label.numberOfLines = 3
         label.adjustsFontSizeToFitWidth = true
         label.attributedText = attributedText
@@ -80,8 +80,8 @@ class DeveloperViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         let attributedText = NSMutableAttributedString(string: "Crypto Headlines", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 22, weight: .semibold),
-            NSAttributedStringKey.foregroundColor : UIColor(named:"primary_text")!])
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 22, weight: .semibold),
+            NSAttributedString.Key.foregroundColor : UIColor(named:"primary_text")!])
         label.attributedText = attributedText
         return label
     }()
@@ -91,8 +91,8 @@ class DeveloperViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         let attributedText = NSMutableAttributedString(string: "- Powered by: News API\n- News source: CryptoCoinsNews (CCN)\n- Coin prices: CoinMarketCap.com", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 16, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor(named:"primary_text")!])
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: .light),
+            NSAttributedString.Key.foregroundColor : UIColor(named:"primary_text")!])
         label.numberOfLines = 3
         label.adjustsFontSizeToFitWidth = true
         label.attributedText = attributedText
@@ -112,8 +112,8 @@ class DeveloperViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         let attributedText = NSMutableAttributedString(string: "Let's Work Together!", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 22, weight: .semibold),
-            NSAttributedStringKey.foregroundColor : UIColor(named:"primary_text")!])
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 22, weight: .semibold),
+            NSAttributedString.Key.foregroundColor : UIColor(named:"primary_text")!])
         label.attributedText = attributedText
         return label
     }()
@@ -123,8 +123,8 @@ class DeveloperViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         let attributedText = NSMutableAttributedString(string: "- For recruiters: Message me on LinkedIn.\n- DM me on Instagram for feature requests.\n- Check out my other projects on Github.", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 16, weight: .light),
-            NSAttributedStringKey.foregroundColor : UIColor(named:"primary_text")!])
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: .light),
+            NSAttributedString.Key.foregroundColor : UIColor(named:"primary_text")!])
         label.numberOfLines = 3
         label.adjustsFontSizeToFitWidth = true
         label.attributedText = attributedText
@@ -136,8 +136,8 @@ class DeveloperViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         let attributedText = NSMutableAttributedString(string: "Connect with me here!", attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 22, weight: .semibold),
-            NSAttributedStringKey.foregroundColor : UIColor(named:"primary_text")!])
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 22, weight: .semibold),
+            NSAttributedString.Key.foregroundColor : UIColor(named:"primary_text")!])
         label.attributedText = attributedText
         return label
     }()

@@ -60,8 +60,8 @@ class NewsCollectionViewCell: UICollectionViewCell {
     func updateNewsFeed(with news: CryptoCoinsNews.Articles) {
         // load the title of the news articles
         let attributedText = NSMutableAttributedString(string: news.title , attributes: [
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 16, weight: .semibold),
-            NSAttributedStringKey.foregroundColor : UIColor(named: "primary_text")!])
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16, weight: .semibold),
+            NSAttributedString.Key.foregroundColor : UIColor(named: "primary_text")!])
         newsTitle.attributedText = attributedText
         newsTitle.textAlignment = .center
         // load the images
