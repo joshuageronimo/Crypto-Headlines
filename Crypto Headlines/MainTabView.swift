@@ -28,7 +28,9 @@ struct MainTabView: View {
                 .tabItem {
                     Image("happy")
             }.tag(2)
-        }.accentColor(.white)
+            }
+            .accentColor(.white)
+            .edgesIgnoringSafeArea(.top)
     }
 }
 
