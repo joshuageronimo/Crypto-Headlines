@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76E56189238100A20089F27E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E56188238100A20089F27E /* MainTabView.swift */; };
+		76E561AB238101CE0089F27E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E561AA238101CE0089F27E /* SceneDelegate.swift */; };
 		DF0B90732062ABB20022C373 /* NotificationConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B90722062ABB20022C373 /* NotificationConstant.swift */; };
 		DF0B90752062B6A20022C373 /* CellIdentifierConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B90742062B6A20022C373 /* CellIdentifierConstant.swift */; };
 		DF41129D204BDBD80000A967 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF41129C204BDBD80000A967 /* Theme.xcassets */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		76E56188238100A20089F27E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		76E561AA238101CE0089F27E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DF0B90722062ABB20022C373 /* NotificationConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationConstant.swift; sourceTree = "<group>"; };
 		DF0B90742062B6A20022C373 /* CellIdentifierConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifierConstant.swift; sourceTree = "<group>"; };
 		DF41129C204BDBD80000A967 /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
@@ -93,6 +97,8 @@
 				DF8EF0072034DFF60060B63A /* View */,
 				DF8EF0062034DFE40060B63A /* Controller */,
 				DF8EEFF02034D59B0060B63A /* AppDelegate.swift */,
+				76E561AA238101CE0089F27E /* SceneDelegate.swift */,
+				76E56188238100A20089F27E /* MainTabView.swift */,
 				DF8EEFF42034D59B0060B63A /* Main.storyboard */,
 				DF8EEFF72034D59B0060B63A /* Assets.xcassets */,
 				DF41129C204BDBD80000A967 /* Theme.xcassets */,
@@ -226,6 +232,7 @@
 				DF0B90732062ABB20022C373 /* NotificationConstant.swift in Sources */,
 				DFB556D7203878F300736C59 /* TitleSource.swift in Sources */,
 				DF0B90752062B6A20022C373 /* CellIdentifierConstant.swift in Sources */,
+				76E56189238100A20089F27E /* MainTabView.swift in Sources */,
 				DF8EF0052034DFD60060B63A /* DeveloperViewController.swift in Sources */,
 				DFB556DA203880F000736C59 /* TitleCollectionViewCell.swift in Sources */,
 				DFB556D5203877A200736C59 /* TitleHeader.swift in Sources */,
@@ -235,6 +242,7 @@
 				DFB556E02039CFF300736C59 /* CoinMarketCap.swift in Sources */,
 				DF8EEFF12034D59B0060B63A /* AppDelegate.swift in Sources */,
 				DF72B22A2034F30C008823BB /* CryptoCoinsNews.swift in Sources */,
+				76E561AB238101CE0089F27E /* SceneDelegate.swift in Sources */,
 				DF8EF0032034DF7C0060B63A /* CryptoViewController.swift in Sources */,
 				DF887B70203E46EF00F40626 /* CryptoInfoViewController.swift in Sources */,
 				DFBA9CD8203A6FDD0033700E /* WebViewController.swift in Sources */,
@@ -314,7 +322,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -367,7 +375,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -387,6 +395,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Crypto Headlines/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geronimoapp.Crypto-Headlines";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -409,6 +418,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Crypto Headlines/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geronimoapp.Crypto-Headlines";
 				PRODUCT_NAME = "$(TARGET_NAME)";
