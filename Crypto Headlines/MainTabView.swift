@@ -9,26 +9,26 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @State private var selection = 0
+    init() {
+        UITabBar.appearance().barTintColor = .mainColor
+    }
     
     var body: some View {
-        TabView {
+        TabView(selection: $selection) {
             Text("The First Tab")
                 .tabItem {
-                    Image(systemName: "1.square.fill")
-                    Text("First")
-                }
+                    Image("news")
+            }.tag(0)
             Text("Another Tab")
                 .tabItem {
-                    Image(systemName: "2.square.fill")
-                    Text("Second")
-                }
-            Text("The Last Tab")
+                    Image("coins")
+            }.tag(1)
+            DeveloperView()
                 .tabItem {
-                    Image(systemName: "3.square.fill")
-                    Text("Third")
-                }
-        }
-        .font(.headline)
+                    Image("happy")
+            }.tag(2)
+        }.accentColor(.white)
     }
 }
 

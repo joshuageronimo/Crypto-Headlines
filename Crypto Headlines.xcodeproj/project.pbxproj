@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		76E56189238100A20089F27E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E56188238100A20089F27E /* MainTabView.swift */; };
 		76E561AB238101CE0089F27E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E561AA238101CE0089F27E /* SceneDelegate.swift */; };
+		76E561AD238106C90089F27E /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E561AC238106C90089F27E /* UIColor+Theme.swift */; };
+		76E561AF23810A9A0089F27E /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E561AE23810A9A0089F27E /* DeveloperView.swift */; };
+		76E561B1238111CC0089F27E /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E561B0238111CC0089F27E /* CircleImage.swift */; };
 		DF0B90732062ABB20022C373 /* NotificationConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B90722062ABB20022C373 /* NotificationConstant.swift */; };
 		DF0B90752062B6A20022C373 /* CellIdentifierConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B90742062B6A20022C373 /* CellIdentifierConstant.swift */; };
 		DF41129D204BDBD80000A967 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF41129C204BDBD80000A967 /* Theme.xcassets */; };
@@ -36,6 +39,9 @@
 /* Begin PBXFileReference section */
 		76E56188238100A20089F27E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		76E561AA238101CE0089F27E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		76E561AC238106C90089F27E /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
+		76E561AE23810A9A0089F27E /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
+		76E561B0238111CC0089F27E /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		DF0B90722062ABB20022C373 /* NotificationConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationConstant.swift; sourceTree = "<group>"; };
 		DF0B90742062B6A20022C373 /* CellIdentifierConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifierConstant.swift; sourceTree = "<group>"; };
 		DF41129C204BDBD80000A967 /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
@@ -99,6 +105,8 @@
 				DF8EEFF02034D59B0060B63A /* AppDelegate.swift */,
 				76E561AA238101CE0089F27E /* SceneDelegate.swift */,
 				76E56188238100A20089F27E /* MainTabView.swift */,
+				76E561AE23810A9A0089F27E /* DeveloperView.swift */,
+				76E561B0238111CC0089F27E /* CircleImage.swift */,
 				DF8EEFF42034D59B0060B63A /* Main.storyboard */,
 				DF8EEFF72034D59B0060B63A /* Assets.xcassets */,
 				DF41129C204BDBD80000A967 /* Theme.xcassets */,
@@ -149,6 +157,7 @@
 				DFB556DD2038BA0D00736C59 /* ImageLoader.swift */,
 				DF0B90722062ABB20022C373 /* NotificationConstant.swift */,
 				DF0B90742062B6A20022C373 /* CellIdentifierConstant.swift */,
+				76E561AC238106C90089F27E /* UIColor+Theme.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -236,11 +245,14 @@
 				DF8EF0052034DFD60060B63A /* DeveloperViewController.swift in Sources */,
 				DFB556DA203880F000736C59 /* TitleCollectionViewCell.swift in Sources */,
 				DFB556D5203877A200736C59 /* TitleHeader.swift in Sources */,
+				76E561AF23810A9A0089F27E /* DeveloperView.swift in Sources */,
 				DFB556DE2038BA0D00736C59 /* ImageLoader.swift in Sources */,
 				DFB556E62039E83800736C59 /* CoinsCollectionViewCell.swift in Sources */,
 				DFB556DC2038810300736C59 /* NewsCollectionViewCell.swift in Sources */,
+				76E561AD238106C90089F27E /* UIColor+Theme.swift in Sources */,
 				DFB556E02039CFF300736C59 /* CoinMarketCap.swift in Sources */,
 				DF8EEFF12034D59B0060B63A /* AppDelegate.swift in Sources */,
+				76E561B1238111CC0089F27E /* CircleImage.swift in Sources */,
 				DF72B22A2034F30C008823BB /* CryptoCoinsNews.swift in Sources */,
 				76E561AB238101CE0089F27E /* SceneDelegate.swift in Sources */,
 				DF8EF0032034DF7C0060B63A /* CryptoViewController.swift in Sources */,
