@@ -11,6 +11,8 @@ import SwiftUI
 struct NewsFeedView: View {
     
     @ObservedObject var newsCardViewModel = NewsCardViewModel()
+    @State fileprivate var urlOfArticleToView = ""
+    @State fileprivate var showArticle = false
     
     init() {
         setupTableViewAppearance()
@@ -28,10 +30,17 @@ struct NewsFeedView: View {
                     .listRowBackground(Color.mainColor)
                 ForEach(self.newsCardViewModel.cryptoCoinsNews) { article in
                     NewsCardRow(title: Text(article.title), imageURL: article.urlToImage)
-                                       .listRowBackground(Color.mainColor)
+                    .listRowBackground(Color.mainColor)
+                    .onTapGesture {
+                        self.urlOfArticleToView = article.url
+                        self.showArticle.toggle()
+                    }
                 }
             }
             .padding(.init(top: 15, leading: 10, bottom: 0, trailing: 10))
+            .sheet(isPresented: $showArticle) {
+                ArticleView(url: self.urlOfArticleToView)
+            }
         }
     }
     
