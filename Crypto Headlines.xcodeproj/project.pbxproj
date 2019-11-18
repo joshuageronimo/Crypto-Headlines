@@ -14,6 +14,8 @@
 		768A9DD22381EF2E009AADC2 /* NewsCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A9DD12381EF2E009AADC2 /* NewsCardViewModel.swift */; };
 		768A9DD423835190009AADC2 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A9DD323835190009AADC2 /* WebView.swift */; };
 		768A9DD62383534A009AADC2 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A9DD52383534A009AADC2 /* ArticleView.swift */; };
+		768A9DE0238360B4009AADC2 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A9DDF238360B4009AADC2 /* ImageLoader.swift */; };
+		768A9DE223836180009AADC2 /* NewsThumbNailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A9DE123836180009AADC2 /* NewsThumbNailImageView.swift */; };
 		76E56189238100A20089F27E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E56188238100A20089F27E /* MainTabView.swift */; };
 		76E561AB238101CE0089F27E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E561AA238101CE0089F27E /* SceneDelegate.swift */; };
 		76E561AD238106C90089F27E /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E561AC238106C90089F27E /* UIColor+Theme.swift */; };
@@ -36,7 +38,7 @@
 		DFB556D7203878F300736C59 /* TitleSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556D6203878F300736C59 /* TitleSource.swift */; };
 		DFB556DA203880F000736C59 /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556D9203880F000736C59 /* TitleCollectionViewCell.swift */; };
 		DFB556DC2038810300736C59 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556DB2038810300736C59 /* NewsCollectionViewCell.swift */; };
-		DFB556DE2038BA0D00736C59 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556DD2038BA0D00736C59 /* ImageLoader.swift */; };
+		DFB556DE2038BA0D00736C59 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556DD2038BA0D00736C59 /* CustomImageView.swift */; };
 		DFB556E02039CFF300736C59 /* CoinMarketCap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556DF2039CFF300736C59 /* CoinMarketCap.swift */; };
 		DFB556E42039DDB400736C59 /* CoinsConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556E32039DDB400736C59 /* CoinsConstant.swift */; };
 		DFB556E62039E83800736C59 /* CoinsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556E52039E83800736C59 /* CoinsCollectionViewCell.swift */; };
@@ -51,6 +53,8 @@
 		768A9DD12381EF2E009AADC2 /* NewsCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardViewModel.swift; sourceTree = "<group>"; };
 		768A9DD323835190009AADC2 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		768A9DD52383534A009AADC2 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
+		768A9DDF238360B4009AADC2 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		768A9DE123836180009AADC2 /* NewsThumbNailImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsThumbNailImageView.swift; sourceTree = "<group>"; };
 		76E56188238100A20089F27E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		76E561AA238101CE0089F27E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		76E561AC238106C90089F27E /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
@@ -75,7 +79,7 @@
 		DFB556D6203878F300736C59 /* TitleSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSource.swift; sourceTree = "<group>"; };
 		DFB556D9203880F000736C59 /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
 		DFB556DB2038810300736C59 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
-		DFB556DD2038BA0D00736C59 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		DFB556DD2038BA0D00736C59 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		DFB556DF2039CFF300736C59 /* CoinMarketCap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinMarketCap.swift; sourceTree = "<group>"; };
 		DFB556E32039DDB400736C59 /* CoinsConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsConstant.swift; sourceTree = "<group>"; };
 		DFB556E52039E83800736C59 /* CoinsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -93,6 +97,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		768A9DD723835EE5009AADC2 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				768A9DD823835F46009AADC2 /* Model */,
+				768A9DD923835F4F009AADC2 /* View */,
+				768A9DDA23835F5C009AADC2 /* ModelView */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		768A9DD823835F46009AADC2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		768A9DD923835F4F009AADC2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				76E56188238100A20089F27E /* MainTabView.swift */,
+				768A9DDB23835FA6009AADC2 /* News Feed */,
+				768A9DDD23835FDE009AADC2 /* Crypto Page */,
+				768A9DDC23835FBF009AADC2 /* Developer Page */,
+				768A9DDE2383601F009AADC2 /* Helper Views */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		768A9DDA23835F5C009AADC2 /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+				768A9DD12381EF2E009AADC2 /* NewsCardViewModel.swift */,
+			);
+			path = ModelView;
+			sourceTree = "<group>";
+		};
+		768A9DDB23835FA6009AADC2 /* News Feed */ = {
+			isa = PBXGroup;
+			children = (
+				768A9DC92381983F009AADC2 /* NewsFeedView.swift */,
+				768A9DCD2381D62B009AADC2 /* NewsCardRow.swift */,
+				768A9DE123836180009AADC2 /* NewsThumbNailImageView.swift */,
+				768A9DD52383534A009AADC2 /* ArticleView.swift */,
+			);
+			path = "News Feed";
+			sourceTree = "<group>";
+		};
+		768A9DDC23835FBF009AADC2 /* Developer Page */ = {
+			isa = PBXGroup;
+			children = (
+				76E561AE23810A9A0089F27E /* DeveloperView.swift */,
+			);
+			path = "Developer Page";
+			sourceTree = "<group>";
+		};
+		768A9DDD23835FDE009AADC2 /* Crypto Page */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Crypto Page";
+			sourceTree = "<group>";
+		};
+		768A9DDE2383601F009AADC2 /* Helper Views */ = {
+			isa = PBXGroup;
+			children = (
+				768A9DD323835190009AADC2 /* WebView.swift */,
+				76E561B0238111CC0089F27E /* CircleImage.swift */,
+				768A9DCB23819F24009AADC2 /* TitleHeaderView.swift */,
+			);
+			path = "Helper Views";
+			sourceTree = "<group>";
+		};
 		DF8EEFE42034D59B0060B63A = {
 			isa = PBXGroup;
 			children = (
@@ -112,27 +189,18 @@
 		DF8EEFEF2034D59B0060B63A /* Crypto Headlines */ = {
 			isa = PBXGroup;
 			children = (
+				768A9DD723835EE5009AADC2 /* SwiftUI */,
 				DFB556D8203878FE00736C59 /* Utilities */,
 				DF8EF0082034DFFB0060B63A /* Model */,
 				DF8EF0072034DFF60060B63A /* View */,
 				DF8EF0062034DFE40060B63A /* Controller */,
 				DF8EEFF02034D59B0060B63A /* AppDelegate.swift */,
 				76E561AA238101CE0089F27E /* SceneDelegate.swift */,
-				76E56188238100A20089F27E /* MainTabView.swift */,
-				768A9DC92381983F009AADC2 /* NewsFeedView.swift */,
-				76E561AE23810A9A0089F27E /* DeveloperView.swift */,
-				76E561B0238111CC0089F27E /* CircleImage.swift */,
 				DF8EEFF42034D59B0060B63A /* Main.storyboard */,
 				DF8EEFF72034D59B0060B63A /* Assets.xcassets */,
 				DF41129C204BDBD80000A967 /* Theme.xcassets */,
 				DF8EEFF92034D59B0060B63A /* LaunchScreen.storyboard */,
 				DF8EEFFC2034D59B0060B63A /* Info.plist */,
-				768A9DCB23819F24009AADC2 /* TitleHeaderView.swift */,
-				768A9DCD2381D62B009AADC2 /* NewsCardRow.swift */,
-				768A9DD12381EF2E009AADC2 /* NewsCardViewModel.swift */,
-				768A9DCF2381D7EA009AADC2 /* NetworkService.swift */,
-				768A9DD323835190009AADC2 /* WebView.swift */,
-				768A9DD52383534A009AADC2 /* ArticleView.swift */,
 			);
 			path = "Crypto Headlines";
 			sourceTree = "<group>";
@@ -174,8 +242,10 @@
 		DFB556D8203878FE00736C59 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				768A9DCF2381D7EA009AADC2 /* NetworkService.swift */,
 				DFB556D6203878F300736C59 /* TitleSource.swift */,
-				DFB556DD2038BA0D00736C59 /* ImageLoader.swift */,
+				768A9DDF238360B4009AADC2 /* ImageLoader.swift */,
+				DFB556DD2038BA0D00736C59 /* CustomImageView.swift */,
 				DF0B90722062ABB20022C373 /* NotificationConstant.swift */,
 				DF0B90742062B6A20022C373 /* CellIdentifierConstant.swift */,
 				76E561AC238106C90089F27E /* UIColor+Theme.swift */,
@@ -272,7 +342,7 @@
 				DFB556D5203877A200736C59 /* TitleHeader.swift in Sources */,
 				768A9DCA2381983F009AADC2 /* NewsFeedView.swift in Sources */,
 				76E561AF23810A9A0089F27E /* DeveloperView.swift in Sources */,
-				DFB556DE2038BA0D00736C59 /* ImageLoader.swift in Sources */,
+				DFB556DE2038BA0D00736C59 /* CustomImageView.swift in Sources */,
 				DFB556E62039E83800736C59 /* CoinsCollectionViewCell.swift in Sources */,
 				DFB556DC2038810300736C59 /* NewsCollectionViewCell.swift in Sources */,
 				76E561AD238106C90089F27E /* UIColor+Theme.swift in Sources */,
@@ -280,10 +350,12 @@
 				768A9DD423835190009AADC2 /* WebView.swift in Sources */,
 				DF8EEFF12034D59B0060B63A /* AppDelegate.swift in Sources */,
 				76E561B1238111CC0089F27E /* CircleImage.swift in Sources */,
+				768A9DE223836180009AADC2 /* NewsThumbNailImageView.swift in Sources */,
 				DF72B22A2034F30C008823BB /* CryptoCoinsNews.swift in Sources */,
 				76E561AB238101CE0089F27E /* SceneDelegate.swift in Sources */,
 				DF8EF0032034DF7C0060B63A /* CryptoViewController.swift in Sources */,
 				DF887B70203E46EF00F40626 /* CryptoInfoViewController.swift in Sources */,
+				768A9DE0238360B4009AADC2 /* ImageLoader.swift in Sources */,
 				768A9DCE2381D62B009AADC2 /* NewsCardRow.swift in Sources */,
 				DFBA9CD8203A6FDD0033700E /* WebViewController.swift in Sources */,
 				DF72B22D2035C048008823BB /* NewsConstant.swift in Sources */,
