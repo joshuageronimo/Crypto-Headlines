@@ -16,6 +16,7 @@ extension UIColor {
     }
 
     static let mainColor = UIColor.rgb(red: 29, green: 35, blue: 41, alpha: 1)
+    static let secondaryColor = UIColor.rgb(red: 33, green: 33, blue: 33, alpha: 1)
 }
 
 extension Color {
@@ -25,6 +26,7 @@ extension Color {
     }
     
     static let mainColor = Color.rgb(red: 29, green: 35, blue: 41, alpha: 1)
+    static let secondaryColor = Color.rgb(red: 33, green: 33, blue: 33, alpha: 1)
     
     static let accentColor = Color.rgb(red: 244, green: 178, blue: 178, alpha: 0.76)
 }

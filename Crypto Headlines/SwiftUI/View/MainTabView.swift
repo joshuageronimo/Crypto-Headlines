@@ -20,7 +20,7 @@ struct MainTabView: View {
                 .tabItem {
                     Image("news")
             }.tag(0)
-            Text("Another Tab")
+            CryptoView()
                 .tabItem {
                     Image("coins")
             }.tag(1)
