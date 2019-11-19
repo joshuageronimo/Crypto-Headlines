@@ -1,5 +1,5 @@
 //
-//  DataService.swift
+//  NetworkService.swift
 //  Crypto Headlines
 //
 //  Created by Joshua Geronimo on 11/17/19.

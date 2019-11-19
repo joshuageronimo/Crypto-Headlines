@@ -19,7 +19,7 @@ struct TitleHeaderView: View {
                    .foregroundColor(.white)
                    .font(.title)
                 subTitle
-                   .foregroundColor(.accentColor)
+                   .foregroundColor(.lightAccentColor)
                    .font(.subheadline)
         }
     }

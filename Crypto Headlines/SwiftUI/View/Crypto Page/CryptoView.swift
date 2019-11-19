@@ -10,6 +10,8 @@ import SwiftUI
 
 struct CryptoView: View {
     @ObservedObject var cryptoCardVM = CryptoCardViewModel()
+    @State fileprivate var cryptoCurrency: CryptoCurrency?
+    @State fileprivate var showCryptoDetails = false
     init() {
         setupTableViewAppearance()
     }
@@ -24,11 +26,22 @@ struct CryptoView: View {
                 
                 ForEach(self.cryptoCardVM.cryptocurrencies) { crypto in
                     CryptoCardRow(cryptoCurrency: crypto)
-                    .listRowBackground(Color.secondaryColor)
+                        .listRowBackground(Color.secondaryColor)
+                        .onTapGesture {
+                            self.cryptoCurrency = crypto
+                            self.showCryptoDetails.toggle()
+                        }
                 }
                 
             }
             .padding(.init(top: 15, leading: 10, bottom: 0, trailing: 10))
+            .sheet(isPresented: $showCryptoDetails) {
+                if self.cryptoCurrency != nil {
+                    CryptoDetailsView(crypto: self.cryptoCurrency!)
+                }
+
+                
+            }
         }
     }
     

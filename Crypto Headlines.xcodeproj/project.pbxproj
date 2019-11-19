@@ -19,6 +19,7 @@
 		768A9DE423836384009AADC2 /* CryptoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A9DE323836384009AADC2 /* CryptoView.swift */; };
 		768A9DE623836662009AADC2 /* CryptoCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A9DE523836662009AADC2 /* CryptoCardRow.swift */; };
 		768A9DE8238375CC009AADC2 /* CryptoCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A9DE7238375CC009AADC2 /* CryptoCardViewModel.swift */; };
+		768A9DEB2383A0BF009AADC2 /* CryptoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768A9DEA2383A0BF009AADC2 /* CryptoDetailsView.swift */; };
 		76E56189238100A20089F27E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E56188238100A20089F27E /* MainTabView.swift */; };
 		76E561AB238101CE0089F27E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E561AA238101CE0089F27E /* SceneDelegate.swift */; };
 		76E561AD238106C90089F27E /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E561AC238106C90089F27E /* UIColor+Theme.swift */; };
@@ -61,6 +62,7 @@
 		768A9DE323836384009AADC2 /* CryptoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoView.swift; sourceTree = "<group>"; };
 		768A9DE523836662009AADC2 /* CryptoCardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCardRow.swift; sourceTree = "<group>"; };
 		768A9DE7238375CC009AADC2 /* CryptoCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCardViewModel.swift; sourceTree = "<group>"; };
+		768A9DEA2383A0BF009AADC2 /* CryptoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailsView.swift; sourceTree = "<group>"; };
 		76E56188238100A20089F27E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		76E561AA238101CE0089F27E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		76E561AC238106C90089F27E /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				768A9DE323836384009AADC2 /* CryptoView.swift */,
 				768A9DE523836662009AADC2 /* CryptoCardRow.swift */,
+				768A9DEA2383A0BF009AADC2 /* CryptoDetailsView.swift */,
 			);
 			path = "Crypto Page";
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				DF8EF0052034DFD60060B63A /* DeveloperViewController.swift in Sources */,
 				DFB556DA203880F000736C59 /* TitleCollectionViewCell.swift in Sources */,
 				768A9DD22381EF2E009AADC2 /* NewsCardViewModel.swift in Sources */,
+				768A9DEB2383A0BF009AADC2 /* CryptoDetailsView.swift in Sources */,
 				768A9DD02381D7EA009AADC2 /* NetworkService.swift in Sources */,
 				DFB556D5203877A200736C59 /* TitleHeader.swift in Sources */,
 				768A9DCA2381983F009AADC2 /* NewsFeedView.swift in Sources */,

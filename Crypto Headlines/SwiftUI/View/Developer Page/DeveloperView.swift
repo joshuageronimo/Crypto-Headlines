@@ -31,7 +31,7 @@ struct DeveloperView: View {
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Joshua Geronimo")
                             .font(.system(size: 20))
-                            .foregroundColor(.accentColor)
+                            .foregroundColor(.lightAccentColor)
                         VStack(alignment: .leading) {
                             Text("- Based in NYC 🇺🇸")
                                 .font(.system(size: 14))

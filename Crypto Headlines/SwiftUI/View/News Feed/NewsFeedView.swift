@@ -30,11 +30,11 @@ struct NewsFeedView: View {
                 
                 ForEach(self.newsCardViewModel.cryptoCoinsNews) { article in
                     NewsCardRow(article: article)
-                    .listRowBackground(Color.mainColor)
-                    .onTapGesture {
-                        self.urlOfArticleToView = article.url
-                        self.showArticle.toggle()
-                    }
+                        .listRowBackground(Color.mainColor)
+                        .onTapGesture {
+                            self.urlOfArticleToView = article.url
+                            self.showArticle.toggle()
+                        }
                 }
             }
             .padding(.init(top: 15, leading: 10, bottom: 0, trailing: 10))

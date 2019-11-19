@@ -25,7 +25,7 @@ struct CryptoCardRow: View {
                 // Rank # & Currency Symbol
                 VStack(alignment: .leading, spacing: 5) {
                     Text("#\(cryptoCurrency.rank)")
-                        .foregroundColor(.accentColor)
+                        .foregroundColor(.lightAccentColor)
                         .fontWeight(.medium)
                     Text(cryptoCurrency.symbol)
                         .foregroundColor(.white)
@@ -48,7 +48,7 @@ struct CryptoCardRow: View {
                     }
                     HStack(alignment: .firstTextBaseline) {
                         Text("Past Day")
-                            .foregroundColor(.accentColor)
+                            .foregroundColor(.lightAccentColor)
                             .multilineTextAlignment(.leading)
                         if cryptoCurrency.percent_change_24h.contains("-") {
                             Text("(\(cryptoCurrency.percent_change_24h))")
