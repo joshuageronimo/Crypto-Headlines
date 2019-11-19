@@ -21,13 +21,13 @@ struct NewsFeedView: View {
     var body: some View {
         ZStack {
             // set background color
-            Color.mainColor
-                .edgesIgnoringSafeArea(.all)
+            Color.mainColor.edgesIgnoringSafeArea(.all)
                
             List {
                 TitleHeaderView(mainTitle: Text("Current Headlines"),
                                 subTitle: Text("from CryptoCoinsNews"))
                     .listRowBackground(Color.mainColor)
+                
                 ForEach(self.newsCardViewModel.cryptoCoinsNews) { article in
                     NewsCardRow(title: Text(article.title), imageURL: article.urlToImage)
                     .listRowBackground(Color.mainColor)

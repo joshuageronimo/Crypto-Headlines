@@ -11,7 +11,8 @@ import Foundation
 // This is the model of the app's coin feed.
 // This model conforms to the Decodable Protocol
 // to be able to parse the JSON data easily.
-struct CoinMarketCap: Decodable {
+struct CoinMarketCap: Decodable, Identifiable {
+    let id = UUID()
     let name: String
     let symbol: String
     let rank: String

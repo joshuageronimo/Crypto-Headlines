@@ -46,7 +46,7 @@ class NetworkService: ObservableObject {
                 // NOTE:  uncomment code for debugging
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
-                    print("JSON GET:\n\(json)")
+                    print("JSON GET:\n\(String(describing: json))")
                 } catch let error {
                     print("SERVER ERROR: \(error)")
                 }
