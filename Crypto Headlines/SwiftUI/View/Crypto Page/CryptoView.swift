@@ -23,30 +23,13 @@ struct CryptoView: View {
                     .listRowBackground(Color.secondaryColor)
                 
                 ForEach(self.cryptoCardVM.cryptocurrencies) { crypto in
-                    CryptoCardRow(rankNumber: Text("#\(crypto.rank)"),
-                                  cryptoSymbol: Text(crypto.symbol),
-                                  price: Text(self.convertToCurrency(crypto.price_usd)),
-                                  status: crypto.percent_change_24h.contains("-") ? Text("(\(crypto.percent_change_24h))").foregroundColor(.negativeColor) : Text("(\(crypto.percent_change_24h))"))
+                    CryptoCardRow(cryptoCurrency: crypto)
                     .listRowBackground(Color.secondaryColor)
                 }
                 
             }
             .padding(.init(top: 15, leading: 10, bottom: 0, trailing: 10))
         }
-    }
-    
-    // This function will convert a number into currency format
-    fileprivate func convertToCurrency(_ number: String) -> String {
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.numberStyle = NumberFormatter.Style.currency
-        let numberDouble = Double(number)!
-        if numberDouble >= 10 {
-            //numberString = convertToCurrency(number: numberDouble)
-            let priceOfCoin: NSNumber = numberDouble as NSNumber
-            let priceString = currencyFormatter.string(from: priceOfCoin)!
-            return priceString
-        }
-        return "$\(number)"
     }
     
     fileprivate func setupTableViewAppearance() {

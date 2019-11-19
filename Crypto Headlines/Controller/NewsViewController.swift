@@ -11,7 +11,7 @@ import UIKit
 class NewsViewController: UIViewController, UITabBarControllerDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    fileprivate var newsArticles = [Articles]()
+    fileprivate var newsArticles = [Article]()
     fileprivate var pullToRefresh: UIRefreshControl!
     fileprivate var didComeFromAnotherViewController = false
 

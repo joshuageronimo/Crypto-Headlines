@@ -29,7 +29,7 @@ struct NewsFeedView: View {
                     .listRowBackground(Color.mainColor)
                 
                 ForEach(self.newsCardViewModel.cryptoCoinsNews) { article in
-                    NewsCardRow(title: Text(article.title), imageURL: article.urlToImage)
+                    NewsCardRow(article: article)
                     .listRowBackground(Color.mainColor)
                     .onTapGesture {
                         self.urlOfArticleToView = article.url

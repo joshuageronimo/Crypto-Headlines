@@ -29,7 +29,6 @@ class NetworkService: ObservableObject {
         
         // Create a URLRequest Object from URLComponents
         let request = URLRequest(url: components.url!)
-        
         print(request)
         
         // Create a data task
@@ -44,12 +43,12 @@ class NetworkService: ObservableObject {
             // Decode JSON and parse it nicely into one of the model objects
             do {
                 // NOTE:  uncomment code for debugging
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
-                    print("JSON GET:\n\(String(describing: json))")
-                } catch let error {
-                    print("SERVER ERROR: \(error)")
-                }
+//                do {
+//                    let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+//                    print("JSON GET:\n\(String(describing: json))")
+//                } catch let error {
+//                    print("SERVER ERROR: \(error)")
+//                }
                 
                 let object = try JSONDecoder().decode(T.self, from: data)
                 DispatchQueue.main.async {

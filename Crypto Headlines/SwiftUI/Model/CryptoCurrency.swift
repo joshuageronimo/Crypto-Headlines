@@ -1,5 +1,5 @@
 //
-//  CoinMarketCap.swift
+//  CryptoCurrency.swift
 //  Crypto Headlines
 //
 //  Created by Joshua Geronimo on 2/18/18.
@@ -11,7 +11,7 @@ import Foundation
 // This is the model of the app's coin feed.
 // This model conforms to the Decodable Protocol
 // to be able to parse the JSON data easily.
-struct CoinMarketCap: Decodable, Identifiable {
+struct CryptoCurrency: Decodable, Identifiable {
     let id = UUID()
     let name: String
     let symbol: String

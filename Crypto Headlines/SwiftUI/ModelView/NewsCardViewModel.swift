@@ -11,7 +11,7 @@ import Combine
 
 
 class NewsCardViewModel: ObservableObject {
-    @Published var cryptoCoinsNews = [Articles]()
+    @Published var cryptoCoinsNews = [Article]()
     
     init() {
         fetchNewsData()

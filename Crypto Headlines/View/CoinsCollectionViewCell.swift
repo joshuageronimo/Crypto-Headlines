@@ -43,7 +43,7 @@ class CoinsCollectionViewCell: UICollectionViewCell {
     }
     
     // Will update the cell's data
-    func updateCoinFeed(with coinsFrom: CoinMarketCap)
+    func updateCoinFeed(with coinsFrom: CryptoCurrency)
     {
         // RANK & SYMBOL
         let nameAndrankAttributedText = NSMutableAttributedString(string: "#\(coinsFrom.rank)", attributes: [

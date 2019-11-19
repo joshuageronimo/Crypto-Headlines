@@ -189,7 +189,7 @@ class CryptoInfoViewController: UIViewController {
     
     // MARK: UI Updates
     
-    func updateCryptoData(from model: CoinMarketCap) {
+    func updateCryptoData(from model: CryptoCurrency) {
         
         // TITLE
         let titleAttributedText = NSMutableAttributedString(string: "\(model.name)\n", attributes: [

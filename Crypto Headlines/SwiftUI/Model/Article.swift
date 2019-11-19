@@ -12,10 +12,10 @@ import Foundation
 // This model conforms to the Decodable Protocol
 // to be able to parse the JSON data easily.
 struct CryptoCoinsNews: Decodable {
-    let articles: [Articles]
+    let articles: [Article]
 }
 
-struct Articles: Decodable, Identifiable {
+struct Article: Decodable, Identifiable {
     let id = UUID()
     let title: String
     let url: String

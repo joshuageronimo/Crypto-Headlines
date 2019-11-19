@@ -12,14 +12,14 @@ import Combine
 
 class CryptoCardViewModel: ObservableObject {
     
-    @Published var cryptocurrencies = [CoinMarketCap]()
+    @Published var cryptocurrencies = [CryptoCurrency]()
     
     init() {
         fetchCryptoData()
     }
     
     fileprivate func fetchCryptoData() {
-        NetworkService.shared.fetchData(urlString: "\(apiURL())") { (data: [CoinMarketCap]?, error: Error?) in
+        NetworkService.shared.fetchData(urlString: "\(apiURL())") { (data: [CryptoCurrency]?, error: Error?) in
             guard let cryptocurrencies = data else { return }
             DispatchQueue.main.async {
                 self.cryptocurrencies = cryptocurrencies

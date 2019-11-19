@@ -11,7 +11,7 @@ import UIKit
 class CryptoViewController: UIViewController, UITabBarControllerDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    fileprivate var cryptoCurrencies = [CoinMarketCap]()
+    fileprivate var cryptoCurrencies = [CryptoCurrency]()
     fileprivate var pullToRefresh: UIRefreshControl!
     fileprivate var didComeFromAnotherViewController = false
     
@@ -63,7 +63,7 @@ class CryptoViewController: UIViewController, UITabBarControllerDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let toNavigationController = segue.destination as? UINavigationController {
             let toCryptoViewController = toNavigationController.viewControllers.first as! CryptoInfoViewController
-            toCryptoViewController.updateCryptoData(from: sender as! CoinMarketCap)
+            toCryptoViewController.updateCryptoData(from: sender as! CryptoCurrency)
         }
     }
     
@@ -111,7 +111,7 @@ class CryptoViewController: UIViewController, UITabBarControllerDelegate {
             
             // Decode the JSON data that we recieved from the API
             do {
-                let json = try JSONDecoder().decode([CoinMarketCap].self, from: data)
+                let json = try JSONDecoder().decode([CryptoCurrency].self, from: data)
                 for coins in json {
                     self.cryptoCurrencies.append(coins)
                 }
