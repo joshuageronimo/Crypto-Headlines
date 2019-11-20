@@ -25,7 +25,7 @@ struct CryptoCurrency: Decodable, Identifiable {
     let percent_change_24h: String
     let percent_change_7d: String?
     
-    // This function will convert a number into currency format
+    
     func getFormattedCryptoUSDPrice() -> String {
         return formatToUSD(price_usd)
     }
@@ -34,6 +34,7 @@ struct CryptoCurrency: Decodable, Identifiable {
         return formatToUSD(market_cap_usd)
     }
     
+    // This function will convert a number String into currency (USD) format
     fileprivate func formatToUSD(_ unformattedString: String) -> String {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.numberStyle = NumberFormatter.Style.currency

@@ -25,28 +25,16 @@
 		76E561AD238106C90089F27E /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E561AC238106C90089F27E /* UIColor+Theme.swift */; };
 		76E561AF23810A9A0089F27E /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E561AE23810A9A0089F27E /* DeveloperView.swift */; };
 		76E561B1238111CC0089F27E /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E561B0238111CC0089F27E /* CircleImage.swift */; };
-		DF0B90732062ABB20022C373 /* NotificationConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B90722062ABB20022C373 /* NotificationConstant.swift */; };
-		DF0B90752062B6A20022C373 /* CellIdentifierConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0B90742062B6A20022C373 /* CellIdentifierConstant.swift */; };
 		DF41129D204BDBD80000A967 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF41129C204BDBD80000A967 /* Theme.xcassets */; };
 		DF72B22A2034F30C008823BB /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72B2292034F30C008823BB /* Article.swift */; };
 		DF72B22D2035C048008823BB /* NewsConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF72B22C2035C048008823BB /* NewsConstant.swift */; };
-		DF887B70203E46EF00F40626 /* CryptoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF887B6F203E46EF00F40626 /* CryptoInfoViewController.swift */; };
 		DF8EEFF12034D59B0060B63A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EEFF02034D59B0060B63A /* AppDelegate.swift */; };
-		DF8EEFF32034D59B0060B63A /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EEFF22034D59B0060B63A /* NewsViewController.swift */; };
 		DF8EEFF62034D59B0060B63A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF8EEFF42034D59B0060B63A /* Main.storyboard */; };
 		DF8EEFF82034D59B0060B63A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF8EEFF72034D59B0060B63A /* Assets.xcassets */; };
 		DF8EEFFB2034D59B0060B63A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF8EEFF92034D59B0060B63A /* LaunchScreen.storyboard */; };
-		DF8EF0032034DF7C0060B63A /* CryptoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EF0022034DF7C0060B63A /* CryptoViewController.swift */; };
-		DF8EF0052034DFD60060B63A /* DeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8EF0042034DFD60060B63A /* DeveloperViewController.swift */; };
-		DFB556D5203877A200736C59 /* TitleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556D4203877A200736C59 /* TitleHeader.swift */; };
-		DFB556D7203878F300736C59 /* TitleSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556D6203878F300736C59 /* TitleSource.swift */; };
-		DFB556DA203880F000736C59 /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556D9203880F000736C59 /* TitleCollectionViewCell.swift */; };
-		DFB556DC2038810300736C59 /* NewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556DB2038810300736C59 /* NewsCollectionViewCell.swift */; };
 		DFB556DE2038BA0D00736C59 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556DD2038BA0D00736C59 /* CustomImageView.swift */; };
 		DFB556E02039CFF300736C59 /* CryptoCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556DF2039CFF300736C59 /* CryptoCurrency.swift */; };
 		DFB556E42039DDB400736C59 /* CoinsConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556E32039DDB400736C59 /* CoinsConstant.swift */; };
-		DFB556E62039E83800736C59 /* CoinsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB556E52039E83800736C59 /* CoinsCollectionViewCell.swift */; };
-		DFBA9CD8203A6FDD0033700E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBA9CD7203A6FDD0033700E /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,30 +56,18 @@
 		76E561AC238106C90089F27E /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
 		76E561AE23810A9A0089F27E /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
 		76E561B0238111CC0089F27E /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
-		DF0B90722062ABB20022C373 /* NotificationConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationConstant.swift; sourceTree = "<group>"; };
-		DF0B90742062B6A20022C373 /* CellIdentifierConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifierConstant.swift; sourceTree = "<group>"; };
 		DF41129C204BDBD80000A967 /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
 		DF72B2292034F30C008823BB /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		DF72B22C2035C048008823BB /* NewsConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsConstant.swift; sourceTree = "<group>"; };
-		DF887B6F203E46EF00F40626 /* CryptoInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoInfoViewController.swift; sourceTree = "<group>"; };
 		DF8EEFED2034D59B0060B63A /* Crypto Headlines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Crypto Headlines.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF8EEFF02034D59B0060B63A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DF8EEFF22034D59B0060B63A /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		DF8EEFF52034D59B0060B63A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DF8EEFF72034D59B0060B63A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF8EEFFA2034D59B0060B63A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF8EEFFC2034D59B0060B63A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DF8EF0022034DF7C0060B63A /* CryptoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoViewController.swift; sourceTree = "<group>"; };
-		DF8EF0042034DFD60060B63A /* DeveloperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperViewController.swift; sourceTree = "<group>"; };
-		DFB556D4203877A200736C59 /* TitleHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeader.swift; sourceTree = "<group>"; };
-		DFB556D6203878F300736C59 /* TitleSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSource.swift; sourceTree = "<group>"; };
-		DFB556D9203880F000736C59 /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
-		DFB556DB2038810300736C59 /* NewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewCell.swift; sourceTree = "<group>"; };
 		DFB556DD2038BA0D00736C59 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		DFB556DF2039CFF300736C59 /* CryptoCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCurrency.swift; sourceTree = "<group>"; };
 		DFB556E32039DDB400736C59 /* CoinsConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsConstant.swift; sourceTree = "<group>"; };
-		DFB556E52039E83800736C59 /* CoinsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsCollectionViewCell.swift; sourceTree = "<group>"; };
-		DFBA9CD7203A6FDD0033700E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,20 +81,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		768A9DD723835EE5009AADC2 /* SwiftUI */ = {
-			isa = PBXGroup;
-			children = (
-				768A9DD823835F46009AADC2 /* Model */,
-				768A9DD923835F4F009AADC2 /* View */,
-				768A9DDA23835F5C009AADC2 /* ModelView */,
-			);
-			path = SwiftUI;
-			sourceTree = "<group>";
-		};
 		768A9DD823835F46009AADC2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				768A9DE923839D90009AADC2 /* API URL Constants */,
 				DF72B2292034F30C008823BB /* Article.swift */,
 				DFB556DF2039CFF300736C59 /* CryptoCurrency.swift */,
 			);
@@ -185,13 +150,14 @@
 			path = "Helper Views";
 			sourceTree = "<group>";
 		};
-		768A9DE923839D90009AADC2 /* API URL Constants */ = {
+		768A9DE923839D90009AADC2 /* Network Service */ = {
 			isa = PBXGroup;
 			children = (
+				768A9DCF2381D7EA009AADC2 /* NetworkService.swift */,
 				DF72B22C2035C048008823BB /* NewsConstant.swift */,
 				DFB556E32039DDB400736C59 /* CoinsConstant.swift */,
 			);
-			path = "API URL Constants";
+			path = "Network Service";
 			sourceTree = "<group>";
 		};
 		DF8EEFE42034D59B0060B63A = {
@@ -213,11 +179,10 @@
 		DF8EEFEF2034D59B0060B63A /* Crypto Headlines */ = {
 			isa = PBXGroup;
 			children = (
-				768A9DD723835EE5009AADC2 /* SwiftUI */,
 				DFB556D8203878FE00736C59 /* Utilities */,
-				DF8EF0082034DFFB0060B63A /* Model */,
-				DF8EF0072034DFF60060B63A /* View */,
-				DF8EF0062034DFE40060B63A /* Controller */,
+				768A9DD823835F46009AADC2 /* Model */,
+				768A9DD923835F4F009AADC2 /* View */,
+				768A9DDA23835F5C009AADC2 /* ModelView */,
 				DF8EEFF02034D59B0060B63A /* AppDelegate.swift */,
 				76E561AA238101CE0089F27E /* SceneDelegate.swift */,
 				DF8EEFF42034D59B0060B63A /* Main.storyboard */,
@@ -229,45 +194,12 @@
 			path = "Crypto Headlines";
 			sourceTree = "<group>";
 		};
-		DF8EF0062034DFE40060B63A /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				DF8EEFF22034D59B0060B63A /* NewsViewController.swift */,
-				DF8EF0022034DF7C0060B63A /* CryptoViewController.swift */,
-				DF887B6F203E46EF00F40626 /* CryptoInfoViewController.swift */,
-				DF8EF0042034DFD60060B63A /* DeveloperViewController.swift */,
-				DFBA9CD7203A6FDD0033700E /* WebViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		DF8EF0072034DFF60060B63A /* View */ = {
-			isa = PBXGroup;
-			children = (
-				DFB556D9203880F000736C59 /* TitleCollectionViewCell.swift */,
-				DFB556DB2038810300736C59 /* NewsCollectionViewCell.swift */,
-				DFB556E52039E83800736C59 /* CoinsCollectionViewCell.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		DF8EF0082034DFFB0060B63A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				DFB556D4203877A200736C59 /* TitleHeader.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		DFB556D8203878FE00736C59 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				768A9DCF2381D7EA009AADC2 /* NetworkService.swift */,
-				DFB556D6203878F300736C59 /* TitleSource.swift */,
+				768A9DE923839D90009AADC2 /* Network Service */,
 				768A9DDF238360B4009AADC2 /* ImageLoader.swift */,
 				DFB556DD2038BA0D00736C59 /* CustomImageView.swift */,
-				DF0B90722062ABB20022C373 /* NotificationConstant.swift */,
-				DF0B90742062B6A20022C373 /* CellIdentifierConstant.swift */,
 				76E561AC238106C90089F27E /* UIColor+Theme.swift */,
 			);
 			path = Utilities;
@@ -348,25 +280,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFB556E42039DDB400736C59 /* CoinsConstant.swift in Sources */,
-				DF8EEFF32034D59B0060B63A /* NewsViewController.swift in Sources */,
-				DF0B90732062ABB20022C373 /* NotificationConstant.swift in Sources */,
 				768A9DE623836662009AADC2 /* CryptoCardRow.swift in Sources */,
-				DFB556D7203878F300736C59 /* TitleSource.swift in Sources */,
-				DF0B90752062B6A20022C373 /* CellIdentifierConstant.swift in Sources */,
 				768A9DCC23819F24009AADC2 /* TitleHeaderView.swift in Sources */,
 				76E56189238100A20089F27E /* MainTabView.swift in Sources */,
 				768A9DD62383534A009AADC2 /* ArticleView.swift in Sources */,
-				DF8EF0052034DFD60060B63A /* DeveloperViewController.swift in Sources */,
-				DFB556DA203880F000736C59 /* TitleCollectionViewCell.swift in Sources */,
 				768A9DD22381EF2E009AADC2 /* NewsCardViewModel.swift in Sources */,
 				768A9DEB2383A0BF009AADC2 /* CryptoDetailsView.swift in Sources */,
 				768A9DD02381D7EA009AADC2 /* NetworkService.swift in Sources */,
-				DFB556D5203877A200736C59 /* TitleHeader.swift in Sources */,
 				768A9DCA2381983F009AADC2 /* NewsFeedView.swift in Sources */,
 				76E561AF23810A9A0089F27E /* DeveloperView.swift in Sources */,
 				DFB556DE2038BA0D00736C59 /* CustomImageView.swift in Sources */,
-				DFB556E62039E83800736C59 /* CoinsCollectionViewCell.swift in Sources */,
-				DFB556DC2038810300736C59 /* NewsCollectionViewCell.swift in Sources */,
 				768A9DE8238375CC009AADC2 /* CryptoCardViewModel.swift in Sources */,
 				76E561AD238106C90089F27E /* UIColor+Theme.swift in Sources */,
 				DFB556E02039CFF300736C59 /* CryptoCurrency.swift in Sources */,
@@ -377,11 +300,8 @@
 				DF72B22A2034F30C008823BB /* Article.swift in Sources */,
 				76E561AB238101CE0089F27E /* SceneDelegate.swift in Sources */,
 				768A9DE423836384009AADC2 /* CryptoView.swift in Sources */,
-				DF8EF0032034DF7C0060B63A /* CryptoViewController.swift in Sources */,
-				DF887B70203E46EF00F40626 /* CryptoInfoViewController.swift in Sources */,
 				768A9DE0238360B4009AADC2 /* ImageLoader.swift in Sources */,
 				768A9DCE2381D62B009AADC2 /* NewsCardRow.swift in Sources */,
-				DFBA9CD8203A6FDD0033700E /* WebViewController.swift in Sources */,
 				DF72B22D2035C048008823BB /* NewsConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,6 +445,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 436Y3QLM8L;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -533,6 +454,7 @@
 				INFOPLIST_FILE = "Crypto Headlines/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geronimoapp.Crypto-Headlines";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -548,6 +470,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 436Y3QLM8L;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -556,6 +479,7 @@
 				INFOPLIST_FILE = "Crypto Headlines/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.geronimoapp.Crypto-Headlines";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
