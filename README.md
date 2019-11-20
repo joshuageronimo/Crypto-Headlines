@@ -2,6 +2,9 @@
 This app shows current headlines &amp; prices for cryptocurrencies. (iOS App Store)
 Link: https://itunes.apple.com/us/app/crypto-headlines/id1353254322?ls=1&mt=8
 
+## What's New?
+- Updated the whole codebase to SwiftUI.
+
 ## features 
 - Users can see & read current news article.
 - Users can check out the price & information of each of the top 100 cryptocurrency in the market.
