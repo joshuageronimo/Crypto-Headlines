@@ -40,10 +40,10 @@ struct CryptoDetailsView: View {
                                        itemInfo: Text("#\(crypto.rank)"))
 
                         CryptoInfoView(itemTitle: Text("Market Cap:"),
-                                       itemInfo: Text(crypto.market_cap_usd))
+                                       itemInfo: Text(crypto.getFormattedMarketCapUSDPrice()))
 
                         CryptoInfoView(itemTitle: Text("Current Price:"),
-                                       itemInfo: Text(crypto.price_usd))
+                                       itemInfo: Text(crypto.getFormattedCryptoUSDPrice()))
 
                         CryptoInfoView(itemTitle: Text("Available Supply:"),
                                        itemInfo: Text(crypto.available_supply))

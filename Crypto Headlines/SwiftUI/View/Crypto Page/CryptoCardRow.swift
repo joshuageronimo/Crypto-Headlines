@@ -36,7 +36,7 @@ struct CryptoCardRow: View {
                 // Currency Price Status
                 VStack(alignment: .leading, spacing: 5) {
                     HStack(alignment: .firstTextBaseline) {
-                        Text(self.convertToCurrency(cryptoCurrency.price_usd))
+                        Text(cryptoCurrency.getFormattedCryptoUSDPrice())
                             .foregroundColor(.white)
                             .font(.largeTitle)
                             .minimumScaleFactor(0.7)
@@ -61,26 +61,12 @@ struct CryptoCardRow: View {
                         }
                     }
                 }
-                .frame(width: screenWidth * 0.37, height: nil)
+                .frame(width: screenWidth * 0.4, height: nil)
                 .padding(.init(top: 0, leading: 1, bottom: 0, trailing: 20))
             }
         }
         .padding(.top, 15)
 
-    }
-    
-    // This function will convert a number into currency format
-    fileprivate func convertToCurrency(_ number: String) -> String {
-        let currencyFormatter = NumberFormatter()
-        currencyFormatter.numberStyle = NumberFormatter.Style.currency
-        let numberDouble = Double(number)!
-        if numberDouble >= 10 {
-            //numberString = convertToCurrency(number: numberDouble)
-            let priceOfCoin: NSNumber = numberDouble as NSNumber
-            let priceString = currencyFormatter.string(from: priceOfCoin)!
-            return priceString
-        }
-        return "$\(number)"
     }
 }
 
