@@ -56,17 +56,21 @@ struct CryptoDetailsView: View {
                         
                         CryptoInfoView(itemTitle: Text("Percent Changein 1hr:"),
                                        itemInfo: crypto.percent_change_1h.contains("-") ?
-                                        Text(crypto.percent_change_1h).foregroundColor(.negativeColor) :
-                                        Text(crypto.percent_change_1h).foregroundColor(.positiveColor))
+                                        Text("\(crypto.percent_change_1h)%").foregroundColor(.negativeColor) :
+                                        Text("\(crypto.percent_change_1h)%").foregroundColor(.positiveColor))
                         
                         CryptoInfoView(itemTitle: Text("Percent Changein 24hr:"),
                         itemInfo: crypto.percent_change_24h.contains("-") ?
-                        Text(crypto.percent_change_24h).foregroundColor(.negativeColor) :
-                        Text(crypto.percent_change_24h).foregroundColor(.positiveColor))
+                        Text("\(crypto.percent_change_24h)%").foregroundColor(.negativeColor) :
+                        Text("\(crypto.percent_change_24h)%").foregroundColor(.positiveColor))
                     
-                        CryptoInfoView(itemTitle: Text("Percent Changein 7 days:"),
-                                       itemInfo: (crypto.percent_change_7d ?? "N/A").contains("-") ? Text(crypto.percent_change_7d ?? "N/A").foregroundColor(.negativeColor) :
-                                        Text(crypto.percent_change_7d ?? "N/A").foregroundColor(.positiveColor))
+                        if crypto.percent_change_7d != nil {
+                            CryptoInfoView(itemTitle: Text("Percent Changein 7 days:"),
+                                           itemInfo: (crypto.percent_change_7d!).contains("-") ?
+                                            Text("\(crypto.percent_change_7d!)%").foregroundColor(.negativeColor) :
+                                            Text("\(crypto.percent_change_7d!)%").foregroundColor(.positiveColor))
+                        }
+
 
                         
                         

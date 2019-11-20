@@ -51,11 +51,11 @@ struct CryptoCardRow: View {
                             .foregroundColor(.lightAccentColor)
                             .multilineTextAlignment(.leading)
                         if cryptoCurrency.percent_change_24h.contains("-") {
-                            Text("(\(cryptoCurrency.percent_change_24h))")
+                            Text("(\(cryptoCurrency.percent_change_24h)%)")
                                 .foregroundColor(.negativeColor)
                                 .fontWeight(.medium)
                         } else {
-                            Text("(\(cryptoCurrency.percent_change_24h))")
+                            Text("(\(cryptoCurrency.percent_change_24h)%)")
                                 .foregroundColor(.positiveColor)
                                 .fontWeight(.medium)
                         }
