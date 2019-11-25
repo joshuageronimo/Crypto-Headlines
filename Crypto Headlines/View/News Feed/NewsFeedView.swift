@@ -27,7 +27,7 @@ struct NewsFeedView: View {
                 TitleHeaderView(mainTitle: Text("Current Headlines"),
                                 subTitle: Text("from CryptoCoinsNews"))
                     .listRowBackground(Color.mainColor)
-                
+
                 ForEach(self.newsCardViewModel.cryptoCoinsNews) { article in
                     NewsCardRow(article: article)
                         .listRowBackground(Color.mainColor)
@@ -45,7 +45,7 @@ struct NewsFeedView: View {
     }
     
     fileprivate func setupTableViewAppearance() {
-        UITableView.appearance().backgroundColor = UIColor.mainColor
+        UITableView.appearance().backgroundColor = .mainColor
         UITableView.appearance().separatorStyle = .none
     }
 }

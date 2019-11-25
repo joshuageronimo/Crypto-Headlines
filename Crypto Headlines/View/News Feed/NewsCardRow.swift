@@ -32,7 +32,6 @@ struct NewsCardRow: View {
                 NewsThumbNailImageView(imageUrl: article.urlToImage)
             }
             .padding(.top, 15.0)
-            .edgesIgnoringSafeArea(.all)
         }
 
     }
